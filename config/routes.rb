@@ -2,8 +2,9 @@ Roominatr::Application.routes.draw do
 
 
   resources :users
+  match '/users/:id/picture', to: 'users#update_picture', via: :put, as: 'user_picture'
+  
   resources :sessions, :only => [:new, :create, :destroy]
- 
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
