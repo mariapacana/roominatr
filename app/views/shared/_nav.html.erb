@@ -1,0 +1,8 @@
+<div class="nav">
+	<% if logged_in? %>
+	<%= link_to signout_path %>
+	<% else %>
+	<%= link_to "Sign In", signin_path %>
+	<%= link_to "Sign Up", signup_path %>
+	<% end %>
+</div>
