@@ -7,6 +7,8 @@ class SurveysController < ApplicationController
   end
 
   def create
+    p category = Category.find_by_name(params[:survey][:category])
+    params[:survey][:category] = category
     Survey.create(params[:survey])
   end
 
