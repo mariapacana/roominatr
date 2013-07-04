@@ -10,3 +10,4 @@ class Question < ActiveRecord::Base
   #IF type roommate, body = "How would you like your roommmate to answer"
 
 end
+

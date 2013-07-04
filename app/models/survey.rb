@@ -7,5 +7,13 @@ class Survey < ActiveRecord::Base
   validates_presence_of :title
   attr_accessible :title, :questions_attributes
 
+  before_create :create_questions
+
+
+  def create_questions
+    #Create questions to accompany first question.
+
+  end
+
 end
 
