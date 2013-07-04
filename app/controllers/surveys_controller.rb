@@ -2,7 +2,8 @@ class SurveysController < ApplicationController
 
   def new
     @survey = Survey.new
-    @survey.questions.build
+    question = @survey.questions.build
+    3.times { question.answers.build }
   end
 
   def create

@@ -5,10 +5,12 @@
     <%= q.label :body, "Question" %>
     <%= q.text_field :body %><br>
     <%= q.fields_for :answers do |a| %>
-    	<%= a.text_field :text %>
-    	<%= a.text_field :weight %>
-  <%= f.submit %>
+    	<%= a.label :text, "text" %>
+    	<%= a.text_field :text %><br>
+    	<%= a.label :weight, "weight" %>
+    	<%= a.text_field :weight %><br>
   	<% end %>
+  <%= f.submit %>
   <% end %>
 <% end %>
 
