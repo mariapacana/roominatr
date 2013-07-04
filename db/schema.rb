@@ -28,4 +28,10 @@ ActiveRecord::Schema.define(:version => 20130703223903) do
     t.integer "category_id"
   end
 
+  create_table "users", :force => true do |t|
+    t.string "username"
+    t.string "email"
+    t.string "password_digest"
+  end
+
 end

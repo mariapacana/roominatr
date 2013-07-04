@@ -1,0 +1,11 @@
+<div class="sign_in">
+	<h2>Sign in!</h2>
+	<%= form_for(:session, url: sessions_path) do|f| %>
+	  <%= f.text_field :username, placeholder: "username" %><br>
+	  <%= f.password_field :password, placeholder: "password" %><br>
+
+	<%= f.submit "Sign in" %>
+	<% end %>
+	<p>New user? <%= link_to "Sign up now!", signup_path %></p>
+</div>
+
