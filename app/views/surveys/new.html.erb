@@ -1,0 +1,11 @@
+<%= form_for @survey, :url => surveys_path do |f| %>
+  <%= f.label :title, "Title" %>
+  <%= f.text_field :title %><br>
+  <%= f.fields_for :questions do |q| %>
+    <%= q.label :body, "Question" %>
+    <%= q.text_field :body %><br>
+  <%= f.submit %>
+  <% end %>
+<% end %>
+
+
