@@ -4,7 +4,11 @@
   <%= f.fields_for :questions do |q| %>
     <%= q.label :body, "Question" %>
     <%= q.text_field :body %><br>
+    <%= q.fields_for :answers do |a| %>
+    	<%= a.text_field :text %>
+    	<%= a.text_field :weight %>
   <%= f.submit %>
+  	<% end %>
   <% end %>
 <% end %>
 

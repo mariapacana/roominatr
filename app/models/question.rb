@@ -6,7 +6,7 @@ class Question < ActiveRecord::Base
   # validates_presence_of :body
 
   attr_accessible :body, :qtype
-
+  accepts_nested_attributes_for :answers
   #IF type roommate, body = "How would you like your roommmate to answer"
 
   after_create :set_body
