@@ -19,19 +19,13 @@ ActiveRecord::Schema.define(:version => 20130703223903) do
 
   create_table "questions", :force => true do |t|
     t.text    "body"
-    t.string  "type"
+    t.string  "qtype"
     t.integer "survey_id"
   end
 
   create_table "surveys", :force => true do |t|
     t.string  "title"
     t.integer "category_id"
-  end
-
-  create_table "users", :force => true do |t|
-    t.string "username"
-    t.string "email"
-    t.string "password_digest"
   end
 
 end

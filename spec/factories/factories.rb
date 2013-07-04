@@ -10,7 +10,7 @@ FactoryGirl.define do
 
   factory :question do
     title Faker::Lorem.sentence(5)
-    type  ["roommate", "me", "importance"].sample
+    qtype  ["roommate", "me", "importance"].sample
     survey
   end
 

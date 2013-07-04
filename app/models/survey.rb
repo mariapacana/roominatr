@@ -7,11 +7,21 @@ class Survey < ActiveRecord::Base
   validates_presence_of :title
   attr_accessible :title, :questions_attributes
 
-  before_create :create_questions
-
+  after_create :create_questions
 
   def create_questions
     #Create questions to accompany first question.
+    p "*************************************************"
+    p "FIRST QUESTION OF THE SURVEY!!!!!"
+    p questions.first
+
+    questions.first.update_attribute('qtype', "me")
+
+    questions.create(qtype: "roommate")
+    questions.create(qtype: "importance")
+
+    p "ALL AMAZING QUESTIONS!!!!"
+    p questions
 
   end
 
