@@ -7,11 +7,8 @@ class Question < ActiveRecord::Base
 
   accepts_nested_attributes_for :answers
   attr_accessible :body, :qtype, :answers_attributes
-  #IF type roommate, body = "How would you like your roommmate to answer"
-
   after_create :set_body, :create_answers
 
-    #If type roommate, body = "how woudl you like rmm to answer"
   private
 
   def set_body
