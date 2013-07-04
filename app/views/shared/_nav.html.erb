@@ -1,6 +1,6 @@
 <div class="nav">
 	<% if logged_in? %>
-	<%= link_to signout_path %>
+	<%= link_to "Sign Out", signout_path, :method => :delete %>
 	<% else %>
 	<%= link_to "Sign In", signin_path %>
 	<%= link_to "Sign Up", signup_path %>
