@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-	validates :username, :presence => true,
+	validates :username, :presence => true, 
 											 :uniqueness => true
 	validates :email, :presence => true,
 										:uniqueness => true,
@@ -7,4 +7,7 @@ class User < ActiveRecord::Base
   validates :password, :presence => true,
   										 :length => {:minimum => 1}
   has_secure_password
+
+  attr_accessible :username, :email, :password, :password_confirmation
+
 end

@@ -8,11 +8,13 @@ class UsersController < ApplicationController
 	end
 
 	def create
-		@user = User.new(params{:user})
+		@user = User.new(params[:user])
 		if @user.save
+			p '==============='
+			p @user
 			flash[:sucess] = "Welcome to Roominatr"
 			sign_in(@user)
-			redirect_to @user
+			render :show
 		else
 			flash[:errors] = @user.errors.full_messages
 			render :new
@@ -20,7 +22,7 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		@user
+		@user 
 	end
 
 	def edit
