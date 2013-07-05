@@ -1,11 +1,14 @@
+<div id="user_info_edit" class="profile_edit">
+  <h3>Update Personal Information</h3>
   <%= form_for @user do |f| %>
-  <%= f.text_field :username, placeholder: "username" %><br>
-  <%= f.text_field :gender, placeholder: "gender" %><br>
+  <%= radio_button_tag(:gender, "M") %>
+  <%= label_tag(:gender, "Male") %>
+  <%= radio_button_tag(:gender, "F") %>
+  <%= label_tag(:gender, "Female") %><br>
   <%= f.label :birthday, "Birthday" %>
   <%= f.date_select :birthday, { :start_year => 1930, :end_year => Time.now.year } %><br>
+  <%= f.label :email, "Email" %>
   <%= f.text_field :email, placeholder: "email" %><br>
-  <%= f.password_field :password, placeholder: "password" %><br>
-  <%= f.password_field :password_confirmation, placeholder: "password_confirmation" %><br>
   <%= f.submit %>
   <% end %>
-
+</div>
