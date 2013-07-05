@@ -3,6 +3,8 @@ Roominatr::Application.routes.draw do
 
   resources :users
   match '/users/:id/picture', to: 'users#update_picture', via: :put, as: 'user_picture'
+  match '/users/:id/password', to: 'users#edit_password', via: :get, as: 'user_password'
+  match '/users/:id/password', to: 'users#update_password', via: :put, as: 'user_password'
   
   resources :sessions, :only => [:new, :create, :destroy]
   match '/signup',  to: 'users#new'

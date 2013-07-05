@@ -7,5 +7,5 @@
 
 <% if @user == current_user %>
 	<%= link_to "Edit Profile", edit_user_path(@user) %>
-	<%= link_to "Change Password" %>
+	<%= link_to "Change Password", user_password_path(@user) %>
 <% end %>

@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
 	include SessionsHelper
+	include UsersHelper
 
 	def new
 		@user = User.new
@@ -26,18 +27,11 @@ class UsersController < ApplicationController
 	end
 
 	def update
-		paramz = params[:user]
-		datestring = "#{paramz["birthday(1i)"]}-#{paramz["birthday(2i)"]}-#{paramz["birthday(3i)"]}"
-
-		["birthday(1i)", "birthday(2i)", "birthday(3i)"].each do |birth|
-			paramz.delete(birth) if paramz[birth]
-		end
-
-		paramz[:birthday] = Date.parse(datestring)
-
-		p paramz
+		p params
 
 		@user = User.find(params[:id]) 
+		paramz = format_params(params[:user])
+
 		if @user.update_attributes(paramz)
 			flash[:success] = "Profile Updated!"
 			redirect_to user_path(@user)
@@ -56,6 +50,11 @@ class UsersController < ApplicationController
 			flash[:error] = @user.errors.full_messages
 			render :edit
 		end
+	end
+
+	def edit_password
+		@user = User.find(params[:id])
+		render :edit_user_password
 	end
 
 	def destroy
