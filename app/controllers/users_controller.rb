@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 		if @user.save
 			p '==============='
 			p @user
-			flash[:sucess] = "Welcome to Roominatr"
+			flash[:success] = "Welcome to Roominatr"
 			sign_in(@user)
 			render :show
 		else

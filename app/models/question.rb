@@ -32,23 +32,6 @@ class Question < ActiveRecord::Base
 
   def set_qtype_me
     update_attribute("qtype", "me") if qtype.nil?
-    # if (qtype == "me")
-    #   p "ME QUESTION"
-    #   p self
-    #   p "ME QUESTION ANSWERS"
-    #   p answers
-    #   roommate_question = survey.questions.find_by_qtype("roommate")
-    #   p "ROOMMATE QUESTION"
-    #   p roommate_question
-    #   p "ROOMMATE QUESTION ANSWERS"
-    #   p roommate_question.answers
-
-    #   answers.each do |answer|
-    #     roommate_question.answers.create(text: answer.text,
-    #                                      weight: answer.weight)
-    #   end
-    #   roommate_question.save
-    # end
   end
 
 end
