@@ -1,0 +1,17 @@
+<%= form_for @response, :url => response_path do |f| %>
+<%= @survey.title %>
+<%= @survey.me_question.body %>
+<%= f.fields_for :choices do |c| %>
+	<% @survey.me_question.answers.each do |answer|%> 
+		<%= c.radio_button_tag :choice, answer.text %>
+	<% end %>
+	<%= @survey.roommate_question.body %>
+	<% @survey.roommate_question.answers.each do |answer|%> 
+		<%= c.radio_button_tag :choice, answer.text %>
+	<% end %>
+	<%= @survey.importance_question.body %>
+	<% @survey.importance_question.answers.each do |answer|%> 
+		<%= c.radio_button_tag :choice, answer.text %>
+	<% end %>
+<% end %>
+

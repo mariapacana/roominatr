@@ -1,19 +1,19 @@
 <%= form_for @survey, :url => surveys_path do |f| %>
-  <%= f.label :title, "Title" %>
-  <%= f.text_field :title %><br>
-  <%= f.label :category, "Category" %>
-  <%= f.select :category, Category.all.collect {|c| c.name }%><br>
-  <%= f.fields_for :questions do |q| %>
-    <%= q.label :body, "Question" %>
-    <%= q.text_field :body %><br>
-    <%= q.fields_for :answers do |a| %>
-    	<%= a.label :text, "text" %>
-    	<%= a.text_field :text %><br>
-    	<%= a.label :weight, "weight" %>
-    	<%= a.text_field :weight %><br>
-  	<% end %>
-  <%= f.submit %>
-  <% end %>
+	<%= f.label :title, "Title" %>
+	<%= f.text_field :title %><br>
+	<%= f.label :category, "Category" %>
+	<%= f.select :category, Category.all.collect {|c| c.name }%><br>
+	<%= f.fields_for :questions do |q| %>
+		<%= q.label :body, "Question" %>
+		<%= q.text_field :body %><br>
+		<%= q.fields_for :answers do |a| %>
+			<%= a.label :text, "text" %>
+			<%= a.text_field :text %><br>
+			<%= a.label :weight, "weight" %>
+			<%= a.text_field :weight %><br>
+		<% end %>
+	<%= f.submit %>
+	<% end %>
 <% end %>
 
 

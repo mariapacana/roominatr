@@ -1,0 +1,13 @@
+<%= @survey.title %>
+<%= @survey.me_question.body %>
+<% @survey.me_question.answers.each do |answer| %>
+  <%= answer.text %>
+<% end %>
+<% @survey.roommate_question.answers.each do |answer| %>
+  <%= answer.text %>
+<% end %>
+<% @survey.importance_question.answers.each do |answer| %>
+  <%= answer.text %>
+<% end %>
+
+

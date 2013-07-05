@@ -4,14 +4,11 @@ class UsersController < ApplicationController
 
 	def new
 		@user = User.new
-		p '########HERE#######'
 	end
 
 	def create
 		@user = User.new(params[:user])
 		if @user.save
-			p '==============='
-			p @user
 			flash[:success] = "Welcome to Roominatr"
 			sign_in(@user)
 			render :show

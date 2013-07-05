@@ -21,6 +21,7 @@ Roominatr::Application.routes.draw do
   # This route can be invoked with purchase_url(:id => product.id)
 
   resources :surveys, :only => [:new, :create]
+  resources :responses, :only => [:new, :create, :edit, :update]
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products

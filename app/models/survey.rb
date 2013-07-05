@@ -14,5 +14,22 @@ class Survey < ActiveRecord::Base
     questions.create(qtype: "importance")
   end
 
+  def me_question
+    questions.select do |question|
+      question.qtype == "me"
+    end
+  end
+
+  def roommate_question
+    questions.select do |question|
+      question.qtype == "roommate"
+    end
+  end
+
+  def importance_question
+    questions.select do |question|
+      question.qtype == "importance"
+    end
+  end
 end
 
