@@ -1,7 +1,10 @@
-<h2>Welcome <%= @user.username %>!</h2>
-
-<%= link_to "Edit Profile", edit_user_path(@user) %>
+<h2><%= @user.username %>'s Profile</h2>
 
 <%= render :partial => 'shared/user_info' %>
 <%= render :partial => 'shared/user_picture' %>
 
+<br>
+
+<% if @user == current_user %>
+	<%= link_to "Edit Profile", edit_user_path(@user) %>
+<% end %>

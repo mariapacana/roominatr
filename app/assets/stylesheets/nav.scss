@@ -1,0 +1,48 @@
+$lightblue: #49A5FF;
+$gray: #E1D9E8;
+
+#nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 50px;
+	width: 100%;
+	background-color: white;
+	color: $lightblue;
+	vertical-align: middle;
+
+	ul {
+		height: 50px;
+		margin: 0;
+		line-height: 50px;
+
+		#logo {
+			display: inline;
+			font-family: 'Text Me One', sans-serif;
+			font-size: 200%;
+		}
+
+		#options {
+			float: right;
+			padding: 0 8px 0 8px;
+
+			li {
+				display: inline;
+				margin: 0;
+				padding: 0;
+
+				a {
+					font-family: 'Fauna One', serif;
+					font-size: 150%;
+					color: $lightblue;
+					text-decoration: none;
+					padding: 0 8px 0 8px;
+				}
+
+				a:hover {
+					color: red;
+				}
+			}
+		}
+	}
+}

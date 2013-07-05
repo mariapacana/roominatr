@@ -1,8 +1,13 @@
-<div class="nav">
-	<% if logged_in? %>
-	<%= link_to "Sign Out", signout_path, :method => :delete %>
-	<% else %>
-	<%= link_to "Sign In", signin_path %>
-	<%= link_to "Sign Up", signup_path %>
-	<% end %>
+<div id="nav">
+	<ul>
+		<li id = "logo">ROOMINATOR</li>
+		<span id="options">
+			<% if logged_in? %>
+				<li><%= link_to "Sign Out", signout_path, :method => :delete %></li>
+			<% else %>
+				<li><%= link_to "Sign In", signin_path %></li>
+				<li><%= link_to "Sign Up", signup_path %></li>
+			<% end %>
+		</span>
+	</ul>
 </div>
