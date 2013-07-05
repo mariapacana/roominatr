@@ -1,0 +1,7 @@
+<h1>Response to <%= survey.title %></h1>
+
+<ul>
+  <% survey.responses.where("user_id = ?", @user.id).each do |response| %>
+    <li><%= render partial: 'responses/show', locals: { response: response } %></li>
+  <% end %>
+</ul>

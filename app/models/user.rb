@@ -10,4 +10,8 @@ class User < ActiveRecord::Base
   attr_accessible :username, :email, :password, :password_confirmation, :avatar, :birthday, :gender
   has_secure_password
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+
+  def surveys
+    responses.pluck(:survey_id).uniq.collect {|survey_id| Survey.find(survey_id)}
+  end
 end

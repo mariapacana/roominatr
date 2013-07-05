@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20130705024107) do
   create_table "surveys", :force => true do |t|
     t.string  "title"
     t.integer "category_id"
+    t.integer "response_id"
   end
 
   create_table "users", :force => true do |t|

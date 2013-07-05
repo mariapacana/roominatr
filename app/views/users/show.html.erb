@@ -2,6 +2,11 @@
 
 <%= render :partial => 'shared/user_info' %>
 <%= render :partial => 'shared/user_picture' %>
+<ul>
+  <% @user.surveys.each do |survey| %>
+    <li><%= render partial: 'surveys/show', locals: { survey: survey } %></li>
+  <% end %>
+</ul>
 
 <br>
 
