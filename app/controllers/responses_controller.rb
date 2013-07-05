@@ -6,13 +6,11 @@ class ResponsesController < ApplicationController
 
   def create
     @survey = Survey.find params[:survey_id]
-    # @answers = Answer.find params[:choices].values
     params[:responses].each do |question_id, answer_id|
-
       @survey.responses.build :user => current_user, :question_id => question_id, :answer_id => answer_id
     end
     if @survey.save
-      redirect_to root_path
+      redirect_to @survey
     else
     end
   end
