@@ -7,11 +7,9 @@ class Survey < ActiveRecord::Base
   validates_presence_of :title
   attr_accessible :title, :questions_attributes, :category
 
-  
   after_create :create_questions
 
   def create_questions
-    questions.first.update_attribute('qtype', "me")
     questions.create(qtype: "roommate")
     questions.create(qtype: "importance")
   end

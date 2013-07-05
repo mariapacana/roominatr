@@ -3,11 +3,9 @@ class Question < ActiveRecord::Base
   belongs_to :survey
   has_many :answers
 
-  # validates_presence_of :body
-
   accepts_nested_attributes_for :answers
   attr_accessible :body, :qtype, :answers_attributes
-  after_create :set_body, :create_answers
+  after_create :set_body, :create_answers, :set_qtype_me
 
   private
 
@@ -32,6 +30,26 @@ class Question < ActiveRecord::Base
     end
   end
 
+  def set_qtype_me
+    update_attribute("qtype", "me") if qtype.nil?
+    # if (qtype == "me")
+    #   p "ME QUESTION"
+    #   p self
+    #   p "ME QUESTION ANSWERS"
+    #   p answers
+    #   roommate_question = survey.questions.find_by_qtype("roommate")
+    #   p "ROOMMATE QUESTION"
+    #   p roommate_question
+    #   p "ROOMMATE QUESTION ANSWERS"
+    #   p roommate_question.answers
+
+    #   answers.each do |answer|
+    #     roommate_question.answers.create(text: answer.text,
+    #                                      weight: answer.weight)
+    #   end
+    #   roommate_question.save
+    # end
+  end
 
 end
 
