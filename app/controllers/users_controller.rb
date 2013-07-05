@@ -37,7 +37,11 @@ class UsersController < ApplicationController
 			redirect_to user_path(@user)
 		else
 			flash[:error] = @user.errors.full_messages
-			render :edit
+			if paramz[:password] 
+			 render :edit_user_password 
+			else
+	 		 render :edit
+			end
 		end
 	end
 

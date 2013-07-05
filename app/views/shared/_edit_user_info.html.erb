@@ -1,6 +1,7 @@
 <div id="user_info_edit" class="profile_edit">
   <h3>Update Personal Information</h3>
   <%= form_for @user do |f| %>
+    <%= flash[:error] %><br>
     <%= f.radio_button(:gender, "M") %>
     <%= f.label(:gender, "Male") %>
     <%= f.radio_button(:gender, "F") %>
