@@ -15,8 +15,6 @@ class SurveysController < ApplicationController
   end
 
   def show
-    @response = Response.new
-    @response.choices.build
     @survey = Survey.find(params[:id])
     @user = current_user
   end

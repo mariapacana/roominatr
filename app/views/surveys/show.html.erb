@@ -1,18 +1,41 @@
-<%= form_for @response, :url => response_path do |f| %>
-	<%= @survey.title %><br>
-	<%= @survey.me_question.body %><br>
-	<%= f.fields_for :choices do |c| %>
-		<% @survey.me_question.answers.each do |answer|%> 
-			<%= c.radio_button :answer_id, answer.text %><br>
-		<% end %>
-		<%= @survey.roommate_question.body %>
-		<% @survey.roommate_question.answers.each do |answer|%> 
-			<%= c.radio_button :answer_id, answer.text %><br>
-		<% end %>
-		<%= @survey.importance_question.body %>
-		<% @survey.importance_question.answers.each do |answer|%> 
-			<%= c.radio_button :answer_id, answer.text %><br>
-		<% end %>
+<%= form_tag responses_path do %>
+	<%= @survey.title %>
+	<%= hidden_field_tag :survey_id, @survey.id %>
+	<%= fields_for :responses do |c| %>
+		<div>
+			<%= @survey.me_question.body %>
+			<ul>
+				<% @survey.me_question.answers.each do |answer|%> 
+					<li>
+						<%= c.radio_button @survey.me_question.id, answer.id %>
+						<%= answer.text %>
+					</li>
+				<% end %>
+			</ul>
+			
+		</div>
+		<div>
+			<%= @survey.roommate_question.body %>
+			<ul>
+				<% @survey.roommate_question.answers.each do |answer|%> 
+					<li>
+						<%= c.radio_button @survey.roommate_question.id, answer.id %>
+						<%= answer.text %>
+					</li>
+			</ul>
+			
+			<% end %>
+		</div>
+		<div>
+			<%= @survey.importance_question.body %>
+			<% @survey.importance_question.answers.each do |answer|%> 
+				<li>
+					<%= c.radio_button @survey.importance_question.id, answer.id %>
+					<%= answer.text %>
+				</li>
+			<% end %>
+		</div>
 	<% end %>
-	<%= f.submit %>
+	<%= submit_tag %>
 <% end %>
+

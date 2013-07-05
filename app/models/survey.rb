@@ -2,6 +2,7 @@ class Survey < ActiveRecord::Base
 
   belongs_to :category
   has_many :questions   
+  has_many :responses
   accepts_nested_attributes_for :questions
 
   validates_presence_of :title
