@@ -3,13 +3,14 @@
 <head>
   <title>Roominatr</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
+  <link href='http://fonts.googleapis.com/css?family=Fauna+One|Text+Me+One' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 	<%= render :partial => "shared/nav" %>
-
-<%= yield %>
-
+	<div id="container">
+	<%= yield %>
+	</div>
 </body>
 </html>
