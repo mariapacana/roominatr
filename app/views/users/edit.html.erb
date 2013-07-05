@@ -1,8 +1,5 @@
 <h2>Edit</h2>
 <%= flash[:error] %>
 <%= render 'shared/edit_user_info' %>
+<%= render 'shared/edit_user_picture' %>
 
-<%= form_for @user, url: user_picture_path do |f| %>
-  <%= f.file_field :avatar %>
-  <%= f.submit %>
-<% end %>

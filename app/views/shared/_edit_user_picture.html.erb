@@ -1,0 +1,4 @@
+<%= form_for @user, url: user_picture_path do |f| %>
+  <%= f.file_field :avatar %>
+  <%= f.submit %>
+<% end %>

@@ -1,9 +1,7 @@
 <h2>Welcome <%= @user.username %>!</h2>
 
-<p> Test Test Test</p>
+<%= link_to "Edit Profile", edit_user_path %>
 
-<link_to "Edit Profile", edit_user_path %>
+<%= render :partial => 'shared/user_info' %>
+<%= render :partial => 'shared/user_picture' %>
 
-<%= image_tag @user.avatar.url %>
-<%= image_tag @user.avatar.url(:medium) %>
-<%= image_tag @user.avatar.url(:thumb) %>
