@@ -1,17 +1,18 @@
 <%= form_for @response, :url => response_path do |f| %>
-<%= @survey.title %>
-<%= @survey.me_question.body %>
-<%= f.fields_for :choices do |c| %>
-	<% @survey.me_question.answers.each do |answer|%> 
-		<%= c.radio_button_tag :choice, answer.text %>
+	<%= @survey.title %><br>
+	<%= @survey.me_question.body %><br>
+	<%= f.fields_for :choices do |c| %>
+		<% @survey.me_question.answers.each do |answer|%> 
+			<%= c.radio_button :answer_id, answer.text %><br>
+		<% end %>
+		<%= @survey.roommate_question.body %>
+		<% @survey.roommate_question.answers.each do |answer|%> 
+			<%= c.radio_button :answer_id, answer.text %><br>
+		<% end %>
+		<%= @survey.importance_question.body %>
+		<% @survey.importance_question.answers.each do |answer|%> 
+			<%= c.radio_button :answer_id, answer.text %><br>
+		<% end %>
 	<% end %>
-	<%= @survey.roommate_question.body %>
-	<% @survey.roommate_question.answers.each do |answer|%> 
-		<%= c.radio_button_tag :choice, answer.text %>
-	<% end %>
-	<%= @survey.importance_question.body %>
-	<% @survey.importance_question.answers.each do |answer|%> 
-		<%= c.radio_button_tag :choice, answer.text %>
-	<% end %>
+	<%= f.submit %>
 <% end %>
-

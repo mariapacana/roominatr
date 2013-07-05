@@ -15,20 +15,20 @@ class Survey < ActiveRecord::Base
   end
 
   def me_question
-    questions.select do |question|
-      question.qtype == "me"
+    questions.each do |question|
+      return question if question.qtype == "me"
     end
   end
 
   def roommate_question
-    questions.select do |question|
-      question.qtype == "roommate"
+    questions.each do |question|
+      return question if question.qtype == "roommate"
     end
   end
 
   def importance_question
-    questions.select do |question|
-      question.qtype == "importance"
+    questions.each do |question|
+      return question if question.qtype == "importance"
     end
   end
 end
