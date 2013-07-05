@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-  has_many :responses
+  has_many :submissions
+  has_many :responses, through: :submissions
   has_many :answers, through: :responses
 	validates :username, :presence => true, 
 											 :uniqueness => true

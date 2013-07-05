@@ -6,13 +6,11 @@ class ResponsesController < ApplicationController
 
   def create
     @survey = Survey.find params[:survey_id]
+    @submission = Submission.new(survey: @survey, user: current_user)
     params[:responses].each do |question_id, answer_id|
-      @survey.responses.build :user => current_user, :question_id => question_id, :answer_id => answer_id
+      @submission.responses.build :question_id => question_id, :answer_id => answer_id
     end
-    p "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
-    @survey.save
-    p @survey.responses
-    if @survey.save
+    if @submission.save
       redirect_to @survey
     else
       debugger
