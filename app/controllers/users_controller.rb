@@ -26,12 +26,21 @@ class UsersController < ApplicationController
 	end
 
 	def update
-		p params[:user][:password]
-		params[:user].delete(:password) if params[:user][:password].blank?
+		paramz = params[:user]
+		datestring = "#{paramz["birthday(1i)"]}-#{paramz["birthday(2i)"]}-#{paramz["birthday(3i)"]}"
+
+		["birthday(1i)", "birthday(2i)", "birthday(3i)"].each do |birth|
+			paramz.delete(birth) if paramz[birth]
+		end
+
+		paramz[:birthday] = Date.parse(datestring)
+
+		p paramz
+
 		@user = User.find(params[:id]) 
-		if @user.update_attributes(params[:user]) 
+		if @user.update_attributes(paramz)
 			flash[:success] = "Profile Updated!"
-			redirect_to @user
+			redirect_to user_path(@user)
 		else
 			flash[:error] = @user.errors.full_messages
 			render :edit
