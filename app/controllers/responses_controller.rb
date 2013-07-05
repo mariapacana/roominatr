@@ -9,9 +9,13 @@ class ResponsesController < ApplicationController
     params[:responses].each do |question_id, answer_id|
       @survey.responses.build :user => current_user, :question_id => question_id, :answer_id => answer_id
     end
+    p "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+    @survey.save
+    p @survey.responses
     if @survey.save
       redirect_to @survey
     else
+      debugger
     end
   end
 
