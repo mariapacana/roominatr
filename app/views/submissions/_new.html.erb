@@ -1,6 +1,7 @@
-<%= form_tag submissions_path, :remote => true, :id => 'create_submission' do %>
+<%= form_tag submissions_path(@submission), :remote => true, :id => 'create_submission' do %>
   <%= survey.title %>
   <%= hidden_field_tag :survey_id, survey.id %>
+  <% @submission.errors.full_messages %>
   <%= fields_for :responses do |c| %>
     <div>
       <%= survey.me_question.body %>

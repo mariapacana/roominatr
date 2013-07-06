@@ -1,7 +1,7 @@
 <h2><%= @user.username %>'s Profile</h2>
 
-<%= render :partial => 'shared/user_info' %>
 <%= render :partial => 'shared/user_picture' %>
+<%= render :partial => 'shared/user_info' %>
 
 <% if @user == current_user %>
   <%= link_to "Take Survey", new_submission_path, :remote => true, :method => 'get', :id => 'new_survey_button' %>

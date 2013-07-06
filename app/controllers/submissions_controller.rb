@@ -10,11 +10,10 @@ class SubmissionsController < ApplicationController
   end 
 
   def create
-    # Can we simplify this code at all?
-    @survey = Survey.find params[:survey_id]
+    @survey = Survey.find(params[:survey_id])
     @submission = Submission.new(survey: @survey, user: current_user)
     params[:responses].each do |question_id, answer_id|
-      @submission.responses.build :question_id => question_id, :answer_id => answer_id
+      @submission.responses.build(question_id: question_id, answer_id: answer_id)
     end
     
     if @submission.save
@@ -22,8 +21,11 @@ class SubmissionsController < ApplicationController
                                                             :locals => {:submission => @submission },
                                                             :layout => false)}
     else
-      # We want to return error messages, if any!
-      debugger
+      p "ALL THE ERRORS"
+      p @submission.errors
+      render :json => { :submission_form => render_to_string(:partial => 'new',
+                                                             :locals => {:survey => @survey },
+                                                             :layout => false)}
     end
   end
 

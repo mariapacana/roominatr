@@ -7,9 +7,12 @@ $(document).ready(function(){
 
   var bindSubmissionForm = function () {
     $('#create_submission').on('ajax:success', function(event, data, status, xhr) {
-      console.log("WE RENDERED THE THING");
-      $('#submission_list').append($(data.new_submission));
-      $('#new_survey').empty();
+      if (data.new_submission) {
+        $('#submission_list').append($(data.new_submission));
+        $('#new_survey').empty();
+      } else {
+        $('#new_survey').html(data.submission_form);
+      }
     });
   }
 });
