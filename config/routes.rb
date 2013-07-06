@@ -1,15 +1,18 @@
 Roominatr::Application.routes.draw do
 
-
   resources :users
   match '/users/:id/picture', to: 'users#update_picture', via: :put, as: 'user_picture'
   match '/users/:id/password', to: 'users#edit_password', via: :get, as: 'user_password'
   match '/users/:id/password', to: 'users#update_password', via: :put, as: 'user_password'
-  
+
   resources :sessions, :only => [:new, :create, :destroy]
-  match '/signup',  to: 'users#new'
-  match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
+
+  resources :surveys, :only => [:new, :create, :show]
+  resources :responses, :only => [:new, :create, :edit, :update]
+  resources :submissions, :only => [:new, :create, :edit, :update]
+
+  root to: 'sessions#new'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -21,10 +24,6 @@ Roominatr::Application.routes.draw do
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
-
-  resources :surveys, :only => [:new, :create, :show]
-  resources :responses, :only => [:new, :create, :edit, :update]
-  resources :submissions, :only => [:new, :create, :edit, :update]
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
