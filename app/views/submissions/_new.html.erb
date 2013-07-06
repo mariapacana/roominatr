@@ -1,4 +1,4 @@
-<%= form_tag responses_path do %>
+<%= form_tag submissions_path, :remote => true, :id => 'create_submission' do %>
   <%= survey.title %>
   <%= hidden_field_tag :survey_id, survey.id %>
   <%= fields_for :responses do |c| %>

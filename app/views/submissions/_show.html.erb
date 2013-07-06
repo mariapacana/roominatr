@@ -1,7 +1,9 @@
-<h1>Response to <%= submission.survey.title %></h1>
+<div class = "submission">
+  <h1>Response to <%= submission.survey.title %></h1>
 
-<ul>
-  <% submission.responses.each do |response| %>
-    <li><%= render partial: 'responses/show', locals: { response: response } %></li>
-  <% end %>
-</ul>
+  <ul>
+    <% submission.responses.each do |response| %>
+      <li><%= render partial: 'responses/show', locals: { response: response } %></li>
+    <% end %>
+  </ul>
+</div>
