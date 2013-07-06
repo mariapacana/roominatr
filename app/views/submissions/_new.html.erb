@@ -1,7 +1,7 @@
-<%= form_tag submissions_path(@submission), :remote => true, :id => 'create_submission' do %>
-  <%= survey.title %>
+<%= form_tag submissions_path, :remote => true, :id => 'create_submission' do %>
+  <%= survey.title %><br>
+  <%= flash[:error] if flash[:error] %>
   <%= hidden_field_tag :survey_id, survey.id %>
-  <% @submission.errors.full_messages %>
   <%= fields_for :responses do |c| %>
     <div>
       <%= survey.me_question.body %>
@@ -13,7 +13,6 @@
           </li>
         <% end %>
       </ul>
-      
     </div>
     <div>
       <%= survey.roommate_question.body %>
@@ -23,20 +22,20 @@
             <%= c.radio_button survey.roommate_question.id, answer.id %>
             <%= answer.text %>
           </li>
-      </ul>
-      
-      <% end %>
+        <% end %>
+      </ul>      
     </div>
     <div>
       <%= survey.importance_question.body %>
+      <ul>
       <% survey.importance_question.answers.each do |answer|%> 
         <li>
           <%= c.radio_button survey.importance_question.id, answer.id %>
           <%= answer.text %>
         </li>
       <% end %>
+    </ul>
     </div>
   <% end %>
   <%= submit_tag %>
 <% end %>
-
