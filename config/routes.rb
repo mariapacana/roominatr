@@ -24,6 +24,7 @@ Roominatr::Application.routes.draw do
 
   resources :surveys, :only => [:new, :create, :show]
   resources :responses, :only => [:new, :create, :edit, :update]
+  resources :submissions, :only => [:new, :create, :edit, :update]
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products

@@ -1,0 +1,7 @@
+<div id="submission_list">
+  <% user.submissions.each do |submission| %>
+    <div class = "submission">
+      <%= render partial: 'submissions/show', locals: { submission: submission } %>
+    </div>
+  <% end %>
+</div>

@@ -2,12 +2,10 @@
 
 <%= render :partial => 'shared/user_info' %>
 <%= render :partial => 'shared/user_picture' %>
-
-<ul>
-  <% @user.submissions.each do |submission| %>
-    <li></li>
-  <% end %>
-</ul>
+<br>
+  <%= link_to "Take Survey", new_submission_path, :remote => true, :method => 'get', :id => 'new_survey_button' %>
+  <div id="new_survey"></div>
+<%= render :partial => 'submissions/index', locals: { user: @user }  %>
 
 <br>
 

@@ -12,7 +12,8 @@ class User < ActiveRecord::Base
   has_secure_password
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
 
-  def surveys
-    responses.pluck(:survey_id).uniq.collect {|survey_id| Survey.find(survey_id)}
+  def new_survey
+    taken_surveys = submissions.collect {|submission| submission.survey }
+    (Survey.all - taken_surveys).sample
   end
 end
