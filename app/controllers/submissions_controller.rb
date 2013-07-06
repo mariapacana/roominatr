@@ -16,6 +16,7 @@ class SubmissionsController < ApplicationController
     params[:responses].each do |question_id, answer_id|
       @submission.responses.build :question_id => question_id, :answer_id => answer_id
     end
+    
     if @submission.save
       render :json => { :new_submission => render_to_string(:partial => 'show',
                                                             :locals => {:submission => @submission },
