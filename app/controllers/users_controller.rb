@@ -3,6 +3,10 @@ class UsersController < ApplicationController
 	include SessionsHelper
 	include UsersHelper
 
+	def index
+		@users = User.all - [current_user]
+	end
+
 	def new
 		@user = User.new
 	end

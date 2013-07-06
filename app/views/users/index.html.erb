@@ -1,0 +1,5 @@
+<h2>Search for Roommates!</h2>
+
+<% @users.each do |user| %>
+	<%= render :partial => 'show', :locals => { :user => user } %>
+<% end %>
