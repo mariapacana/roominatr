@@ -2,12 +2,25 @@
   <h3>Update Personal Information</h3>
   <%= form_for @user do |f| %>
     <%= flash[:error] %><br>
+    <%= f.label "Gender:" %>
     <%= f.radio_button(:gender, "M") %>
     <%= f.label(:gender, "Male") %>
     <%= f.radio_button(:gender, "F") %>
     <%= f.label(:gender, "Female") %><br>
-    <%= f.label :birthday, "Birthday" %>
+    <%= f.label :birthday, "Birthday:" %>
     <%= f.date_select :birthday, { :start_year => 1930, :end_year => Time.now.year, :use_two_digit_numbers => true } %><br>
+    <%= f.label :pets, "I own and/or am happy to live with:" %><br>
+    <%= f.select :pets, options_for_select(["Dogs", "Cats", "Any", "No Pets"]) %><br>
+    <%= f.label :weekend_activity, "On the weekend you'd find me:" %><br>
+    <%= f.select :weekend_activity, options_for_select(["At home reading or chillin'", "Outside hiking or climbing"]) %><br>
+    <%= f.label :food_preferences, "My diet is:" %><br>
+    <%= f.select :food_preferences, options_for_select(["Vegan", "Vegetarian","I like all food"])%><br>
+    <%= f.label :summary, "Summary" %><br>
+    <%= f.text_area :summary, placeholder: "Tell us something about yourself.." %><br>
+    <%= f.label :best_roomate, "Tell us your best roommate experience:" %><br>
+    <%= f.text_area :best_roomate  %><br>
+    <%= f.label :worst_roomate, "Tell us your worst roommate experience:" %><br>
+    <%= f.text_area :worst_roomate %><br>
     <%= f.label :email, "Email" %>
     <%= f.text_field :email, placeholder: "email" %><br>
   <%= f.submit %>

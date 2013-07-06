@@ -11,7 +11,8 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130705231515) do
+ActiveRecord::Schema.define(:version => 20130706190957) do
+
 
   create_table "answers", :force => true do |t|
     t.string   "text"
@@ -64,6 +65,12 @@ ActiveRecord::Schema.define(:version => 20130705231515) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.text     "summary"
+    t.text     "best_roomate"
+    t.text     "worst_roomate"
+    t.string   "pets"
+    t.string   "food_preferences"
+    t.string   "weekend_activity"
   end
 
 end
