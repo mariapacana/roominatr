@@ -12,22 +12,22 @@ class UsersController < ApplicationController
 		if @user.save
 			flash[:success] = "Welcome to Roominatr"
 			sign_in(@user)
-			render :show
+			redirect_to user_path(current_user)
 		else
 			render :new
 		end
 	end
 
 	def show
-		@user = User.find(params[:id]) 
+		@user = User.find(params[:id])
 	end
 
 	def edit
-		@user = User.find(params[:id]) 
+		@user = User.find(params[:id])
 	end
 
 	def update
-		@user = User.find(params[:id]) 
+		@user = User.find(params[:id])
 		paramz = format_params(params[:user])
 
 		if @user.update_attributes(paramz)
@@ -35,8 +35,8 @@ class UsersController < ApplicationController
 			redirect_to user_path(@user)
 		else
 			flash[:error] = @user.errors.full_messages
-			if paramz[:password] 
-			 render :edit_user_password 
+			if paramz[:password]
+			 render :edit_user_password
 			else
 	 		 render :edit
 			end
@@ -44,7 +44,7 @@ class UsersController < ApplicationController
 	end
 
 	def update_picture
-		@user = User.find(params[:id]) 
+		@user = User.find(params[:id])
 		if @user.update_attribute(:avatar, params[:user][:avatar])
 			flash[:success] = "Picture Updated!"
 			redirect_to @user
