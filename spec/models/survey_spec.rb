@@ -5,9 +5,12 @@ describe Survey do
   describe "#initialize" do
 
     it { should belong_to(:category) }
-    it { should validate_presence_of(:title) }
+    it { should have_many(:submissions) }
     it { should have_many(:questions) }
     it { should accept_nested_attributes_for :questions }
+
+    it { should validate_presence_of(:title) }
+
     it { should allow_mass_assignment_of(:title) }
     it { should allow_mass_assignment_of(:questions_attributes) }
     it { should allow_mass_assignment_of(:category) }
@@ -18,8 +21,8 @@ describe Survey do
     let(:survey) { create(:survey_with_questions) }
 
     it "creates 'how important' to you question by default" do
-      survey.questions.any? { |q| 
-        q.body.include? "How important is this" 
+      survey.questions.any? { |q|
+        q.body.include? "How important is this"
       }.should be true
     end
 
@@ -30,7 +33,7 @@ describe Survey do
     end
 
     it "has 3 questions of types 'me', 'roommate', and 'importance'" do
-      survey.questions.collect {|q| 
+      survey.questions.collect {|q|
         q.qtype }.should eq(["roommate", "importance", "me"])
     end
 
@@ -42,7 +45,7 @@ describe Survey do
 
     it "has a question of type importance with answers 'not', 'kinda', and 'very'" do
       q_importance = survey.questions.find_by_qtype("importance")
-      q_importance.answers.collect {|answer| 
+      q_importance.answers.collect {|answer|
         answer.text }.should eq(["Not", "Kinda", "Very"])
     end
   end
