@@ -8,8 +8,25 @@ require 'csv'
 Roominatr::Application.load_tasks
 
 namespace :db do
+  task :seed_all => [:category_seed, :survey_seed, :user_seed, :submission_seed] do
+    puts "Seeded everything!"
+  end
+
+  desc "Seeding categories..."
+  task :category_seed => :environment do
+    puts "Creating categories -- these ALWAYS have to be hardwired in"
+
+    Category.destroy_all
+    CATEGORIES = %w[Cleanliness Responsibility Sociability]
+    CATEGORIES.each { |cat| Category.find_or_create_by_name(cat)}
+
+  end
+
   desc "Seeding surveys"
   task :survey_seed => :environment do
+    puts "Seeding surveys..."
+
+    Survey.destroy_all
     csv_text = File.read('db/surveydata.csv')
     csv = CSV.parse(csv_text, :headers => true, :header_converters => :symbol)
     csv.each do |row|
@@ -31,5 +48,60 @@ namespace :db do
                    }
       Survey.create(attributes)
     end
+
   end
+
+  desc "Seeding users"
+  task :user_seed => :environment do
+    puts "Seeding users..."
+    User.destroy_all
+
+    15.times do
+      User.create(username: Faker::Internet.user_name, email: Faker::Internet.email, password: "password")
+    end
+
+  end
+
+  desc "Seeding submissions"
+  task :submission_seed => :environment do
+    puts "Seeding submissions..."
+    MAX_SURVEYS = Survey.count
+    MIN_SURVEYS = Survey.count/3
+
+    Submission.destroy_all
+    users = User.all
+
+    users.each do |user|
+      surveys = Survey.all
+      rand(MIN_SURVEYS..MAX_SURVEYS).times do
+        survey = surveys.delete_at(rand(0..surveys.size-1))
+        submission = Submission.create(survey: survey, user: user)
+        survey.questions.each do |question|
+          answer_ids = question.answers.pluck(:id)
+          submission.responses.build(question_id: question.id,
+                                     answer_id: answer_ids.sample)
+        end
+        submission.save
+      end
+    end
+  end
+
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
