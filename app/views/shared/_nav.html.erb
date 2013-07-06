@@ -5,7 +5,7 @@
 			<% if logged_in? %>
 				<li><%= link_to "Make Survey", new_survey_path %></li>
 				<li><%= link_to "Your Profile", user_path(current_user) %></li>
-				<li><%= link_to "Sign Out", session_path, :method => :delete %></li>
+				<li><%= link_to "Sign Out", signout_path %></li>
 			<% else %>
 				<li><%= link_to "Sign In", new_session_path %></li>
 				<li><%= link_to "Sign Up", new_user_path %></li>

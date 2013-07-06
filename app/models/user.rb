@@ -16,4 +16,20 @@ class User < ActiveRecord::Base
     taken_surveys = submissions.collect {|submission| submission.survey }
     (Survey.all - taken_surveys).sample
   end
+
+  def score(category_name, type)
+    answered = 0
+    score = 0 
+    submissions.each do |sub|
+      if sub.survey.category.name == category_name
+        sub.responses.each do |resp|
+          if resp.answer.question.qtype == type
+            score += resp.answer.weight
+            answered += 1
+          end
+        end
+      end
+    end
+    score/answered.to_f
+  end
 end
