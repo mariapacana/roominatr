@@ -25,7 +25,7 @@ class Question < ActiveRecord::Base
                        weight: answer.weight)
       end
     elsif qtype == "importance"
-      options = [["Not", 1], ["Kinda", 2], ["Very", 3]]
+      options = [["Not", -1], ["Kinda", 0], ["Very", 1]]
       options.each { |o| answers.create(text: o[0], weight: o[1])}
     end
   end

@@ -18,18 +18,25 @@ class User < ActiveRecord::Base
   end
 
   def score(category_name, type)
-    answered = 0
-    score = 0 
-    submissions.each do |sub|
-      if sub.survey.category.name == category_name
-        sub.responses.each do |resp|
-          if resp.answer.question.qtype == type
-            score += resp.answer.weight
-            answered += 1
-          end
-        end
-      end
+    user_answers = answers.select do |a|
+      a.question.survey.category.name == category_name and
+      a.question.qtype == type
     end
-    score/answered.to_f
+    user_answers.inject(0){ |sum, answer| sum + answer.weight }/user_answers.length.to_f  
   end
+
+  def compatibility_with(user)
+    subs = []
+    Category.all.each do |category|
+      name = category.name
+      self_diff = (user.score(name, "roommate") - self.score(name, "me")).abs
+      user_diff = (user.score(name, "me") - self.score(name, "roommate")).abs
+      self_imp = self.score(name, "importance")
+      user_imp = user.score(name, "importance")
+      sub = (user_imp*(1-self_diff/2)+self_imp*(1-user_diff/2))/(self_imp+user_imp)
+      subs << sub unless sub.nan?
+    end
+    subs.inject(:+)/subs.length
+  end
+
 end
