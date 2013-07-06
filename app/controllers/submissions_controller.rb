@@ -7,7 +7,7 @@ class SubmissionsController < ApplicationController
     render :json => { :submission_form => render_to_string(:partial => 'new',
                                                            :locals => {:survey => @survey },
                                                            :layout => false)}
-  end 
+  end
 
   def create
     @survey = Survey.find params[:survey_id]
