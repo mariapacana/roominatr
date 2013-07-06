@@ -13,7 +13,7 @@ FactoryGirl.define do
       end
 
       before(:create) do |survey, evaluator|
-        create_list(:question_with_answers, evaluator.questions_count, survey: survey, qtype: nil) 
+        create_list(:question_with_answers, evaluator.questions_count, survey: survey, qtype: nil)
       end
     end
   end
@@ -29,7 +29,7 @@ FactoryGirl.define do
       end
 
       after(:create) do |question, evaluator|
-        create_list(:answer, evaluator.answers_count, question: question ) 
+        create_list(:answer, evaluator.answers_count, question: question )
       end
     end
   end
@@ -37,6 +37,15 @@ FactoryGirl.define do
   factory :answer do
     text Faker::Lorem.words(5)
     weight [1,0,-1].sample
+  end
+
+  factory :response do
+    question
+    answer
+  end
+
+  factory :submission do
+    responses
   end
 
 end
