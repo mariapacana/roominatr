@@ -6,8 +6,6 @@ Roominatr::Application.routes.draw do
   match '/users/:id/password', to: 'users#update_password', via: :put, as: 'user_password'
 
   resources :sessions, :only => [:new, :create, :destroy]
-  match '/signout', to: 'sessions#destroy', via: :delete
-
   resources :surveys, :only => [:new, :create, :show]
   resources :responses, :only => [:new, :create, :edit, :update]
   resources :submissions, :only => [:new, :create, :edit, :update]
