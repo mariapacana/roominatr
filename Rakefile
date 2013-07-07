@@ -4,6 +4,8 @@
 
 require File.expand_path('../config/application', __FILE__)
 require 'csv'
+require "#{Rails.root}/app/helpers/application_helper"
+include ApplicationHelper
 
 Roominatr::Application.load_tasks
 
@@ -57,7 +59,11 @@ namespace :db do
     User.destroy_all
 
     15.times do
-      User.create(username: Faker::Internet.user_name, email: Faker::Internet.email, password: "password")
+      User.create(username: Faker::Internet.user_name, 
+                      email: Faker::Internet.email, 
+                      password: "password", 
+                      gender: ["M", "F", nil].sample,
+                      birthday: random_birthday)
     end
 
   end
