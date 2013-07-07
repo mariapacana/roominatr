@@ -1,12 +1,12 @@
 <h2>Search for Roommates!</h2>
 
-<%= form_tag users_search_path, method: "get" do %>
-  <%= select_tag :gender, options_for_select(['Male', 'Female']), :prompt => 'Select' %>
+<%= form_tag users_search_path, :method => :get, :remote => true, id: 'get_users' do %>
+  <%= select_tag :gender, options_for_select([['Male','M'], ['Female','F']]), :prompt => 'Select' %>
   <%= number_field_tag :age_min, nil, in: 18...90 %>
   <%= number_field_tag :age_max, nil, in: 18...90 %>
   <%= submit_tag "Filter" %>
 <% end %>
 
-<% @users.each do |user| %>
-	<%= render :partial => 'show', :locals => { :user => user } %>
-<% end %>
+<div id="users"></div>
+
+

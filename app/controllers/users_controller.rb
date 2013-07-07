@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
 	include SessionsHelper
 	include UsersHelper
+	include AjaxHelper
 
 	def index
 		@users = User.all - [current_user]
@@ -70,7 +71,9 @@ class UsersController < ApplicationController
 	end
 
 	def search
-
+		# @users = User.where(gender: params[:gender])#.filter_by_age(params[:age_min], params[:age_max])
+		@user = User.first
+		render_partial('show_user', 'show', {:user => @user})
 	end
 
 end

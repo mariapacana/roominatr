@@ -38,4 +38,10 @@ class User < ActiveRecord::Base
     subs.inject(:+)/subs.length
   end
 
+  def self.filter_by_age(age_min = 18, age_max = 80)
+    later = age_min.years.ago
+    earlier = age_max.years.ago
+    where(birthday: (earlier..later))
+  end
+
 end
