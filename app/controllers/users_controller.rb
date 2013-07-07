@@ -75,4 +75,8 @@ class UsersController < ApplicationController
 		render_partial('show_users', 'index', { :users => @users })
 	end
 
+	def image
+		render :text => open("#{Rails.root}/app/assets/images/default_profile.jpg", "rb").read
+	end
+
 end

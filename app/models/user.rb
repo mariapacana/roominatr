@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
                   :weekend_activity
 
   has_secure_password
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :path => "#{Rails.root}/app/assets/images/default_profile.jpg"
 
   def new_survey
     taken_surveys = submissions.collect {|submission| submission.survey }
