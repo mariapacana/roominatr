@@ -70,7 +70,7 @@ class UsersController < ApplicationController
 	end
 
 	def search
-		
+
 	end
 
 end
