@@ -1,0 +1,5 @@
+<div>
+	<% users.each do |user| %>
+		<%= render :partial => 'show', :locals => { :user => user } %>
+	<% end %>
+</div>

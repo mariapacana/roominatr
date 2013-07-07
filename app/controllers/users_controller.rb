@@ -71,9 +71,8 @@ class UsersController < ApplicationController
 	end
 
 	def search
-		# @users = User.where(gender: params[:gender])#.filter_by_age(params[:age_min], params[:age_max])
-		@user = User.first
-		render_partial('show_user', 'show', {:user => @user})
+		@users = User.filter_by_age(params[:age_min].to_i, params[:age_max].to_i).where(gender: params[:gender])
+		render_partial('show_users', 'index', { :users => @users })
 	end
 
 end

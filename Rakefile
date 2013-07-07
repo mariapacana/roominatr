@@ -58,7 +58,7 @@ namespace :db do
     puts "Seeding users..."
     User.destroy_all
 
-    15.times do
+    100.times do
       User.create(username: Faker::Internet.user_name, 
                       email: Faker::Internet.email, 
                       password: "password", 
