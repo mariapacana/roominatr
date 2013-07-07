@@ -1,12 +1,12 @@
 class SubmissionsController < ApplicationController
 
+  include AjaxHelper
+
   def new
     @submission = Submission.new
     @survey = current_user.new_survey
 
-    render :json => { :submission_form => render_to_string(:partial => 'new',
-                                                           :locals => {:survey => @survey },
-                                                           :layout => false)}
+    render_partial('submission_form', 'new', {:survey => @survey})
   end
 
   def create
@@ -15,9 +15,7 @@ class SubmissionsController < ApplicationController
 
     if params[:responses].length != @survey.questions.length
       flash[:error] = "Please fill out all questions!"
-      render :json => { :submission_form => render_to_string(:partial => 'new',
-                                                             :locals => {:survey => @survey },
-                                                             :layout => false)}
+      render_partial('submission_form', 'new', {:survey => @survey})
     else
       params[:responses].each do |question_id, answer_id|
         @submission.responses.build(:question_id => question_id,
@@ -26,9 +24,8 @@ class SubmissionsController < ApplicationController
       end
 
       @submission.save
-      render :json => { :new_submission => render_to_string(:partial => 'show',
-                                                            :locals => {:submission => @submission },
-                                                            :layout => false)}
+
+      render_partial('new_submission', 'show', {:submission => @submission})
     end
   end
 
