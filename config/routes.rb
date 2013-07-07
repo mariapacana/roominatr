@@ -14,7 +14,8 @@ Roominatr::Application.routes.draw do
   resources :surveys, :only => [:new, :create, :show]
   resources :responses, :only => [:new, :create, :edit, :update]
   resources :submissions, :only => [:new, :create, :edit, :update]
+  resources :homepage
 
-  root to: 'sessions#new'
+  root to: 'homepage#show'
 
 end
