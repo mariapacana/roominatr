@@ -4,6 +4,7 @@
 		<span id="options">
 			<% if logged_in? %>
 				<li><%= link_to "Make Survey", new_survey_path %></li>
+				<li><%= link_to "Search for Roommates", users_path %></li>
 				<li><%= link_to "Your Profile", user_path(current_user) %></li>
 				<li><%= link_to "Sign Out", signout_path %></li>
 			<% else %>

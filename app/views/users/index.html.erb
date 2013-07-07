@@ -1,5 +1,13 @@
 <h2>Search for Roommates!</h2>
 
+<%= form_tag users_search_path, method: "get" do %>
+	<%= label_tag :male, "Male" %>
+  <%= check_box_tag :male %>
+  <%= label_tag :female, "Female" %>
+  <%= check_box_tag :female %>
+  <%= submit_tag "Filter" %>
+<% end %>
+
 <% @users.each do |user| %>
 	<%= render :partial => 'show', :locals => { :user => user } %>
 <% end %>
