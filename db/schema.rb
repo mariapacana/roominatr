@@ -13,7 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20130706190957) do
 
-
   create_table "answers", :force => true do |t|
     t.string   "text"
     t.integer  "weight"
@@ -66,8 +65,8 @@ ActiveRecord::Schema.define(:version => 20130706190957) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.text     "summary"
-    t.text     "best_roomate"
-    t.text     "worst_roomate"
+    t.text     "best_roommate"
+    t.text     "worst_roommate"
     t.string   "pets"
     t.string   "food_preferences"
     t.string   "weekend_activity"

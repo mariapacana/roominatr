@@ -8,7 +8,20 @@ class User < ActiveRecord::Base
 										:uniqueness => true,
 										:format => {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i}
 
-  attr_accessible :username, :email, :password, :password_confirmation, :avatar, :birthday, :gender
+  attr_accessible :username, 
+                  :email, 
+                  :password, 
+                  :password_confirmation, 
+                  :avatar, 
+                  :birthday, 
+                  :gender, 
+                  :food_preferences,
+                  :summary,
+                  :best_roommate,
+                  :worst_roommate,
+                  :pets,
+                  :weekend_activity
+
   has_secure_password
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
 

@@ -14,12 +14,12 @@
 
 body {
   height: 100%;
-  background-color: #FCFCFC;
   padding: 0;
   margin: 0;
 }
 
 #container {
-	width: 80%;
+	width: 780px;
 	margin: 50px auto auto auto;
+
 }
