@@ -1,0 +1,87 @@
+
+$gray: #E1D9E8;
+
+	.profile_edit {
+		width: 500px;
+		border: #49A5FF solid 1px;
+		margin: 8px;
+		padding: 8px;
+		border-radius: 10px;
+
+	h3 {
+		margin: 0 0 8px 0;
+		padding: 0;
+		}
+	}
+
+	.submission {
+	  border: #49A5FF solid 1px;
+	  margin: 8px;
+	  padding: 8px;
+	  border-radius: 10px;
+	}
+
+	img {
+		width: 300px;
+		border: 5px solid #FF8612;
+		border-radius: 5px;
+	}
+
+	.basic_info {
+		float:right;
+		width: 58%;
+		background-color: rgba(, 129, 255, .2);
+	}
+
+
+	.q_title {
+		font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+		font-weight: thicker;
+		font-size: 18pt;
+		color: #FF8612;
+	}
+
+	p {
+		font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+		font-size: 15pt
+	}
+
+#container{
+	background-color: white;
+}
+
+	body {
+		background-color: #0073A6;
+	}
+
+	#profile_header {
+		height: 758px;
+	}
+
+	#best_worst {
+		float: right;
+		width: 100%;
+	}
+
+	.quotes {
+		font-size: 18px;
+	}
+
+	.best {
+		width: 50%;
+		float:left;
+		border-right: 1px solid gray;
+	}
+
+
+	.worst {
+		width: 49%;
+		float: right;
+	}
+	.best, .worst .q_title {
+		text-align: center;
+	}
+
+
+
+
