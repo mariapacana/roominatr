@@ -23,8 +23,7 @@ class User < ActiveRecord::Base
                   :weekend_activity
 
   has_secure_password
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :path => "#{Rails.root}/app/assets/images/default_profile.jpg"
-
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
   def new_survey
     taken_surveys = submissions.collect {|submission| submission.survey }
     (Survey.all - taken_surveys).sample
@@ -55,6 +54,12 @@ class User < ActiveRecord::Base
     later = age_min.years.ago
     earlier = age_max.years.ago
     where(birthday: (earlier..later))
+  end
+
+  def survey_progress
+    submitted = submissions.length
+    total = Survey.all.length
+    (100*submitted/total.to_f).floor
   end
 
 end
