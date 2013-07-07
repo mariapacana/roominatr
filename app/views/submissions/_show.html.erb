@@ -1,8 +1,8 @@
 <div class = "submission" id="submission<%= submission.id %>">
   <h1>Response to <%= submission.survey.title %></h1>
 
-  <%= button_to "Edit", edit_submission_path(submission), :method => :get, :remote => true %>
-
+  <%= button_to "Edit", edit_submission_path(submission), :class => "edit_submission", :method => :get, :remote => true %>
+  <%= button_to "Delete", submission_path(submission), :class => "delete_submission", :method => :delete, :remote => true %>
   <ul>
     <% submission.responses.each do |response| %>
       <li><%= render partial: 'responses/show', locals: { response: response } %></li>

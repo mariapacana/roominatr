@@ -10,7 +10,6 @@ class SubmissionsController < ApplicationController
   end
 
   def create
-    p "WE ARE CREATING======================================="
     @survey = Survey.find(params[:survey_id])
     @submission = Submission.new(survey: @survey, user: current_user)
 
@@ -37,8 +36,6 @@ class SubmissionsController < ApplicationController
   end
 
   def update
-    p "WE ARE UPDATING======================================="
-    p params
     @survey = Survey.find(params[:survey_id])
     @submission = Submission.find(params[:id])
 
@@ -54,6 +51,15 @@ class SubmissionsController < ApplicationController
 
       render_partial('updated_submission', 'show', {:submission => @submission})
     end
+  end
+
+  def destroy
+    p params
+    @submission = Submission.find(params[:id])
+    p "DESTROY=============================="
+    p @submission
+    @submission.destroy
+    head :ok
   end
 
 end
