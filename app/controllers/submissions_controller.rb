@@ -20,8 +20,11 @@ class SubmissionsController < ApplicationController
                                                              :layout => false)}
     else
       params[:responses].each do |question_id, answer_id|
-        @submission.responses.build :question_id => question_id, :answer_id => answer_id
+        @submission.responses.build(:question_id => question_id,
+                                    :answer_id => answer_id,
+                                    :submission_id => @submission.id)
       end
+
       @submission.save
       render :json => { :new_submission => render_to_string(:partial => 'show',
                                                             :locals => {:submission => @submission },
