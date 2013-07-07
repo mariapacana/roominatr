@@ -1,6 +1,6 @@
 <div id="nav">
 	<ul>
-		<li id = "logo">ROOMINATOR</li>
+		<li id = "logo"><%= link_to "ROOMINATOR", root_path %></li>
 		<span id="options">
 			<% if logged_in? %>
 				<li><%= link_to "Make Survey", new_survey_path %></li>
@@ -14,3 +14,4 @@
 		</span>
 	</ul>
 </div>
+d
