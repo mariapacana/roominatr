@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   has_many :submissions
   has_many :responses, through: :submissions
   has_many :answers, through: :responses
-	validates :username, :presence => true, 
+	validates :username, :presence => true,
 											 :uniqueness => true
 	validates :email, :presence => true,
 										:uniqueness => true,
@@ -17,22 +17,21 @@ class User < ActiveRecord::Base
     (Survey.all - taken_surveys).sample
   end
 
-  def score(category_name, type)
+  def score(category, type)
     user_answers = answers.select do |a|
-      a.question.survey.category.name == category_name and
+      a.question.survey.category == category and
       a.question.qtype == type
     end
-    user_answers.inject(0){ |sum, answer| sum + answer.weight }/user_answers.length.to_f  
+    user_answers.inject(0){ |sum, answer| sum + answer.weight }/user_answers.length.to_f
   end
 
   def compatibility_with(user)
     subs = []
     Category.all.each do |category|
-      name = category.name
-      self_diff = (user.score(name, "roommate") - self.score(name, "me")).abs
-      user_diff = (user.score(name, "me") - self.score(name, "roommate")).abs
-      self_imp = self.score(name, "importance")
-      user_imp = user.score(name, "importance")
+      self_diff = (user.score(category, "roommate") - score(category, "me")).abs
+      user_diff = (user.score(category, "me") - score(category, "roommate")).abs
+      self_imp = score(category, "importance")
+      user_imp = user.score(category, "importance")
       sub = (user_imp*(1-self_diff/2)+self_imp*(1-user_diff/2))/(self_imp+user_imp)
       subs << sub unless sub.nan?
     end

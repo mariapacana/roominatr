@@ -1,10 +1,9 @@
 <h2>Search for Roommates!</h2>
 
 <%= form_tag users_search_path, method: "get" do %>
-	<%= label_tag :male, "Male" %>
-  <%= check_box_tag :male %>
-  <%= label_tag :female, "Female" %>
-  <%= check_box_tag :female %>
+  <%= select_tag :gender, options_for_select(['Male', 'Female']), :prompt => 'Select' %>
+  <%= number_field_tag :age_min, nil, in: 18...90 %>
+  <%= number_field_tag :age_max, nil, in: 18...90 %>
   <%= submit_tag "Filter" %>
 <% end %>
 
