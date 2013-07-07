@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
                   :weekend_activity
 
   has_secure_password
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => '/default_pic'
   def new_survey
     taken_surveys = submissions.collect {|submission| submission.survey }
     (Survey.all - taken_surveys).sample

@@ -1,6 +1,6 @@
 Roominatr::Application.routes.draw do
 
-  match '/avatars/original/missing.png', to: 'users#image', as: 'users_image'
+  match '/default_pic', to: 'users#default_image', as: 'user_default_image'
   match '/users/search', to: 'users#search', :via => :get, as: 'users_search'
   resources :users
   match '/users/:id/picture', to: 'users#update_picture', via: :put, as: 'user_picture'
