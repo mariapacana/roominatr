@@ -57,11 +57,13 @@ namespace :db do
   task :user_seed => :environment do
     puts "Seeding users..."
     User.destroy_all
+    User.create(username: 'maria', email: 'maria@bear.com', password: 'bear', gender: "F")
+    User.create(username: 'will', email: 'will@bear.com', password: 'bear', gender: "M")
 
     100.times do
-      User.create(username: Faker::Internet.user_name, 
-                      email: Faker::Internet.email, 
-                      password: "password", 
+      User.create(username: Faker::Internet.user_name,
+                      email: Faker::Internet.email,
+                      password: "password",
                       gender: ["M", "F", nil].sample,
                       birthday: random_birthday)
     end

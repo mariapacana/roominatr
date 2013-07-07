@@ -10,7 +10,8 @@ class SubmissionsController < ApplicationController
   end
 
   def create
-    @survey = Survey.find params[:survey_id]
+    p "WE ARE CREATING======================================="
+    @survey = Survey.find(params[:survey_id])
     @submission = Submission.new(survey: @survey, user: current_user)
 
     if params[:responses].length != @survey.questions.length
@@ -30,11 +31,29 @@ class SubmissionsController < ApplicationController
   end
 
   def edit
-
+    @submission = Submission.find(params[:id])
+    @survey = @submission.survey
+    render_partial('submission_form', 'edit', {:survey => @survey})
   end
 
   def update
+    p "WE ARE UPDATING======================================="
+    p params
+    @survey = Survey.find(params[:survey_id])
+    @submission = Submission.find(params[:id])
 
+    if params[:responses].length != @survey.questions.length
+      flash[:error] = "Please fill out all questions!"
+      render_partial('submission_form', 'edit', {:survey => @survey})
+    else
+      params[:responses].each do |question_id, answer_id|
+        @submission.responses.find_by_question_id(question_id).update_attribute('answer_id', answer_id)
+      end
+
+      @submission.save
+
+      render_partial('updated_submission', 'show', {:submission => @submission})
+    end
   end
 
 end

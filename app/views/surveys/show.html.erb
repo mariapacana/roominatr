@@ -5,30 +5,30 @@
 		<div>
 			<%= @survey.me_question.body %>
 			<ul>
-				<% @survey.me_question.answers.each do |answer|%> 
+				<% @survey.me_question.answers.each do |answer|%>
 					<li>
 						<%= c.radio_button @survey.me_question.id, answer.id %>
 						<%= answer.text %>
 					</li>
 				<% end %>
 			</ul>
-			
+
 		</div>
 		<div>
 			<%= @survey.roommate_question.body %>
 			<ul>
-				<% @survey.roommate_question.answers.each do |answer|%> 
+				<% @survey.roommate_question.answers.each do |answer|%>
 					<li>
 						<%= c.radio_button @survey.roommate_question.id, answer.id %>
 						<%= answer.text %>
 					</li>
 			</ul>
-			
+
 			<% end %>
 		</div>
 		<div>
 			<%= @survey.importance_question.body %>
-			<% @survey.importance_question.answers.each do |answer|%> 
+			<% @survey.importance_question.answers.each do |answer|%>
 				<li>
 					<%= c.radio_button @survey.importance_question.id, answer.id %>
 					<%= answer.text %>
@@ -36,6 +36,5 @@
 			<% end %>
 		</div>
 	<% end %>
-	<%= submit_tag %>
 <% end %>
 

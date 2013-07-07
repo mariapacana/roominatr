@@ -1,5 +1,7 @@
-<div class = "submission">
+<div class = "submission" id="submission<%= submission.id %>">
   <h1>Response to <%= submission.survey.title %></h1>
+
+  <%= button_to "Edit", edit_submission_path(submission), :method => :get, :remote => true %>
 
   <ul>
     <% submission.responses.each do |response| %>
