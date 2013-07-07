@@ -46,6 +46,8 @@ ActiveRecord::Schema.define(:version => 20130706190957) do
     t.datetime "updated_at", :null => false
   end
 
+  add_index "submissions", ["survey_id", "user_id"], :name => "index_submissions_on_survey_id_and_user_id", :unique => true
+
   create_table "surveys", :force => true do |t|
     t.string  "title"
     t.integer "category_id"

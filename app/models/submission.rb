@@ -8,5 +8,6 @@ class Submission < ActiveRecord::Base
   attr_accessible :survey, :user, :responses_attributes
 
   validates_presence_of :user, :survey
+  validates_uniqueness_of :survey_id, :scope => :user_id
 
 end

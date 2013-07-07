@@ -10,7 +10,7 @@ include ApplicationHelper
 Roominatr::Application.load_tasks
 
 namespace :db do
-  task :seed_all => [:category_seed, :survey_seed, :user_seed, :submission_seed] do
+  task :seed_all => [:category_seed, :survey_seed, :user_seed] do
     puts "Seeded everything!"
   end
 

@@ -5,5 +5,6 @@ class CreateSubmissions < ActiveRecord::Migration
       t.references :user
       t.timestamps
     end
+    add_index :submissions, [:survey_id, :user_id], :unique => true
   end
 end
