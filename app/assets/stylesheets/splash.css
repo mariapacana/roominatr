@@ -1,14 +1,12 @@
-#container1{
-	width: 100%;
-	margin: clear;
-}
-body .homepage{
+body#homepage{
 	background-color: white;
 	width: 100%;
 	height: 100%;
 }
+
+
 .splash_header {
-	margin-top: 31px;
+	margin-top: 45px;
 	background-color: #74cac0;
 	width: 100%;
 	text-align: center;
@@ -33,6 +31,11 @@ body .homepage{
 
 }
 
+.mission p {
+	margin: 0;
+}
+
+
 .mission_text {
 	line-height: 500px;
 	text-align: center
@@ -46,24 +49,35 @@ body .homepage{
 	font-size: 20pt;
 }
 
-.why {
-	text-align: center;
-	display: inline-block;
-	margin-left: 45%;
-	background-color: #468DD1;
-}
-
-.video {
-	background-color: #468DD1;
+.video, p {
+	margin: 0;
 }
 
 #text {
-	display: block;
-	padding-left: 100px;
-	padding-right: 100px;
+	width: 500px;
+	text-align: center;
+	display: inline-block;
+	background-color: #468DD1;
 }
 
 
+.video {
+	background-color: #468DD1;
+	padding-top: 50px;
+}
+
+iframe {
+	padding-bottom: 50px;
+}
+
+
+#text_about {
+	margin: 0;
+	width: 500px;
+	text-align: center;
+	display: inline-block;
+	background-color: #E62329;
+}
 
 #cloud_pics {
 	background-position: 
@@ -73,4 +87,67 @@ p {
 	color: white;
 	line-height: 2.0;
 }
+
+.video_frame, iframe {
+	margin: 0 auto;
+	display: block;	
+}
+
+.about_us {
+	text-align: center;
+	background-color: #E62329;
+}
+
+#team {
+	display: inline-block;
+	overflow: hidden;
+	text-align: center;
+	margin-left: 50px;
+	margin-right: 50px;
+	margin-top: 100px;
+	margin-bottom: 100px;
+
+}
+
+/*#team_image {
+	border: 1px solid purple;
+	display: block;
+	overflow: hidden;
+	border-radius: 900px;
+
+	}*/
+
+	#headshot {
+		display: block;
+		overflow: hidden;
+		border-radius: 900px;
+
+		width: 200px;
+		height: auto;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
