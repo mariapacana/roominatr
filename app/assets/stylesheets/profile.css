@@ -78,10 +78,13 @@ $gray: #E1D9E8;
 		width: 49%;
 		float: right;
 	}
+
 	.best, .worst .q_title {
 		text-align: center;
 	}
 
-
+	#survey_info {
+		margin-top: 200px;
+	}
 
 

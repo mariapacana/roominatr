@@ -1,47 +1,49 @@
-	<%= link_to "Edit Profile", edit_user_path(@user) %>
-	<%= link_to "Change Password", user_password_path(@user) %>
-<div id="profile_header">
+<div>
+  <%= link_to "Edit Profile", edit_user_path(@user) %>
+  <%= link_to "Change Password", user_password_path(@user) %>
 
-<h1><%= @user.username %>'s Profile</h1>
-<%= image_tag @user.avatar.url %>
-<div class="basic_info">
-  <p>Username: <%= @user.username %></p>
-  <p>Email: <%= @user.email %></p>
-  <p>Gender: <%= @user.gender %></p>
-  <p>Birthday: <%= @user.birthday %><p>
-</div>
+  <div id="profile_header">
 
-<div id="more_info"
- <div id="info_1">
- 	<p class="q_title">On the weekend you can find me:</p>
-  <p>	<%= @user.weekend_activity %></p>
-</div>
+    <h1><%= @user.username %>'s Profile</h1>
+    <%= image_tag @user.avatar.url %>
 
- 	<div id="info_2">
- 	<p class="q_title">Food preference:</p>
- 	<p><%= @user.food_preferences %></p>
- </div>
+    <div class="basic_info">
+      <p>Username: <%= @user.username %></p>
+      <p>Email: <%= @user.email %></p>
+      <p>Gender: <%= @user.gender %></p>
+      <p>Birthday: <%= @user.birthday %><p>
+    </div>
 
- 		<div id="info_3">
- 				<p class="q_title">Pet preference:</p>
- 				<p><%= @user.pets %></p>
-		</div>
+    <div id="more_info"
+      <div id="info_1">
+        <p class="q_title">On the weekend you can find me:</p>
+        <p>	<%= @user.weekend_activity %></p>
+      </div>
 
-</div>
+      <div id="info_2">
+        <p class="q_title">Food preference:</p>
+        <p><%= @user.food_preferences %></p>
+      </div>
 
-<div id="best_worst">
+      <div id="info_3">
+       <p class="q_title">Pet preference:</p>
+       <p><%= @user.pets %></p>
+    </div>
 
-<div class="best">
-	<p class="q_title">Best Roommate Experience</p>
-	  <p class="quotes">"<%= @user.best_roommate %>"</p>
-</div>
+  </div>
 
-<div class="worst">
-	<p class="q_title">Worst Roommate Experience</p>
-	<p class="quotes">"<%= @user.worst_roommate %>"</p>
-</div>
+ <div id="best_worst">
 
+    <div class="best">
+     <p class="q_title">Best Roommate Experience</p>
+     <p class="quotes">"<%= @user.best_roommate %>"</p>
+    </div>
 
+    <div class="worst">
+      <p class="q_title">Worst Roommate Experience</p>
+      <p class="quotes">"<%= @user.worst_roommate %>"</p>
+    </div>
+  </div>
 </div>
 
 

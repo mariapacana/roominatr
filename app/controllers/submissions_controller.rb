@@ -3,6 +3,7 @@ class SubmissionsController < ApplicationController
   include AjaxHelper
 
   def new
+    p "WE ARE HERE=================================================="
     @submission = Submission.new
     @survey = current_user.new_survey
 
