@@ -1,0 +1,36 @@
+#search_pic{
+	width: 200px;
+	border: 5px solid #FF8612;
+	border-radius: 5px;
+}
+
+#star_container {
+	position:relative;
+	float: right;
+}
+
+#score {
+	color: black;
+	font-size: 30pt;
+	width: 100px;
+	position:absolute;
+	text-align: right;
+	top: 60px;
+	left: 50px;
+}
+
+
+#name {
+	color: black;
+}
+
+#star {
+	width: 200px;
+}
+
+#summary {
+	color:black;
+	width: 100px;
+	font-size: 15pt;
+	margin: 0;
+}

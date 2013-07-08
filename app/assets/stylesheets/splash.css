@@ -109,14 +109,6 @@ body#homepage, p {
 
 }
 
-/*#team_image {
-	border: 1px solid purple;
-	display: block;
-	overflow: hidden;
-	border-radius: 900px;
-
-	}*/
-
 	#headshot {
 		display: block;
 		overflow: hidden;
@@ -125,28 +117,6 @@ body#homepage, p {
 		width: 200px;
 		height: auto;
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

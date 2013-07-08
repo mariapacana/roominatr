@@ -1,5 +1,10 @@
-<div>
-	<%= user.username %>
-	<%= image_tag user.avatar.url(:thumb) %>
-	<%= user.compatibility_with current_user %>
+<div class="submission">
+	<p id="name"><%= user.username %></p>
+	<%= image_tag user.avatar.url(:thumb), :id => "search_pic" %>
+	<div id="star_container">
+		<%= image_tag "starburst.png", :id => "star" %>
+		<p id="score" ><%= user.compatibility_with current_user %>%</p>
+	</div>
+
+
 </div>
