@@ -43,7 +43,7 @@ $gray: #E1D9E8;
 
 p {
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-	font-size: 15pt
+	font-size: 15pt;
 }
 
 #profile_container{
@@ -55,6 +55,11 @@ p {
 
 body {
 	background-color: #0073A6;
+
+}
+
+#profile_container, p {
+	color: black;
 }
 
 #profile_header {
