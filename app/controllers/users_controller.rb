@@ -5,7 +5,9 @@ class UsersController < ApplicationController
 	include AjaxHelper
 
 	def index
-		@users = User.all - [current_user]
+		if current_user.no_surveys?
+			flash.now[:error] = "Please answer some Questions!"
+		end
 	end
 
 	def new
@@ -71,7 +73,12 @@ class UsersController < ApplicationController
 	end
 
 	def search
-		@users = User.filter_by_age(params[:age_min].to_i, params[:age_max].to_i).where(gender: params[:gender])
+		if params[:gender] == ""
+			users = User.scoped
+		else 
+			users = User.where(gender: params[:gender])
+		end
+		@users = users.filter_by_age(params[:age_min], params[:age_max])
 		render_partial('show_users', 'index', { :users => @users })
 	end
 

@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
                   :weekend_activity
 
   has_secure_password
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => '/default_pic'
+  has_attached_file :avatar, :styles => { :medium => "300x300", :thumb => "50x50#" }, :default_url => '/default_pic'
   def new_survey
     taken_surveys = submissions.collect {|submission| submission.survey }
     (Survey.all - taken_surveys).sample
@@ -47,19 +47,33 @@ class User < ActiveRecord::Base
       sub = (user_imp*(1-self_diff/2)+self_imp*(1-user_diff/2))/(self_imp+user_imp)
       subs << sub unless sub.nan?
     end
-    subs.inject(:+)/subs.length
+    compat = subs.inject(:+)/subs.length
+    (100*compat).floor
   end
 
-  def self.filter_by_age(age_min = 18, age_max = 80)
+  def self.filter_by_age(age_min, age_max)
+    age_min = age_min.to_i
+    if age_max == ""
+      age_max = 200
+    else
+      age_max = age_max.to_i
+    end
+    p "age_min #{age_min}"
+    p "age_max #{age_max}"
     later = age_min.years.ago
     earlier = age_max.years.ago
     where(birthday: (earlier..later))
   end
 
+
   def survey_progress
     submitted = submissions.length
     total = Survey.all.length
     (100*submitted/total.to_f).floor
+  end
+
+  def no_surveys?
+    submissions.length == 0
   end
 
 end
