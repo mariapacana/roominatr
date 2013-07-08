@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130708171312) do
+ActiveRecord::Schema.define(:version => 20130708214350) do
 
   create_table "answers", :force => true do |t|
     t.string   "text"
@@ -31,6 +31,11 @@ ActiveRecord::Schema.define(:version => 20130708171312) do
     t.integer "importance",  :default => 0, :null => false
     t.integer "user_id"
     t.integer "category_id"
+
+  create_table "locations", :force => true do |t|
+    t.float  "lat"
+    t.float  "long"
+    t.string "address"
   end
 
   create_table "questions", :force => true do |t|
