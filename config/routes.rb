@@ -10,6 +10,8 @@ Roominatr::Application.routes.draw do
 
   resources :sessions, :only => [:new, :create, :destroy]
   match '/signout', to: 'sessions#destroy'
+  match '/signup',  to: 'users#new'
+  match '/signin',  to: 'sessions#new'
 
   resources :surveys, :only => [:new, :create, :show]
   resources :responses, :only => [:new, :create, :edit, :update]
