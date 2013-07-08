@@ -9,3 +9,7 @@
     <%= render :partial => 'submissions/index', locals: { user: @user }  %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  bar = new Bar(parseInt("<%=current_user.submissions.length%>"), parseInt("<%=Survey.all.size%>"));
+</script>
