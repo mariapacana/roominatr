@@ -1,4 +1,4 @@
-<div>
+
 
 	<div id="profile_container">
 		<%= link_to "Edit Profile", edit_user_path(@user) %>
@@ -8,26 +8,27 @@
 			<h1><%= @user.username %>'s Profile</h1>
 			<%= image_tag @user.avatar.url, :id => "pro_pic" %>
 			<div class="basic_info">
-				<p>Username: <%= @user.username %></p>
-				<p>Email: <%= @user.email %></p>
-				<p>Gender: <%= @user.gender %></p>
-				<p>Birthday: <%= @user.birthday %><p>
+				<p class="response">Username: <%= @user.username %></p>
+				<p class="response">Email: <%= @user.email %></p>
+				<p class="response">Gender: <%= @user.gender %></p>
+				<p class="response">Birthday: <%= @user.birthday %></p>
+				<p class="response"><%= @user.summary %></p>
 				</div>
 
 				<div id="more_info"
 				<div id="info_1">
 					<p class="q_title">On the weekend you can find me:</p>
-					<p>	<%= @user.weekend_activity %></p>
+					<p class="response">	<%= @user.weekend_activity %></p>
 				</div>
 
 				<div id="info_2">
 					<p class="q_title">Food preference:</p>
-					<p><%= @user.food_preferences %></p>
+					<p class="response"><%= @user.food_preferences %></p>
 				</div>
 
 				<div id="info_3">
 					<p class="q_title">Pet preference:</p>
-					<p><%= @user.pets %></p>
+					<p class="response"><%= @user.pets %></p>
 				</div>
 
 			</div>
@@ -47,5 +48,4 @@
 			</div>
 
 
-			-
 

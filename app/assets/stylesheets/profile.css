@@ -21,6 +21,11 @@ $gray: #E1D9E8;
 	border-radius: 10px;
 }
 
+body {
+	background-color: #0073A6;
+}
+
+
 #pro_pic {
 	width: 300px;
 	border: 5px solid #FF8612;
@@ -30,13 +35,16 @@ $gray: #E1D9E8;
 .basic_info {
 	float:right;
 	width: 58%;
-	background-color: rgba(, 129, 255, .2);
+}
+
+.basic_info, p {
+	color: black;
 }
 
 
 .q_title {
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-	font-weight: thicker;
+	font-weight: bold;
 	font-size: 18pt;
 	color: #FF8612;
 }
@@ -46,16 +54,15 @@ p {
 	font-size: 15pt;
 }
 
+.response {
+	color: black;
+}
+
 #profile_container{
 	background-color: white;
 	width: 780px;
 	margin: 50px auto auto auto;
 	height:100%;
-}
-
-body {
-	background-color: #0073A6;
-
 }
 
 #profile_container, p {
@@ -73,6 +80,7 @@ body {
 
 .quotes {
 	font-size: 18px;
+	color: black;
 }
 
 .best {

@@ -83,7 +83,7 @@ iframe {
 	background-position: 
 }
 
-p {
+body#homepage, p {
 	color: white;
 	line-height: 2.0;
 }
