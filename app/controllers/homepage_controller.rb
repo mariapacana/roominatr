@@ -1,4 +1,4 @@
-class HomepageController < ActionController::Base
+class HomepageController < ApplicationController
 
 	def show
 	end
