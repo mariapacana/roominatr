@@ -3,7 +3,7 @@
 <div id="profile_header">
 
 <h1><%= @user.username %>'s Profile</h1>
-<%= image_tag @user.avatar.url %>
+<%= image_tag @user.avatar.url, :id => "pro_pic" %>
 <div class="basic_info">
   <p>Username: <%= @user.username %></p>
   <p>Email: <%= @user.email %></p>
