@@ -56,8 +56,8 @@ class User < ActiveRecord::Base
   def compatibility_with(user)
     subs = []
     Category.all.each do |category|
-      self_diff = (user.score(category, "roommate") - score(category, "me")).abs
-      user_diff = (user.score(category, "me") - score(category, "roommate")).abs
+      self_diff = (user.score(category, "roommate") - score(category, "me")).abs.to_f
+      user_diff = (user.score(category, "me") - score(category, "roommate")).abs.to_f
       self_imp = score(category, "importance")
       user_imp = user.score(category, "importance")
       sub = (user_imp*(1-self_diff/2)+self_imp*(1-user_diff/2))/(self_imp+user_imp)
