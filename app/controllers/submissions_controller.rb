@@ -18,14 +18,16 @@ class SubmissionsController < ApplicationController
       flash[:error] = "Please fill out all questions!"
       render_partial('submission_form', 'new', {:survey => @survey})
     else
+      @category_score = CategoryScore.find_by_category_id_and_user_id(@survey.category.id, current_user.id)
       params[:responses].each do |question_id, answer_id|
+        @question = Question.find(question_id)
+        @answer = Answer.find(answer_id)
+        @category_score.update(@question.qtype, @answer.weight)
         @submission.responses.build(:question_id => question_id,
                                     :answer_id => answer_id,
                                     :submission_id => @submission.id)
       end
-
       @submission.save
-
       render_partial('new_submission', 'show', {:submission => @submission})
     end
   end

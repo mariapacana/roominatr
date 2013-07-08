@@ -16,6 +16,7 @@ class UsersController < ApplicationController
 
 	def create
 		@user = User.new(params[:user])
+		create_category_scores(@user)
 		if @user.save
 			flash[:success] = "Welcome to Roominatr"
 			sign_in(@user)

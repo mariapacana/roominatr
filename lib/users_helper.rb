@@ -10,4 +10,10 @@ module UsersHelper
 
 		params
 	end
+
+	def create_category_scores(user)
+		Category.all.each do |category|
+			CategoryScore.create(user: user, category: category)
+		end
+	end
 end

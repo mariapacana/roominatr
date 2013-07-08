@@ -2,12 +2,13 @@ class User < ActiveRecord::Base
   has_many :submissions
   has_many :responses, through: :submissions
   has_many :answers, through: :responses
-	validates :username, :presence => true,
+	has_many :category_scores
+  validates :username, :presence => true,
 											 :uniqueness => true
 	validates :email, :presence => true,
 										:uniqueness => true,
 										:format => {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i}
-
+  after_create :create_category_scores
   attr_accessible :username, 
                   :email, 
                   :password, 
@@ -27,6 +28,15 @@ class User < ActiveRecord::Base
   def new_survey
     taken_surveys = submissions.collect {|submission| submission.survey }
     (Survey.all - taken_surveys).sample
+  end
+
+  def create_category_scores
+    Category.all.each do |category|
+      category_score = CategoryScore.new
+      category_score.user = self
+      category_score.category = category
+      category_score.save
+    end
   end
 
   def score(category, type)
