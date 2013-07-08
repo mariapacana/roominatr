@@ -1,0 +1,11 @@
+<div id="show_progress">
+  <span>Survey Progress!</span>
+    <div class="meter">
+      <span style="width: <%= current_user.survey_progress %>%"></span>
+    </div>
+    <%= form_tag new_submission_path, :method => :get,
+                                      :id =>'new_survey_button',
+                                      :remote => true do |f| %>
+      <%= submit_tag "Take Survey" %>
+  <% end %>
+</div>

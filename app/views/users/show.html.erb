@@ -1,16 +1,10 @@
 <%= render :partial => 'shared/user_info' %>
 
 <% if @user == current_user %>
+
   <div id = "survey_info">
     <h1>Your Surveys</h1>
-    <div class="meter">
-      <span style="width: <%= current_user.survey_progress %>%"></span>
-    </div>
-    <%= form_tag new_submission_path, :method => :get,
-                                      :id =>'new_survey_button',
-                                      :remote => true do |f| %>
-      <%= submit_tag "Take Survey" %>
-    <% end %>
+    <div id="blank"><%= render :partial => 'show_progress' %></div>
     <div id="new_survey"></div>
     <%= render :partial => 'submissions/index', locals: { user: @user }  %>
   </div>
