@@ -39,12 +39,18 @@ class User < ActiveRecord::Base
     end
   end
 
-  def score(category, type)
+  def score_slow(category, type)
     user_answers = answers.select do |a|
       a.question.survey.category == category and
       a.question.qtype == type
     end
     user_answers.inject(0){ |sum, answer| sum + answer.weight }/user_answers.length.to_f
+  end
+
+  def score(category, type)
+    qtype = type.to_sym
+    category_score = category_scores.where(category_id: category.id).first
+    category_score.read_attribute(qtype)
   end
 
   def compatibility_with(user)
@@ -84,6 +90,11 @@ class User < ActiveRecord::Base
 
   def no_surveys?
     submissions.length == 0
+  end
+
+  def category_score(category, qtype)
+    category_score = category_scores.where(category_id: category.id).first
+    category_score.read_attribute(qtype)
   end
 
 end

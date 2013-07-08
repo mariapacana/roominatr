@@ -57,6 +57,7 @@ namespace :db do
   task :user_seed => :environment do
     puts "Seeding users..."
     User.destroy_all
+    CategoryScore.destroy_all
     User.create(username: 'maria', email: 'maria@bear.com', password: 'bear', gender: "F")
     User.create(username: 'will', email: 'will@bear.com', password: 'bear', gender: "M")
 
@@ -84,10 +85,14 @@ namespace :db do
       rand(MIN_SURVEYS..MAX_SURVEYS).times do
         survey = surveys.delete_at(rand(0..surveys.size-1))
         submission = Submission.create(survey: survey, user: user)
+        category_score = CategoryScore.find_by_user_id_and_category_id(user.id, survey.category.id)
         survey.questions.each do |question|
           answer_ids = question.answers.pluck(:id)
+          answer_id = answer_ids.sample
+          answer = Answer.find(answer_id)
           submission.responses.build(question_id: question.id,
-                                     answer_id: answer_ids.sample)
+                                     answer_id: answer_id)
+          category_score.update_score(question.qtype, answer.weight)
         end
         submission.save
       end

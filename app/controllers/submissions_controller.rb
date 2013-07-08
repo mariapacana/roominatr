@@ -20,9 +20,9 @@ class SubmissionsController < ApplicationController
     else
       @category_score = CategoryScore.find_by_category_id_and_user_id(@survey.category.id, current_user.id)
       params[:responses].each do |question_id, answer_id|
-        @question = Question.find(question_id)
-        @answer = Answer.find(answer_id)
-        @category_score.update(@question.qtype, @answer.weight)
+        @question = Question.find(question_id.to_i)
+        @answer = Answer.find(answer_id.to_i)
+        @category_score.update_score(@question.qtype, @answer.weight)
         @submission.responses.build(:question_id => question_id,
                                     :answer_id => answer_id,
                                     :submission_id => @submission.id)
