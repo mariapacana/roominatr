@@ -14,16 +14,25 @@
   <% end %>
   <%= f.label :description, "Provide a short description here." %><br>
   <%= f.text_area :description %><br>
+  <%= f.label :house_type, "Type of place" %><br>
+  <%= f.select :house_type, options_for_select(["house","apartment"]) %><br>
   <%= f.label :num_beds, "Number of bedrooms" %><br>
   <%= f.select :num_beds, options_for_select([1,2,3,4]) %><br>
+  <%= f.label :num_baths, "Number of bathrooms" %><br>
+  <%= f.select :num_baths, options_for_select([1,2,3]) %><br>
   <%= f.label :rent, "Rent" %><br>
   <%= f.text_field :rent %><br>
+  <%= f.label :deposit, "Deposit" %><br>
+  <%= f.text_field :deposit %><br>
   <%= f.label :dog, "Dogs?" %><br>
   <%= f.check_box :dog %><br>
   <%= f.label :cat, "Cats?" %><br>
   <%= f.check_box :cat %><br>
   <%= f.label :smoking, "Smoking?" %><br>
   <%= f.check_box :smoking %><br>
+  <%= f.label :background_check, "Requires background check" %><br>
+  <%= f.check_box :background_check %><br>
+  <%= f.file_field :avatar %>
   <%= f.submit "Add House" %>
 <% end %>
 

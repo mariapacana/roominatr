@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130709165047) do
+ActiveRecord::Schema.define(:version => 20130709224541) do
 
   create_table "answers", :force => true do |t|
     t.string   "text"
@@ -34,14 +34,21 @@ ActiveRecord::Schema.define(:version => 20130709165047) do
   end
 
   create_table "houses", :force => true do |t|
-    t.text    "description"
-    t.text    "image"
-    t.integer "num_beds"
-    t.integer "rent"
-    t.boolean "dog"
-    t.boolean "cat"
-    t.boolean "smoking"
-    t.integer "user_id"
+    t.text     "description"
+    t.text     "house_type"
+    t.integer  "num_beds"
+    t.integer  "num_baths"
+    t.integer  "rent"
+    t.integer  "deposit"
+    t.boolean  "dog"
+    t.boolean  "cat"
+    t.boolean  "smoking"
+    t.boolean  "background_check"
+    t.integer  "user_id"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "locations", :force => true do |t|

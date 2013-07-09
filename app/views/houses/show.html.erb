@@ -6,12 +6,18 @@
 <%= @house.location.address %><br>
 <%= "#{@house.location.city}, #{@house.location.state}, #{@house.location.zip} "%><br>
 
+<%= image_tag @house.avatar.url %>
+
 <h3>Rent</h3>
-<%= @house.rent %>
+Rent: $<%= @house.rent %>
+Deposit: $<%= @house.deposit %>
 
 <h3>Description</h3>
-<%= @house.description %><br>
-<%= @house.num_beds %> bedrooms<br>
+<%= @house.description %>
+
+<h3>More Details</h3>
+<%= "#{@house.num_beds} bedrooms, #{@house.num_baths} bathrooms" %><br>
 <%= if @house.dog then "Dogs are allowed" else "Dogs are not allowed" end %><br>
 <%= if @house.cat then "Cats are allowed" else "Cats are not allowed" end %><br>
 <%= if @house.smoking then "Smoking is allowed" else "Smoking isn't allowed" end %><br>
+<%= if @house.background_check then "A background check is required" else "A background check isn't required" end %><br>

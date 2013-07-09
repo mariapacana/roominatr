@@ -9,10 +9,14 @@ class Location < ActiveRecord::Base
                   
   belongs_to :addressable, :polymorphic => true
 
-  # before_save :get_lat_long_zip
+  before_save :get_lat_long_zip
 
   def format_gmaps_request_zip
     "http://maps.googleapis.com/maps/api/geocode/json?&address=#{zip}&sensor=true"
+  end
+
+  def format_gmaps_request_address_city
+    "http://maps.googleapis.com/maps/api/geocode/json?&address=#{address.split(" ").join("+")}&city=#{city.split(" ").join("+")}&sensor=true"
   end
 
   def get_lat_long_zip
@@ -22,7 +26,7 @@ class Location < ActiveRecord::Base
   end
 
   def get_lat_long_neighborhood
-    conn = Faraday.new(:url => format_gmaps_request)
+    conn = Faraday.new(:url => format_gmaps_request_address_city)
     body = JSON.parse(conn.get.body)["results"][0]
     if body
       geometry = body["geometry"]["location"]
