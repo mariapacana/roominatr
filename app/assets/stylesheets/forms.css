@@ -65,6 +65,7 @@
 	box-shadow: 0 0 30px #74cac0;
 }
 
+
 #users{
 	border: #49A5FF solid 8px;
 	margin: 50px;
@@ -77,4 +78,8 @@
 	margin-left: 350px;
 	padding-left: 10px;
 	box-shadow: 0 0 30px #74cac0;
+}
+
+#get_users, p {
+	color: black;
 }

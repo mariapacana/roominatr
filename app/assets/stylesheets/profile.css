@@ -33,11 +33,6 @@ body {
 	color: #FF8612;
 }
 
-p {
-	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
-	font-size: 15pt;
-}
-
 .response {
 	color: black;
 }
@@ -51,6 +46,8 @@ p {
 
 #profile_container, p {
 	color: black;
+	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	font-size: 15pt;
 }
 
 #profile_header {
@@ -81,8 +78,8 @@ p {
 	text-align: center;
 }
 
-	#survey_info {
-		margin-top: 200px;
-	}
+#survey_info {
+	margin-top: 200px;
+}
 
 
