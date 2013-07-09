@@ -6,9 +6,26 @@
 		<% end %>
 	</ul>
 <% end %>
-<%= f.text_field :username, placeholder: "username" %><br>
-<%= f.text_field :email, placeholder: "email" %><br>
+<%= f.label "Username:" %>
+<%= f.text_field :username, placeholder: "Emperor Norton" %><br>
+<%= f.label "Email:" %>
+<%= f.text_field :email, placeholder: "emperor@sf.com" %><br>
+<%= f.label "Gender:" %>
+<%= f.radio_button(:gender, "M") %>
+<%= f.label(:gender, "Male") %>
+<%= f.radio_button(:gender, "F") %>
+<%= f.label(:gender, "Female") %><br>
+<%= f.label :birthday, "Birthday:" %>
+<%= f.date_select :birthday, { :start_year => 1930, :end_year => Time.now.year, :use_two_digit_numbers => true } %><br>
+<%= f.fields_for :location do |l| %>
+  <%= l.label "Zip:" %>
+  <%= l.text_field :zip, placeholder: "94117" %><br>
+<% end %>
+<%= f.label "You..." %>
+<%= f.select :house, options_for_select([["have an apartment",true], ["don't have an apartment",false]])%><br>
+<%= f.label "Password:" %>
 <%= f.password_field :password, placeholder: "password" %><br>
+<%= f.label "Password Confirmation:" %>
 <%= f.password_field :password_confirmation, placeholder: "password_confirmation" %><br>
 <%= f.submit %>
 <% end %>

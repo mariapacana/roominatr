@@ -2,13 +2,6 @@
   <p id="name">Update Personal Information</p>
   <%= form_for @user do |f| %>
     <%= flash[:error] %><br>
-    <%= f.label "Gender:" %>
-    <%= f.radio_button(:gender, "M") %>
-    <%= f.label(:gender, "Male") %>
-    <%= f.radio_button(:gender, "F") %>
-    <%= f.label(:gender, "Female") %><br>
-    <%= f.label :birthday, "Birthday:" %>
-    <%= f.date_select :birthday, { :start_year => 1930, :end_year => Time.now.year, :use_two_digit_numbers => true } %><br>
     <%= f.label :pets, "I own and/or am happy to live with:" %><br>
     <%= f.select :pets, options_for_select(["Dogs", "Cats", "Any", "No Pets"]) %><br>
     <%= f.label :weekend_activity, "On the weekend you'd find me:" %><br>

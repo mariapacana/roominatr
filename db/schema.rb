@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130708214350) do
+ActiveRecord::Schema.define(:version => 20130709032535) do
 
   create_table "answers", :force => true do |t|
     t.string   "text"
@@ -38,6 +38,9 @@ ActiveRecord::Schema.define(:version => 20130708214350) do
     t.float   "long"
     t.string  "address"
     t.string  "neighborhood"
+    t.string  "city"
+    t.string  "country"
+    t.string  "zip"
     t.integer "user_id"
   end
 
@@ -88,6 +91,7 @@ ActiveRecord::Schema.define(:version => 20130708214350) do
     t.string   "pets"
     t.string   "food_preferences"
     t.string   "weekend_activity"
+    t.boolean  "house"
   end
 
 end
