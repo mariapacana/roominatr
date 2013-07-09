@@ -37,12 +37,7 @@ class User < ActiveRecord::Base
                   :admin
 
   has_secure_password
-  has_attached_file :avatar, :styles => { :medium => "300x300", :thumb => "50x50#" }, :default_url => '/default_pic'
-  
-  scope :older_than, lambda { |age| where('birthday < ?', age.to_i.years.ago) }
-  scope :younger_than, lambda { |age| where('birthday > ?', age.to_i.years.ago) }
-
-
+  has_attached_file :avatar, :styles => { :medium => "300x300", :thumb => "50x50#" }, :default_url => '/default_image'
   def new_survey
     taken_surveys = submissions.collect {|submission| submission.survey }
     (Survey.all - taken_surveys).sample
