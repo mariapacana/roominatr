@@ -37,7 +37,7 @@ body#homepage{
 
 
 .mission_text {
-	line-height: 500px;
+	line-height: 200px;
 	text-align: center
 }
 
@@ -54,10 +54,12 @@ body#homepage{
 }
 
 #text {
+	height: 50px;
 	width: 500px;
 	text-align: center;
 	display: inline-block;
 	background-color: #468DD1;
+	margin: 0;
 }
 
 
@@ -72,6 +74,7 @@ iframe {
 
 
 #text_about {
+	height: 50px;
 	margin: 0;
 	width: 500px;
 	text-align: center;
