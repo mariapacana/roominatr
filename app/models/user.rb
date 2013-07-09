@@ -48,6 +48,10 @@ class User < ActiveRecord::Base
     (Survey.all - taken_surveys).sample
   end
 
+  def age
+    20 
+  end
+
   def create_category_scores
     Category.all.each do |category|
       category_score = CategoryScore.new
