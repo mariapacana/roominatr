@@ -1,0 +1,23 @@
+.profile_edit {
+	width: 500px;
+	border: #49A5FF solid 1px;
+	margin: 50px;
+	border-radius: 10px;
+		border: 1px solid black;
+	display:block;
+	background-color: white;
+}
+
+	h3 {
+		margin: 0 0 8px 0;
+		padding: 0;
+	}
+
+
+#user_info_edit {
+	float: left;
+}
+
+#picture_edit {
+	float: right;
+}

@@ -1,18 +1,6 @@
 
 $gray: #E1D9E8;
 
-.profile_edit {
-	width: 500px;
-	border: #49A5FF solid 1px;
-	margin: 8px;
-	padding: 8px;
-	border-radius: 10px;
-
-	h3 {
-		margin: 0 0 8px 0;
-		padding: 0;
-	}
-}
 
 .submission {
 	border: #49A5FF solid 1px;
@@ -62,7 +50,7 @@ p {
 	background-color: white;
 	width: 780px;
 	margin: 50px auto auto auto;
-	height:100%;
+	height:100%:
 }
 
 #profile_container, p {

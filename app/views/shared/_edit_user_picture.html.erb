@@ -1,6 +1,6 @@
 <div id="picture_edit" class="profile_edit">
-	<h3>Update Picture</h3>
-	<%= image_tag @user.avatar.url(:thumb) %>
+	<p id="name">Update Picture</p>
+	<%= image_tag @user.avatar.url(:thumb), :id => "search_pic" %>
 	<%= form_for @user, url: user_picture_path do |f| %>
 	  <%= f.file_field :avatar %><br>
 	  <%= f.submit "Update Picture" %>
