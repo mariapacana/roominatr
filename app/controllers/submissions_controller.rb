@@ -1,6 +1,7 @@
 class SubmissionsController < ApplicationController
 
   include AjaxHelper
+  include ScoreHelper
 
   def new
     p "WE ARE HERE=================================================="
@@ -13,16 +14,17 @@ class SubmissionsController < ApplicationController
   def create
     @survey = Survey.find(params[:survey_id])
     @submission = Submission.new(survey: @survey, user: current_user)
-
+    p current_user
+    p @survey.category
     if params[:responses].length != @survey.questions.length
       flash[:error] = "Please fill out all questions!"
       render_partial('submission_form', 'new', {:survey => @survey})
     else
-      @category_score = CategoryScore.find_by_category_id_and_user_id(@survey.category.id, current_user.id)
+      update_category_score(current_user, @survey.category)      
+      # ScoreWorker.perform_async(current_user, @survey.category)
       params[:responses].each do |question_id, answer_id|
         @question = Question.find(question_id.to_i)
         @answer = Answer.find(answer_id.to_i)
-        @category_score.update_score(@question.qtype, @answer.weight)
         @submission.responses.build(:question_id => question_id,
                                     :answer_id => answer_id,
                                     :submission_id => @submission.id)

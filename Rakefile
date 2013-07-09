@@ -5,12 +5,14 @@
 require File.expand_path('../config/application', __FILE__)
 require 'csv'
 require "#{Rails.root}/app/helpers/application_helper"
+require "#{Rails.root}/lib/score_helper"
 include ApplicationHelper
+include ScoreHelper
 
 Roominatr::Application.load_tasks
 
 namespace :db do
-  task :seed_all => [:category_seed, :survey_seed, :user_seed, :submission_seed] do
+  task :seed_all => [:category_seed, :survey_seed, :user_seed, :submission_seed, :score_seed] do
     puts "Seeded everything!"
   end
 
@@ -84,36 +86,31 @@ namespace :db do
       surveys = Survey.all
       rand(MIN_SURVEYS..MAX_SURVEYS).times do
         survey = surveys.delete_at(rand(0..surveys.size-1))
-        submission = Submission.create(survey: survey, user: user)
-        category_score = CategoryScore.find_by_user_id_and_category_id(user.id, survey.category.id)
+        submission = Submission.create(survey: survey, user: user)        
         survey.questions.each do |question|
           answer_ids = question.answers.pluck(:id)
           answer_id = answer_ids.sample
           answer = Answer.find(answer_id)
           submission.responses.build(question_id: question.id,
                                      answer_id: answer_id)
-          category_score.update_score(question.qtype, answer.weight)
         end
         submission.save
       end
     end
   end
 
+  desc "Seeding category scores"
+  task :score_seed => :environment do
+    puts "Seeding Category scores..."
+    CategoryScore.destroy_all
+    User.all.each do |user|
+      Category.all.each do |category|
+        category_score = CategoryScore.create(user: user, category: category)
+        update_category_score(user, category)
+      end
+    end
+  end
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -26,9 +26,9 @@ ActiveRecord::Schema.define(:version => 20130708214350) do
   end
 
   create_table "category_scores", :force => true do |t|
-    t.integer "me",          :default => 0, :null => false
-    t.integer "roommate",    :default => 0, :null => false
-    t.integer "importance",  :default => 0, :null => false
+    t.float   "me",          :default => 0.0, :null => false
+    t.float   "roommate",    :default => 0.0, :null => false
+    t.float   "importance",  :default => 0.0, :null => false
     t.integer "user_id"
     t.integer "category_id"
   end

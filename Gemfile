@@ -22,12 +22,15 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'debugger'
   gem 'faker'
+  gem 'sextant'
   gem 'shoulda-matchers'
   gem 'faraday'
 end
 
 gem 'jquery-rails'
 gem 'paperclip', '~> 3.0'
+gem 'sidekiq'
+gem 'redis', '~> 3.0.4'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
