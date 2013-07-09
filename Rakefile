@@ -68,8 +68,8 @@ namespace :db do
     CategoryScore.destroy_all
 
     location = Location.create(zip: "94117")
-    User.create(username: 'maria', email: 'maria@bear.com', password: 'bear', gender: 'F', birthday: '1982-10-30', has_house: false, location: location, admin: true)
-    User.create(username: 'will', email: 'will@bear.com', password: 'bear', gender: 'M', birthday: '1982-10-30', has_house: false, location: location,admin: true)
+    User.create(username: 'maria', email: 'maria@bear.com', password: 'bear', gender: 'F', birthday: '1982-10-30', has_house: true, location: location, admin: true)
+    User.create(username: 'will', email: 'will@bear.com', password: 'bear', gender: 'M', birthday: '1982-10-30', has_house: true, location: location,admin: true)
     User.create(username: 'quaria', email: 'quaria@bear.com', password: 'bear', gender: 'F', birthday: '1982-10-30', has_house: false, location: location,admin: true)
 
     100.times do

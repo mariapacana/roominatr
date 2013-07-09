@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   has_many :responses, through: :submissions
   has_many :answers, through: :responses
 	has_many :category_scores
+  has_one :house
   has_one :location, :as => :addressable
   
   validates :username, :presence => true,
@@ -37,7 +38,9 @@ class User < ActiveRecord::Base
                   :admin
 
   has_secure_password
+
   has_attached_file :avatar, :styles => { :medium => "300x300", :thumb => "50x50#" }, :default_url => '/default_image'
+
   def new_survey
     taken_surveys = submissions.collect {|submission| submission.survey }
     (Survey.all - taken_surveys).sample

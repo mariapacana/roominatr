@@ -11,12 +11,7 @@
   <%= text_field_tag :city,'City' %>
   <%= number_field_tag :price_min, '600', class: 'number_field' %>
   <%= number_field_tag :age_max, '1000', class: 'number_field' %>
-=======
-<p id='name'>Search for Roommates!</p>
-  <span>Gender</span><%= select_tag :gender, options_for_select([['Male','M'], ['Female','F']]), :prompt => 'Select'%>
-  Min Age: <%= number_field_tag :age_min %>
-  Max Age: <%= number_field_tag :age_max %>
->>>>>>> styling search for roommates bar
+  <p id='name'>Search for Roommates!</p>
   <%= submit_tag "Filter" %>
 <% end %>
 

@@ -1,0 +1,30 @@
+<br>
+<br>
+<br>
+<%= form_for [@user, @house], :url => user_houses_path do |f| %>
+  <%= f.fields_for :location do |l| %>
+    <%= l.label "Street Address:" %>
+    <%= l.text_field :address, placeholder: "707 California Ave." %><br>
+    <%= l.label "City:" %>
+    <%= l.text_field :city, placeholder: "San Francisco" %><br>
+    <%= l.label "State:" %>
+    <%= l.text_field :state, placeholder: "CA" %><br>
+    <%= l.label "Zip:" %>
+    <%= l.text_field :zip, placeholder: "94117" %><br>
+  <% end %>
+  <%= f.label :description, "Provide a short description here." %><br>
+  <%= f.text_area :description %><br>
+  <%= f.label :num_beds, "Number of bedrooms" %><br>
+  <%= f.select :num_beds, options_for_select([1,2,3,4]) %><br>
+  <%= f.label :rent, "Rent" %><br>
+  <%= f.text_field :rent %><br>
+  <%= f.label :dog, "Dogs?" %><br>
+  <%= f.check_box :dog %><br>
+  <%= f.label :cat, "Cats?" %><br>
+  <%= f.check_box :cat %><br>
+  <%= f.label :smoking, "Smoking?" %><br>
+  <%= f.check_box :smoking %><br>
+  <%= f.submit "Add House" %>
+<% end %>
+
+

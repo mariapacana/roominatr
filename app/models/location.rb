@@ -1,5 +1,12 @@
 class Location < ActiveRecord::Base
-  attr_accessible :zip, :lat, :long, :neighborhood
+  attr_accessible :lat, 
+                  :long, 
+                  :address,
+                  :neighborhood,
+                  :city,
+                  :state,
+                  :zip
+                  
   belongs_to :addressable, :polymorphic => true
 
   # before_save :get_lat_long_zip

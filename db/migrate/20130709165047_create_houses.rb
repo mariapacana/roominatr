@@ -8,6 +8,7 @@ class CreateHouses < ActiveRecord::Migration
       t.boolean :dog
       t.boolean :cat
       t.boolean :smoking
+      t.references :user
     end
   end
 end
