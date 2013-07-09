@@ -7,8 +7,10 @@ class UsersController < ApplicationController
 	def index
 		if current_user.no_surveys?
 			flash.now[:error] = "Please answer some Questions!"
+			@top_users = User.all.sample(10)
+		else
+			@top_users = current_user.top_users
 		end
-		@top_users = current_user.top_users
 	end
 
 	def new
