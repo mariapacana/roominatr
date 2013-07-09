@@ -74,13 +74,11 @@ class UsersController < ApplicationController
 	end
 
 	def search
-		if params[:gender] == ""
-			users = User.scoped
-		else 
-			users = User.where(gender: params[:gender])
-		end
-		@users = users.filter_by_age(params[:age_min], params[:age_max])
-		render_partial('show_users', 'index', { :users => @users })
+		users = User.scoped
+		users = users.older_than(params[:age_min]) unless params[:age_min] == ""
+		users = users.younger_than(params[:age_max]) unless params[:age_max] == ""
+		users = users.where(gender: params[:gender]) unless params[:gender] == ""
+		render_partial('show_users', 'index', { :users => users })
 	end
 
 	def default_image
