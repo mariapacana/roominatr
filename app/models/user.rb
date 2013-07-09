@@ -47,7 +47,7 @@ class User < ActiveRecord::Base
   end
 
   def age
-    20 
+    ((DateTime.now.to_date - birthday)/365.25).floor
   end
 
   def create_category_scores

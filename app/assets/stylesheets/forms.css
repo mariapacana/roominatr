@@ -25,7 +25,7 @@
 
 #picture_edit {
 	float: right;
-	margin-right: 350px;
+	margin-right: 250px;
 	width: 300px;
 	padding-left: 75px;
 }
@@ -40,7 +40,7 @@
 	margin-top: 100px;
 	padding-top: 10px;
 	padding-bottom: 10px;
-	margin-left: 350px;
+	margin-left: 250px;
 	padding-left: 10px;
 	box-shadow: 0 0 30px #74cac0;
 }
@@ -51,7 +51,21 @@
 }
 
 #get_users {
-	width: 600px;
+	width: 500px;
+	border: #49A5FF solid 8px;
+	margin: 50px;
+	border-radius: 10px;
+	display:block;
+	background-color: white;
+	margin-top: 100px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-left: 500px;
+	padding-left: 10px;
+	box-shadow: 0 0 30px #74cac0;
+}
+
+#users{
 	border: #49A5FF solid 8px;
 	margin: 50px;
 	border-radius: 10px;

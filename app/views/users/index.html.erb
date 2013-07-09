@@ -1,6 +1,7 @@
 
-
-<%= flash[:error] %>
+<div class="flash">
+	<%= flash[:error] %>
+</div>
 
 <%= form_tag users_search_path, :method => :get, :remote => true, id: 'get_users' do %>
 
