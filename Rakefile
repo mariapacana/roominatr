@@ -11,6 +11,12 @@ include ScoreHelper
 
 Roominatr::Application.load_tasks
 
+namespace :db do 
+  task :dcm => [:drop, :create, :migrate, :seed_all] do
+    puts "dropped, created, migrated and seeded"
+  end
+end
+
 namespace :db do
   task :seed_all => [:category_seed, :survey_seed, :user_seed, :submission_seed, :score_seed] do
     puts "Seeded everything!"
