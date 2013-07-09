@@ -91,6 +91,7 @@ class User < ActiveRecord::Base
 
   def survey_progress
     submitted = submissions.length
+    return 0.0 if submitted == 0
     total = Survey.all.length
     (100*submitted/total.to_f).floor
   end
