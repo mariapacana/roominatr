@@ -23,7 +23,7 @@ group :development, :test do
   gem 'debugger'
   gem 'faker'
   gem 'shoulda-matchers'
-  gem 'geocoder'
+  gem 'faraday'
 end
 
 gem 'jquery-rails'

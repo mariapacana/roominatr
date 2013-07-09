@@ -31,11 +31,13 @@ ActiveRecord::Schema.define(:version => 20130708214350) do
     t.integer "importance",  :default => 0, :null => false
     t.integer "user_id"
     t.integer "category_id"
+  end
 
   create_table "locations", :force => true do |t|
     t.float  "lat"
     t.float  "long"
     t.string "address"
+    t.string "neighborhood"
   end
 
   create_table "questions", :force => true do |t|
