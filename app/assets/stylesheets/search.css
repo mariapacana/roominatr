@@ -6,7 +6,7 @@
 }
 
 #search_pic{
-	width: 200px;
+	width: 150px;
 	border: 5px solid #FF8612;
 	border-radius: 5px;
 }
@@ -23,8 +23,8 @@
 	width: 100px;
 	position:absolute;
 	text-align: right;
-	top: 60px;
-	left: 50px;
+	top: 40px;
+	left: 25px;
 }
 
 
@@ -33,7 +33,7 @@
 }
 
 #star {
-	width: 200px;
+	width: 150px;
 }
 
 #summary {
@@ -44,4 +44,9 @@
 	
 .number_field {
   width: 50px;
+}
+
+
+#profile_container {
+		min-width: 600px;
 }
