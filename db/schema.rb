@@ -103,11 +103,15 @@ ActiveRecord::Schema.define(:version => 20130709165047) do
     t.string   "pets"
     t.string   "food_preferences"
     t.string   "weekend_activity"
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     t.boolean  "has_house"
 =======
     t.boolean  "house"
 >>>>>>> Stashed changes
+=======
+    t.boolean  "house"
+>>>>>>> admin
     t.boolean  "admin",               :default => false
   end
 
