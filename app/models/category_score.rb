@@ -1,7 +1,7 @@
 class CategoryScore < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :category
-	attr_accessible :me, :roommate, :importance
+	attr_accessible :me, :roommate, :importance, :user, :category
 
 	def update_score(qtype, point)
 		score = read_attribute(qtype.to_sym)
