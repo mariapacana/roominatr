@@ -6,9 +6,11 @@ class CreateLocations < ActiveRecord::Migration
       t.string :address
       t.string :neighborhood
       t.string :city
+      t.string :state   
       t.string :country     
       t.string :zip
-      t.references :user
+      t.integer :addressable_id
+      t.string :addressable_type
     end
   end
 end

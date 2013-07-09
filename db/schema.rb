@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130709032535) do
+ActiveRecord::Schema.define(:version => 20130709165047) do
 
   create_table "answers", :force => true do |t|
     t.string   "text"
@@ -33,15 +33,29 @@ ActiveRecord::Schema.define(:version => 20130709032535) do
     t.integer "category_id"
   end
 
+  create_table "houses", :force => true do |t|
+    t.text    "description"
+    t.text    "image"
+    t.integer "num_beds"
+    t.integer "rent"
+    t.boolean "dog"
+    t.boolean "cat"
+    t.boolean "smoking"
+    t.integer "addressable_id"
+    t.string  "addressable_type"
+  end
+
   create_table "locations", :force => true do |t|
     t.float   "lat"
     t.float   "long"
     t.string  "address"
     t.string  "neighborhood"
     t.string  "city"
+    t.string  "state"
     t.string  "country"
     t.string  "zip"
-    t.integer "user_id"
+    t.integer "addressable_id"
+    t.string  "addressable_type"
   end
 
   create_table "questions", :force => true do |t|
@@ -77,6 +91,8 @@ ActiveRecord::Schema.define(:version => 20130709032535) do
     t.string   "gender"
     t.date     "birthday"
     t.text     "photo"
+    t.integer  "addressable_id"
+    t.string   "addressable_type"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
     t.string   "email"
@@ -91,7 +107,6 @@ ActiveRecord::Schema.define(:version => 20130709032535) do
     t.string   "pets"
     t.string   "food_preferences"
     t.string   "weekend_activity"
-    t.boolean  "house"
   end
 
 end
