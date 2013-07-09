@@ -5,11 +5,11 @@
 <%= form_tag users_search_path, :method => :get, :remote => true, id: 'get_users' do %>
 <p id="name">Search for Roommates!</p>
   Gender:<%= select_tag :gender, options_for_select([['Male','M'], ['Female','F']]), :prompt => 'Select' %>
-  Age:<%= number_field_tag :age_min, 'min', class: 'number_field' %> -
-  <%= number_field_tag :age_max, 'max', class: 'number_field' %>
+  Age:<%= number_field_tag :age_min, :placeholder => "placeholder text", class: 'number_field' %> -
+  <%= number_field_tag :age_max, '50', class: 'number_field' %>
   Neighborhood: <%= text_field_tag :neighborhood,'Neighborhood' %>
-  <%= text_field_tag :city,'City' %>
-  <%= number_field_tag :price_min, '600', class: 'number_field' %>
+  <%= text_field_tag :city,'City' %><br>
+  Price: <%= number_field_tag :price_min, '600', class: 'number_field' %> - 
   <%= number_field_tag :age_max, '1000', class: 'number_field' %>
   <%= submit_tag "Filter" %>
 <% end %>

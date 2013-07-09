@@ -3,7 +3,9 @@
 	margin: 8px;
 	padding: 5px;
 	border-radius: 10px;
+	display: block;
 }
+
 
 #search_pic{
 	width: 150px;
@@ -11,22 +13,22 @@
 	border-radius: 5px;
 }
 
-#star_container {
-	position:relative;
-	float: right;
-}
-
-
 #score {
-	color: black;
-	font-size: 30pt;
 	width: 100px;
-	position:absolute;
-	text-align: right;
-	top: 40px;
-	left: 25px;
+	margin-right: 100px;
+	float:right;
+	display: inline-block;
 }
 
+
+#score_text {
+	font-size: 40pt;
+}
+#extra_info {
+	width: 200px;
+	margin: 0;
+	display: inline-block;
+}
 
 #name {
 	color: black;
@@ -38,9 +40,10 @@
 
 #summary {
 	color:black;
-	width: 100px;
+	width: 500px;
 	font-size: 15pt;
 	margin: 0;
+}
 	
 .number_field {
   width: 50px;
@@ -50,3 +53,20 @@
 #profile_container {
 		min-width: 600px;
 }
+
+#extra_info p {
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-right: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
