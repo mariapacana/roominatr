@@ -1,8 +1,8 @@
 class Location < ActiveRecord::Base
   attr_accessible :zip, :lat, :long, :neighborhood
-  belongs_to :user
+  belongs_to :addressable, :polymorphic => true
 
-  before_save :get_lat_long_zip
+  # before_save :get_lat_long_zip
 
   def format_gmaps_request_zip
     "http://maps.googleapis.com/maps/api/geocode/json?&address=#{zip}&sensor=true"

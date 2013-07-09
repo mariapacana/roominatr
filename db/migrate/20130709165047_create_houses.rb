@@ -8,7 +8,6 @@ class CreateHouses < ActiveRecord::Migration
       t.boolean :dog
       t.boolean :cat
       t.boolean :smoking
-      t.references :addressable, :polymorphic => true
     end
   end
 end

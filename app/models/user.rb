@@ -3,13 +3,15 @@ class User < ActiveRecord::Base
   has_many :responses, through: :submissions
   has_many :answers, through: :responses
 	has_many :category_scores
-  has_one :location
+  has_one :location, :as => :addressable
   
   validates :username, :presence => true,
 											 :uniqueness => true
 	validates :email, :presence => true,
 										:uniqueness => true,
 										:format => {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i}
+
+  validates_presence_of :birthday, :gender, :location, :house
 
   after_create :create_category_scores
 

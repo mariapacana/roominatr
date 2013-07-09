@@ -5,7 +5,6 @@ class CreateUsers < ActiveRecord::Migration
 			t.string :gender
 			t.date :birthday
 			t.text :photo
-      t.references :addressable, :polymorphic => true
 			t.timestamps
 		end
 	end

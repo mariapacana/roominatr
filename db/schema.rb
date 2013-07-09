@@ -41,8 +41,6 @@ ActiveRecord::Schema.define(:version => 20130709165047) do
     t.boolean "dog"
     t.boolean "cat"
     t.boolean "smoking"
-    t.integer "addressable_id"
-    t.string  "addressable_type"
   end
 
   create_table "locations", :force => true do |t|
@@ -91,8 +89,6 @@ ActiveRecord::Schema.define(:version => 20130709165047) do
     t.string   "gender"
     t.date     "birthday"
     t.text     "photo"
-    t.integer  "addressable_id"
-    t.string   "addressable_type"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
     t.string   "email"
@@ -107,6 +103,7 @@ ActiveRecord::Schema.define(:version => 20130709165047) do
     t.string   "pets"
     t.string   "food_preferences"
     t.string   "weekend_activity"
+    t.boolean  "house"
   end
 
 end
