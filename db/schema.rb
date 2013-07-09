@@ -34,10 +34,11 @@ ActiveRecord::Schema.define(:version => 20130708214350) do
   end
 
   create_table "locations", :force => true do |t|
-    t.float  "lat"
-    t.float  "long"
-    t.string "address"
-    t.string "neighborhood"
+    t.float   "lat"
+    t.float   "long"
+    t.string  "address"
+    t.string  "neighborhood"
+    t.integer "user_id"
   end
 
   create_table "questions", :force => true do |t|

@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   has_many :responses, through: :submissions
   has_many :answers, through: :responses
 	has_many :category_scores
+  has_one :location
+  
   validates :username, :presence => true,
 											 :uniqueness => true
 	validates :email, :presence => true,

@@ -20,4 +20,7 @@ class Location < ActiveRecord::Base
     end
   end
 
+  def self.distance(loc1, loc2)
+    haversine(loc1, loc2)
+  end
 end
