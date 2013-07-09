@@ -60,16 +60,20 @@ namespace :db do
     puts "Seeding users..."
     User.destroy_all
     CategoryScore.destroy_all
-    User.create(username: 'maria', email: 'maria@bear.com', password: 'bear', gender: 'F', admin: true)
-    User.create(username: 'will', email: 'will@bear.com', password: 'bear', gender: 'M', admin: true)
-    User.create(username: 'quaria', email: 'quaria@bear.com', password: 'bear', gender: 'F', admin: true)
+
+    location = Location.create(zip: "94117")
+    User.create(username: 'maria', email: 'maria@bear.com', password: 'bear', gender: 'F', birthday: '1982-10-30', has_house: false, location: location, admin: true)
+    User.create(username: 'will', email: 'will@bear.com', password: 'bear', gender: 'M', birthday: '1982-10-30', has_house: false, location: location,admin: true)
+    User.create(username: 'quaria', email: 'quaria@bear.com', password: 'bear', gender: 'F', birthday: '1982-10-30', has_house: false, location: location,admin: true)
 
     100.times do
       User.create(username: Faker::Internet.user_name,
-                      email: Faker::Internet.email,
-                      password: "password",
-                      gender: ["M", "F", nil].sample,
-                      birthday: random_birthday)
+                  email: Faker::Internet.email,
+                  password: "password",
+                  gender: ["M", "F", nil].sample,
+                  birthday: random_birthday,
+                  has_house: [true,false].sample,
+                  location: location)
     end
 
   end

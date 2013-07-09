@@ -22,7 +22,7 @@
   <%= l.text_field :zip, placeholder: "94117" %><br>
 <% end %>
 <%= f.label "You..." %>
-<%= f.select :house, options_for_select([["have an apartment",true], ["don't have an apartment",false]])%><br>
+<%= f.select :has_house, options_for_select([["have an apartment",true], ["don't have an apartment",false]])%><br>
 <%= f.label "Password:" %>
 <%= f.password_field :password, placeholder: "password" %><br>
 <%= f.label "Password Confirmation:" %>

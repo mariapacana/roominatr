@@ -1,5 +1,9 @@
 Roominatr::Application.routes.draw do
-
+  
+  resources :users do
+    resources :houses
+  end
+  
   match '/default_pic', to: 'users#default_image', as: 'user_default_image'
   match '/users/search', to: 'users#search', :via => :get, as: 'users_search'
   match '/users/:id/picture', to: 'users#update_picture', via: :put, as: 'user_picture'
@@ -12,7 +16,6 @@ Roominatr::Application.routes.draw do
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'
 
-  resources :users
   resources :surveys, :only => [:new, :create, :show]
   resources :responses, :only => [:new, :create, :edit, :update]
   resources :submissions, :only => [:new, :create, :edit, :update, :destroy]
