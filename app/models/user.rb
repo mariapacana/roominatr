@@ -32,7 +32,7 @@ class User < ActiveRecord::Base
                   :weekend_activity,
                   :location,
                   :location_attributes,
-                  :house
+                  :house,
                   :admin
 
   has_secure_password
@@ -45,6 +45,10 @@ class User < ActiveRecord::Base
   def new_survey
     taken_surveys = submissions.collect {|submission| submission.survey }
     (Survey.all - taken_surveys).sample
+  end
+
+  def age
+    20 
   end
 
   def create_category_scores
