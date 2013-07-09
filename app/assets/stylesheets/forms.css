@@ -1,11 +1,16 @@
 .profile_edit {
 	width: 500px;
-	border: #49A5FF solid 1px;
-	margin: 50px;
+	margin: 20px;
 	border-radius: 10px;
-		border: 1px solid black;
 	display:block;
 	background-color: white;
+	border: #49A5FF solid 8px;
+	margin-top: 50px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-left: 50px;
+	padding-left: 10px;
+	box-shadow: 0 0 30px #74cac0;
 }
 
 	h3 {
@@ -20,4 +25,42 @@
 
 #picture_edit {
 	float: right;
+	margin-right: 350px;
+	width: 300px;
+	padding-left: 75px;
+}
+
+#user_password_edit {
+	width: 600px;
+	border: #49A5FF solid 8px;
+	margin: 50px;
+	border-radius: 10px;
+	display:block;
+	background-color: white;
+	margin-top: 100px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-left: 350px;
+	padding-left: 10px;
+	box-shadow: 0 0 30px #74cac0;
+}
+
+.submit {
+	background-color: #468DD1;
+
+}
+
+#get_users {
+	width: 600px;
+	border: #49A5FF solid 8px;
+	margin: 50px;
+	border-radius: 10px;
+	display:block;
+	background-color: white;
+	margin-top: 100px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-left: 350px;
+	padding-left: 10px;
+	box-shadow: 0 0 30px #74cac0;
 }

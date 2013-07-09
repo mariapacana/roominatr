@@ -1,8 +1,9 @@
-<h2>Search for Roommates!</h2>
+
 
 <%= flash[:error] %>
 
 <%= form_tag users_search_path, :method => :get, :remote => true, id: 'get_users' do %>
+
   <%= select_tag :gender, options_for_select([['Male','M'], ['Female','F']]), :prompt => 'Select' %>
   <%= number_field_tag :age_min, '18', class: 'number_field' %>
   <%= number_field_tag :age_max, '80', class: 'number_field' %>
@@ -10,6 +11,12 @@
   <%= text_field_tag :city,'City' %>
   <%= number_field_tag :price_min, '600', class: 'number_field' %>
   <%= number_field_tag :age_max, '1000', class: 'number_field' %>
+=======
+<p id='name'>Search for Roommates!</p>
+  <span>Gender</span><%= select_tag :gender, options_for_select([['Male','M'], ['Female','F']]), :prompt => 'Select'%>
+  Min Age: <%= number_field_tag :age_min %>
+  Max Age: <%= number_field_tag :age_max %>
+>>>>>>> styling search for roommates bar
   <%= submit_tag "Filter" %>
 <% end %>
 

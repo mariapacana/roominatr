@@ -84,7 +84,7 @@ class UsersController < ApplicationController
 	end
 
 	def default_image
-		render :text => open("#{Rails.root}/app/assets/images/default_pic.gif", "rb").read
+		render :text => open("#{Rails.root}/app/assets/images/default_image.gif", "rb").read
 	end
 
 
