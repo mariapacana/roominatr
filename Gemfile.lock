@@ -192,6 +192,7 @@ DEPENDENCIES
   factory_girl_rails
   faker
   faraday
+  geocoder
   jquery-rails
   paperclip (~> 3.0)
   pg

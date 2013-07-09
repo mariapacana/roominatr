@@ -1,0 +1,17 @@
+<br>
+<br>
+<h2><%= @user.username %>'s House</h2>
+
+<h3>Location</h3>
+<%= @house.location.address %><br>
+<%= "#{@house.location.city}, #{@house.location.state}, #{@house.location.zip} "%><br>
+
+<h3>Rent</h3>
+<%= @house.rent %>
+
+<h3>Description</h3>
+<%= @house.description %><br>
+<%= @house.num_beds %> bedrooms<br>
+<%= if @house.dog then "Dogs are allowed" else "Dogs are not allowed" end %><br>
+<%= if @house.cat then "Cats are allowed" else "Cats are not allowed" end %><br>
+<%= if @house.smoking then "Smoking is allowed" else "Smoking isn't allowed" end %><br>

@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   has_one :house
   has_one :location, :as => :addressable
   
+  has_one :location
+
   validates :username, :presence => true,
 											 :uniqueness => true
 	validates :email, :presence => true,
@@ -15,6 +17,7 @@ class User < ActiveRecord::Base
   validates_presence_of :birthday, :gender, :location
   validates_inclusion_of :has_house, :in => [true, false]
 
+                    
   after_create :create_category_scores
 
   accepts_nested_attributes_for :location

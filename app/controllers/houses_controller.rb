@@ -17,4 +17,9 @@ class HousesController < ApplicationController
     end
   end
 
+  def show
+    @user = current_user
+    @house = @user.house
+  end
+
 end
