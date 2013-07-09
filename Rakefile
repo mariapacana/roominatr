@@ -60,8 +60,9 @@ namespace :db do
     puts "Seeding users..."
     User.destroy_all
     CategoryScore.destroy_all
-    User.create(username: 'maria', email: 'maria@bear.com', password: 'bear', gender: "F")
-    User.create(username: 'will', email: 'will@bear.com', password: 'bear', gender: "M")
+    User.create(username: 'maria', email: 'maria@bear.com', password: 'bear', gender: 'F', admin: true)
+    User.create(username: 'will', email: 'will@bear.com', password: 'bear', gender: 'M', admin: true)
+    User.create(username: 'quaria', email: 'quaria@bear.com', password: 'bear', gender: 'F', admin: true)
 
     100.times do
       User.create(username: Faker::Internet.user_name,
@@ -101,7 +102,7 @@ namespace :db do
 
   desc "Seeding category scores"
   task :score_seed => :environment do
-    puts "Seeding Category scores..."
+    puts "Seeding category scores..."
     CategoryScore.destroy_all
     User.all.each do |user|
       Category.all.each do |category|

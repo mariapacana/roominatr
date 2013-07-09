@@ -3,7 +3,9 @@
 		<li id = "logo"><%= link_to "ROOMINATOR", root_path %></li>
 		<span id="options">
 			<% if logged_in? %>
-				<li><%= link_to "Make Survey", new_survey_path %></li>
+				<% if current_user.admin %>
+					<li><%= link_to "Make Survey", new_survey_path %></li>
+				<% end %>
 				<li><%= link_to "Search for Roommates", users_path %></li>
 				<li><%= link_to "Your Profile", user_path(current_user) %></li>
 				<li><%= link_to "Sign Out", signout_path %></li>

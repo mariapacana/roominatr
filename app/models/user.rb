@@ -33,6 +33,7 @@ class User < ActiveRecord::Base
                   :location,
                   :location_attributes,
                   :house
+                  :admin
 
   has_secure_password
   has_attached_file :avatar, :styles => { :medium => "300x300", :thumb => "50x50#" }, :default_url => '/default_pic'
@@ -51,7 +52,7 @@ class User < ActiveRecord::Base
       category_score = CategoryScore.new
       category_score.user = self
       category_score.category = category
-      category_score.save
+      # category_score.save
     end
   end
 
@@ -79,6 +80,7 @@ class User < ActiveRecord::Base
       sub = (user_imp*(1-self_diff/2)+self_imp*(1-user_diff/2))/(self_imp+user_imp)
       subs << sub unless sub.nan?
     end
+    return 0 if subs.empty?
     compat = subs.inject(:+)/subs.length
     (100*compat).floor
   end
@@ -95,8 +97,8 @@ class User < ActiveRecord::Base
     later = age_min.years.ago
     earlier = age_max.years.ago
     where(birthday: (earlier..later))
+    birthday && ((DateTime.now.to_date - birthday)/365.25).to_i
   end
-
 
   def survey_progress
     submitted = submissions.length
@@ -112,6 +114,18 @@ class User < ActiveRecord::Base
   def category_score(category, qtype)
     category_score = category_scores.where(category_id: category.id).first
     category_score.read_attribute(qtype)
+  end
+
+  def top_users
+    compat_limit = 80
+    num_users = 10
+    users = []
+    user_pool = User.all
+    while users.length < num_users
+      user = user_pool.pop
+      users << user if user.compatibility_with(self) > compat_limit
+    end
+    users
   end
 
 end

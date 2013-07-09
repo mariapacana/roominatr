@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 		if current_user.no_surveys?
 			flash.now[:error] = "Please answer some Questions!"
 		end
+		@top_users = current_user.top_users
 	end
 
 	def new
@@ -76,14 +77,16 @@ class UsersController < ApplicationController
 
 	def search
 		users = User.scoped
-		users = users.older_than(params[:age_min]) unless params[:age_min] == ""
-		users = users.younger_than(params[:age_max]) unless params[:age_max] == ""
-		users = users.where(gender: params[:gender]) unless params[:gender] == ""
+		users = users.older_than(params[:age_min]) unless params[:age_min].blank?
+		users = users.younger_than(params[:age_max]) unless params[:age_max].blank?
+		users = users.where(gender: params[:gender]) unless params[:gender].blank?
 		render_partial('show_users', 'index', { :users => users })
 	end
 
 	def default_image
 		render :text => open("#{Rails.root}/app/assets/images/default_pic.gif", "rb").read
 	end
+
+
 
 end

@@ -13,6 +13,8 @@
   <%= submit_tag "Filter" %>
 <% end %>
 
-<div id="users"></div>
+<div id="users">
+	<%= render :partial => 'index', :locals => { :users => @top_users } %>
+</div>
 
 

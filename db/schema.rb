@@ -11,7 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20130709165047) do
+=======
+ActiveRecord::Schema.define(:version => 20130709161502) do
+>>>>>>> added admin, top_users, age
 
   create_table "answers", :force => true do |t|
     t.string   "text"
@@ -89,8 +93,8 @@ ActiveRecord::Schema.define(:version => 20130709165047) do
     t.string   "gender"
     t.date     "birthday"
     t.text     "photo"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
     t.string   "email"
     t.string   "password_digest"
     t.string   "avatar_file_name"
@@ -103,7 +107,11 @@ ActiveRecord::Schema.define(:version => 20130709165047) do
     t.string   "pets"
     t.string   "food_preferences"
     t.string   "weekend_activity"
+<<<<<<< HEAD
     t.boolean  "house"
+=======
+    t.boolean  "admin",               :default => false
+>>>>>>> added admin, top_users, age
   end
 
 end
