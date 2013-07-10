@@ -6,6 +6,7 @@ class Question < ActiveRecord::Base
   accepts_nested_attributes_for :answers
   attr_accessible :body, :qtype, :answers_attributes
   after_create :set_body, :create_answers, :set_qtype_me
+  
   QTYPES = {
     :roommate => "roommate",
     :me => "me",
@@ -14,7 +15,7 @@ class Question < ActiveRecord::Base
 
   QTYPES.keys.each do |type|
     define_method "#{type}?" do
-      self.type == QTYPES[type]
+      self.qtype == QTYPES[type]
     end
   end
 

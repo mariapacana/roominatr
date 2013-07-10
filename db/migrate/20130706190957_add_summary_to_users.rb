@@ -6,5 +6,7 @@ class AddSummaryToUsers < ActiveRecord::Migration
   	add_column :users, :pets, :string
   	add_column :users, :food_preferences, :string
   	add_column :users, :weekend_activity, :string
+    add_column :users, :rent_pref_min, :integer
+    add_column :users, :rent_pref_max, :integer
   end
 end
