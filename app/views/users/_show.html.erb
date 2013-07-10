@@ -3,7 +3,7 @@
 	<%= image_tag user.avatar.url(:thumb), :id => "search_pic" %>
 	<%= user.age %>
 	<%= user.gender %>
-	<% if user.has_house %>
+	<% if user.house %>
 		<%= render :partial => 'shared/house', :locals => { :house => user.house } %>
 	<% else %>
 		<%= render :partial => 'summary', :locals => { :user => user } %>
