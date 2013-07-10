@@ -1,8 +1,10 @@
 
 
 	<div id="profile_container">
+		<div class="profile_nav">
 		<%= link_to "Edit Profile", edit_user_path(@user) %>
 		<%= link_to "Change Password", user_password_path(@user) %>
+		
 		<% if @user.has_house %>
 			<% if @user.house %>
 				<%= link_to "Your House", user_house_path(@user) %>
@@ -10,6 +12,7 @@
 				<%= link_to "Add House", new_user_house_path(@user) %>
 			<% end %>
 		<% end %>
+	</div>
 		<div id="profile_header">
 
 			<h1><%= @user.username %>'s Profile</h1>
