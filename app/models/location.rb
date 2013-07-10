@@ -35,13 +35,15 @@ class Location < ActiveRecord::Base
   def get_user_info
     conn = Faraday.new(:url => format_gmaps_request_user)
     body = JSON.parse(conn.get.body)["results"][0]
-    geometry = body["geometry"]["location"]
 
-    self.city = body["address_components"][2]["long_name"]
-    self.state = body["address_components"][3]["long_name"]
-    self.country = body["address_components"][4]["long_name"]
-    self.lat = geometry["lat"]
-    self.long = geometry["lng"]
+    if body
+      geometry = body["geometry"]["location"]
+      self.city = body["address_components"][2]["long_name"]
+      self.state = body["address_components"][3]["long_name"]
+      self.country = body["address_components"][4]["long_name"]
+      self.lat = geometry["lat"]
+      self.long = geometry["lng"]
+    end
   end
 
   def get_lat_long_neighborhood
