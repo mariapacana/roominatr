@@ -5,13 +5,13 @@
 <%= form_tag users_search_path, :method => :get, :remote => true, id: 'get_users' do %>
 <fieldset>
 <legend>Search for Roommates!</legend>
-  Gender:<%= select_tag :gender, options_for_select([['Male','M'], ['Female','F']]), :prompt => 'Select' %>
-  Age:<%= number_field_tag :age_min, "18", class: 'number_field' %> -
-  <%= number_field_tag :age_max, '90', class: 'number_field' %>
-  Neighborhood: <%= text_field_tag :neighborhood,'Neighborhood' %>
-  <%= text_field_tag :city,'City' %><br>
-  Price: <%= number_field_tag :price_min, '600' %> - 
-  <%= number_field_tag :price_max, '1000' %>
+  <%= link_to "By Age and Gender", users_search_no_house_path, :remote => true, :id => 'search_no_house_button' %>
+  <% if !current_user.has_house %>
+    <%= link_to "By Rent and Location", users_search_house_path, :remote => true, :id => 'search_house_button' %><br>
+  <% end %>
+  <div id="search_fields">
+  <%= render partial: 'search_no_house' %>
+  </div>
   <%= submit_tag "filter" %>
 <% end %>
 </fieldset>

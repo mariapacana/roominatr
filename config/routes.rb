@@ -5,9 +5,12 @@ Roominatr::Application.routes.draw do
   match '/default_image', to: 'users#default_image', as: 'user_default_image'
   match '/default_home', to: 'houses#default_image', as: 'home_default_image'
   match '/users/search', to: 'users#search', :via => :get, as: 'users_search'
+  match '/users/search_no_house', to: 'users#search_no_house', :via => :get, as: 'users_search_no_house'
+  match '/users/search_house', to: 'users#search_house', :via => :get, as: 'users_search_house'
   match '/users/:id/picture', to: 'users#update_picture', via: :put, as: 'user_picture'
   match '/users/:id/password', to: 'users#edit_password', via: :get, as: 'user_password'
   match '/users/:id/password', to: 'users#update_password', via: :put, as: 'user_password'
+
 
   resources :sessions, :only => [:new, :create, :destroy]
   match '/signout', to: 'sessions#destroy'

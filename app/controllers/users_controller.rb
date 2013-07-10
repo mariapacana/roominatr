@@ -94,6 +94,14 @@ class UsersController < ApplicationController
 		render_partial('show_users', 'index', { :users => users_hash })
 	end
 
+	def search_no_house
+		render_partial('no_house', 'search_no_house',{})
+	end
+
+	def search_house
+		render_partial('house', 'search_house',{})
+	end
+
 	def default_image
 		render :text => open("#{Rails.root}/app/assets/images/default_image.gif", "rb").read
 	end
