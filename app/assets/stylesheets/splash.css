@@ -1,3 +1,6 @@
+
+
+
 body#homepage{
 	background-color: white;
 	width: 100%;
@@ -22,13 +25,21 @@ body#homepage{
 }
 
 #logo {
-	vertical-align: bottom;
 	display: block;
 }
 
-.mission {
-	background-color: #0D4F8E; 
+#logo, a {
+	color: white;
+	text-decoration: none;
+}
 
+#logo, a:visited {
+	color:white;
+}
+
+.mission {
+	background-color: #0D4F8E;
+	width: 100%;
 }
 
 .mission p {
@@ -82,12 +93,6 @@ iframe {
 	color: white;
 }
 
-#cloud_pics {
-	background-position: 
-}
-
-
-
 .video_frame, iframe {
 	margin: 0 auto;
 	display: block;	
@@ -120,6 +125,7 @@ iframe {
 #ht {
 	color: white;
 }
+
 
 
 
