@@ -6,25 +6,36 @@ class Question < ActiveRecord::Base
   accepts_nested_attributes_for :answers
   attr_accessible :body, :qtype, :answers_attributes
   after_create :set_body, :create_answers, :set_qtype_me
+  QTYPES = {
+    :roommate => "roommate",
+    :me => "me",
+    :importance => "importance"
+  }
+
+  QTYPES.keys.each do |type|
+    define_method "#{type}?" do
+      self.type == QTYPES[type]
+    end
+  end
 
   private
 
   def set_body
-    if qtype == "roommate"
+    if self.roommate?
       update_attribute("body", "How would you like your roommate to answer?")
-    elsif qtype == "importance"
+    elsif self.importance?
       update_attribute("body","How important is this to you?")
     end
   end
 
   def create_answers
-    if qtype == "roommate"
+    if self.roommate?
       me_question = survey.questions.first
       me_question.answers.each do |answer|
         answers.create(text: answer.text,
                        weight: answer.weight)
       end
-    elsif qtype == "importance"
+    elsif self.importance?
       options = [["Not", 1], ["Kinda", 2], ["Very", 3]]
       options.each { |o| answers.create(text: o[0], weight: o[1])}
     end
