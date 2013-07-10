@@ -4,6 +4,7 @@ class House < ActiveRecord::Base
   accepts_nested_attributes_for :location
 
   validates_presence_of :rent, :location
+  validates_associated :location
 
   attr_accessible :description,
                   :image,
