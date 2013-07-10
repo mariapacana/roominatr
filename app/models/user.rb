@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 	has_many :category_scores
   has_one :house
   has_one :location, :as => :addressable
-  
+
   validates :username, :presence => true,
 											 :uniqueness => true
 	validates :email, :presence => true,
@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
 
   scope :younger_than, lambda { |age| where('birthday > ?', age.to_i.years.ago) }
   scope :older_than, lambda { |age| where('birthday < ?', age.to_i.years.ago) }
-  scope :neighborhood, lambda { |hood| find_by_sql(["SELECT * FROM users INNER JOIN houses ON houses.user_id = users.id INNER JOIN locations ON locations.addressable_id = houses.id AND locations.addressable_type = 'House' WHERE neighborhood = ?", hood])}
+  scope :neighborhood, lambda { |hood| includes(:house => :location).where('locations.neighborhood like ?', "%#{hood}%")}
   scope :cheaper_than, lambda { |max_rent| joins(:house).where('rent < ?', max_rent) }
   scope :more_expensive_than, lambda { |min_rent| joins(:house).where('rent > ?', min_rent) }
 
