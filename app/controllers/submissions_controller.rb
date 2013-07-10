@@ -4,7 +4,6 @@ class SubmissionsController < ApplicationController
   include ScoreHelper
 
   def new
-    p "WE ARE HERE=================================================="
     @submission = Submission.new
     @survey = current_user.new_survey
 
@@ -14,8 +13,6 @@ class SubmissionsController < ApplicationController
   def create
     @survey = Survey.find(params[:survey_id])
     @submission = Submission.new(survey: @survey, user: current_user)
-    p current_user
-    p @survey.category
     if params[:responses].length != @survey.questions.length
       flash[:error] = "Please fill out all questions!"
       render_partial('submission_form', 'new', {:survey => @survey})
@@ -59,10 +56,7 @@ class SubmissionsController < ApplicationController
   end
 
   def destroy
-    p params
     @submission = Submission.find(params[:id])
-    p "DESTROY=============================="
-    p @submission
     @submission.destroy
     head :ok
   end

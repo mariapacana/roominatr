@@ -111,6 +111,8 @@ ActiveRecord::Schema.define(:version => 20130709224541) do
     t.string   "pets"
     t.string   "food_preferences"
     t.string   "weekend_activity"
+    t.integer  "rent_pref_min"
+    t.integer  "rent_pref_max"
     t.boolean  "has_house"
     t.boolean  "admin",               :default => false
   end
