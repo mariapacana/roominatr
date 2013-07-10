@@ -19,6 +19,23 @@
 	}
 
 
+#profile_container {
+	width: 600px;
+	border: #49A5FF solid 8px;
+	margin: 50px;
+	border-radius: 10px;
+	display:block;
+	background-color: white;
+	margin-top: 100px;
+	padding-top: 20px;
+	padding-bottom: 10px;
+	margin-left: 250px;
+	padding-left: 10px;
+	box-shadow: 0 0 30px #74cac0;
+	margin-top: 60px;
+}
+
+
 #user_info_edit {
 	float: left;
 }
@@ -51,16 +68,14 @@
 }
 
 #get_users {
-	width: 500px;
 	border: #49A5FF solid 8px;
 	margin: 50px;
 	border-radius: 10px;
-	display:block;
+
 	background-color: white;
 	margin-top: 100px;
-	padding-top: 10px;
 	padding-bottom: 10px;
-	margin-left: 500px;
+	margin-left: 100px;
 	padding-left: 10px;
 	box-shadow: 0 0 30px #74cac0;
 }
@@ -68,14 +83,14 @@
 
 #users{
 	border: #49A5FF solid 8px;
-	margin: 50px;
 	border-radius: 10px;
 	display:block;
 	background-color: white;
 	margin-top: 100px;
 	padding-top: 10px;
 	padding-bottom: 10px;
-	margin-left: 350px;
+	margin-left: 150px;
+	margin-right: 150px;
 	padding-left: 10px;
 	box-shadow: 0 0 30px #74cac0;
 }
@@ -87,14 +102,36 @@
 
 
 
+#new_survey{
+	border: #49A5FF solid 8px;
+	margin: 50px;
+	border-radius: 10px;
+	display:block;
+	background-color: white;
+	margin-top: 100px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-left: 150px;
+	margin-right: 150px;
+	padding-left: 10px;
+	box-shadow: 0 0 30px #74cac0;
+}
 
-
-
-
-
-
-
-
+#edit_house_2 {
+	border: #49A5FF solid 8px;
+	margin: 50px;
+	border-radius: 10px;
+	display:block;
+	background-color: white;
+	margin-top: 100px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-left: 150px;
+	margin-right: 150px;
+	padding-left: 10px;
+	box-shadow: 0 0 30px #74cac0;
+}
+}
 
 
 

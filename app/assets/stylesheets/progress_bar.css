@@ -2,7 +2,7 @@
   height: 15px;  /* Can be anything */
   width: 200px;
   position: relative;
-  background: #555;
+  background:#49A5FF;
   -moz-border-radius: 25px;
   -webkit-border-radius: 25px;
   border-radius: 25px;
@@ -27,13 +27,13 @@
        -moz-border-radius-bottomleft: 20px;
               border-top-left-radius: 20px;
            border-bottom-left-radius: 20px;
-  background-color: rgb(43,194,83);
+  background-color: #49A5FF;
   background-image: -webkit-gradient(
     linear,
     left bottom,
     left top,
-    color-stop(0, rgb(43,194,83)),
-    color-stop(1, rgb(84,240,84))
+    color-stop(0, #FF8612),
+    color-stop(1, #FF8612)
    );
   background-image: -webkit-linear-gradient(
     center bottom,
