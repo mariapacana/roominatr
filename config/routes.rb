@@ -1,8 +1,6 @@
 Roominatr::Application.routes.draw do
 
-  resources :users do
-    resources :houses
-  end
+
 
   match '/default_image', to: 'users#default_image', as: 'user_default_image'
   match '/users/search', to: 'users#search', :via => :get, as: 'users_search'
@@ -19,6 +17,10 @@ Roominatr::Application.routes.draw do
   resources :responses, :only => [:new, :create, :edit, :update]
   resources :submissions, :only => [:new, :create, :edit, :update, :destroy]
   resources :homepage
+
+  resources :users do
+    resources :houses
+  end
 
   root to: 'homepage#show'
 
