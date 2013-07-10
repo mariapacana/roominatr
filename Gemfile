@@ -24,11 +24,11 @@ group :development, :test do
   gem 'faker'
   gem 'sextant'
   gem 'shoulda-matchers'
-  gem 'geocoder'
-  gem 'faraday'
-  gem 'unicorn'
 end
 
+gem 'geocoder'
+gem 'faraday'
+gem 'unicorn'
 gem 'jquery-rails'
 gem 'paperclip', '~> 3.0'
 gem 'sidekiq'
