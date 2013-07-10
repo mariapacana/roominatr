@@ -9,10 +9,15 @@ class SurveysController < ApplicationController
   end
 
   def create
-    p params
     category = Category.find_by_name(params[:survey][:category])
     params[:survey][:category] = category
-    Survey.create(params[:survey])
+    @survey = Survey.new(params[:survey])
+
+    if @survey.save
+      redirect_to user_path(current_user)
+    else
+      render :new
+    end
   end
 
   def show
