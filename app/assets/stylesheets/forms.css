@@ -177,7 +177,7 @@ select {
 	padding-right:10px;
 }
 
-#filter_button {
+.filter_button {
 	font-family: 'Fauna One', serif;
 	font-size: 100%;
 	color: #FF8612;
