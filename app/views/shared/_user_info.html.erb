@@ -6,10 +6,16 @@
 		<%= link_to "Change Password", user_password_path(@user), :id => 'pro_nav' %>
 		
 		<% if @user.has_house %>
-			<% if @user.house %>
-				<%= link_to "Your House", user_house_path(@user),:id => 'pro_nav' %>
+			<% if current_user == @user %>
+				<% if @user.house %>
+					<%= link_to "Your House", user_house_path(@user),:id => 'pro_nav' %>
+				<% else %>
+					<%= link_to "Add House", new_user_house_path(@user),:id => 'pro_nav' %>
+				<% end %>
 			<% else %>
-				<%= link_to "Add House", new_user_house_path(@user),:id => 'pro_nav' %>
+				<% if @user.house %>
+					<%= link_to "#{@user.username}'s House", user_house_path(@user), :id => 'pro_nav' %>
+				<% end %>
 			<% end %>
 		<% end %>
 	</div>
