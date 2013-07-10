@@ -1,11 +1,5 @@
 <%= form_for @user do |f| %>
-<% if @user.errors %>
-	<ul>
-  	<% @user.errors.full_messages.each do |error| %>
-  		<li><%= error %></li>
-		<% end %>
-	</ul>
-<% end %>
+<%= render :partial => 'shared/errors', :locals => {:object => @house}, :layout => false %>
 <%= f.label "Username:" %>
 <%= f.text_field :username, placeholder: "Emperor Norton" %><br>
 <%= f.label "Email:" %>
