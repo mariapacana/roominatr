@@ -6,8 +6,6 @@ class User < ActiveRecord::Base
   has_one :house
   has_one :location, :as => :addressable
   
-  has_one :location
-
   validates :username, :presence => true,
 											 :uniqueness => true
 	validates :email, :presence => true,

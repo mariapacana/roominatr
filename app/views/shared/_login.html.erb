@@ -1,5 +1,5 @@
 <%= form_for @user do |f| %>
-<%= render :partial => 'shared/errors', :locals => {:object => @house}, :layout => false %>
+<%= render :partial => 'shared/errors', :locals => {:object => @user}, :layout => false %>
 <%= f.label "Username:" %>
 <%= f.text_field :username, placeholder: "Emperor Norton" %><br>
 <%= f.label "Email:" %>
