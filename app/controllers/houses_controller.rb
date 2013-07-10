@@ -13,13 +13,33 @@ class HousesController < ApplicationController
     if @house.save
       redirect_to user_path(current_user)
     else
-
+      render :new
     end
   end
 
   def show
     @user = current_user
     @house = @user.house
+  end
+
+  def edit
+    @user = current_user
+    @house = @user.house
+  end
+
+  def update
+    @house = House.find(params[:id])
+    if @house.update_attributes(params[:house])
+      redirect_to user_house_path(current_user, @house)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @house = House.find(params[:id])
+    @house.destroy
+    redirect_to user_path(current_user)
   end
 
 end
