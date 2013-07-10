@@ -24,8 +24,12 @@ class Location < ActiveRecord::Base
     "http://maps.googleapis.com/maps/api/geocode/json?&address=#{zip}&sensor=true"
   end
 
+  def formatted_address
+    URI::encode([address,city,state].join(" "))
+  end
+
   def format_gmaps_request_house
-    "http://maps.googleapis.com/maps/api/geocode/json?&address=#{URI::encode(address)}&city=#{URI::encode(city)}&postal_code=#{zip}&sensor=true"
+    "http://maps.googleapis.com/maps/api/geocode/json?&address=#{formatted_address}&sensor=true"
   end
 
   def get_user_info
@@ -40,19 +44,15 @@ class Location < ActiveRecord::Base
     self.long = geometry["lng"]
   end
 
-  # def get_lat_long_neighborhood
-  #   conn = Faraday.new(:url => format_gmaps_request_house)
-  #   body = JSON.parse(conn.get.body)["results"][0]
-  #   if body
-  #     geometry = body["geometry"]["location"]
-  #     neighborhood = body["address_components"][2]["long_name"]
-  #     self.lat = geometry["lat"]
-  #     self.long = geometry["lng"]
-  #     self.neighborhood = neighborhood
-  #   end
-  # end
-
-  # def self.distance(loc1, loc2)
-  #   haversine(loc1, loc2)
-  # end
+  def get_lat_long_neighborhood
+    conn = Faraday.new(:url => format_gmaps_request_house)
+    body = JSON.parse(conn.get.body)["results"][0]
+    if body
+      geometry = body["geometry"]["location"]
+      neighborhood = body["address_components"][2]["long_name"]
+      self.lat = geometry["lat"]
+      self.long = geometry["lng"]
+      self.neighborhood = neighborhood
+    end
+  end
 end
