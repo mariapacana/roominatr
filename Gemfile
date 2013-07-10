@@ -26,6 +26,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'geocoder'
   gem 'faraday'
+  gem 'unicorn'
 end
 
 gem 'jquery-rails'
