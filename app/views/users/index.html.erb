@@ -5,9 +5,9 @@
 <%= form_tag users_search_path, :method => :get, :remote => true, id: 'get_users' do %>
 <fieldset>
 <legend>Search for Roommates!</legend>
- <%= link_to "who don't have a room", users_search_no_house_path, :remote => true, :id => 'search_no_house_button' %>
+ <%= link_to "who don't have a room", users_search_no_house_path, :remote => true, :id => 'search_no_house_button', :class => 'filter_option' %>
   <% if !current_user.has_house %>
-    <%= link_to "who have a room", users_search_house_path, :remote => true, :id => 'search_house_button' %><br>
+    <%= link_to "who have a room", users_search_house_path, :remote => true, :id => 'search_house_button', :class => 'filter_option' %><br>
   <% end %>
   <div id="search_fields">
   <%= render partial: 'search_no_house' %>

@@ -133,7 +133,7 @@ fieldset {
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	font-weight: bold;
 	font-size: 14pt;
-	margin-right: 6px;
+	margin-right: 10px;
 }
 
 #edit_house_2 {
@@ -180,6 +180,10 @@ select {
 .filter_button {
 	font-family: 'Fauna One', serif;
 	font-size: 100%;
+	color: #FF8612;
+}
+
+.filter_option {
 	color: #FF8612;
 }
 

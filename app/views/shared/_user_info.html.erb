@@ -16,7 +16,7 @@
 	<h1><%= @user.username %>'s Profile</h1>
 	<%= image_tag @user.avatar.url, :id => "pro_pic" %>
 	<div class="basic_info">
-		<p class = "q_title">The Basics</p>
+		<p class = "q_title", id="basic">The Basics</p>
 		<p class="response">Username: <%= @user.username %></p>
 		<p class="response">Email: <%= @user.email %></p>
 		<p class="response">Gender: <%= @user.gender %></p>

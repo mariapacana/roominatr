@@ -31,10 +31,12 @@ body {
 	font-weight: bold;
 	font-size: 18pt;
 	color: #FF8612;
+	margin-bottom: 3px;
 }
 
 .response {
 	color: black;
+	margin: 0;
 }
 
 #profile_container{
@@ -51,7 +53,7 @@ body {
 }
 
 #profile_header {
-	height: 758px;
+	height: 620px;
 }
 
 #best_worst {
@@ -81,6 +83,10 @@ body {
 
 #survey_info {
 	margin-top: 200px;
+}
+
+#basic {
+	margin-top: 0px;
 }
 
 
