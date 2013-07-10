@@ -21,6 +21,6 @@ class House < ActiveRecord::Base
                   :avatar,
                   :user
 
-  has_attached_file :avatar, :styles => {:medium => "300x300"}
+  has_attached_file :avatar, :styles => {:medium => "300x300"}, :default_url => '/default_home'
 
 end

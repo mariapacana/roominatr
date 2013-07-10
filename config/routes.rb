@@ -3,6 +3,7 @@ Roominatr::Application.routes.draw do
 
 
   match '/default_image', to: 'users#default_image', as: 'user_default_image'
+  match '/default_home', to: 'houses#default_image', as: 'home_default_image'
   match '/users/search', to: 'users#search', :via => :get, as: 'users_search'
   match '/users/:id/picture', to: 'users#update_picture', via: :put, as: 'user_picture'
   match '/users/:id/password', to: 'users#edit_password', via: :get, as: 'user_password'

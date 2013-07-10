@@ -42,4 +42,8 @@ class HousesController < ApplicationController
     redirect_to user_path(current_user)
   end
 
+  def default_image
+    render :text => open("#{Rails.root}/app/assets/images/default_home.jpg", "rb").read
+  end
+
 end
