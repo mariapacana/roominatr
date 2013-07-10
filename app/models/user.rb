@@ -42,8 +42,8 @@ class User < ActiveRecord::Base
 
   has_attached_file :avatar, :styles => { :medium => "300x300", :thumb => "50x50#" }, :default_url => '/default_image'
 
-  scope :younger_than lambda { |age| where('birthday > ?', age.years.ago) }
-  scope :older_than lambda { |age| where('birthday < ?', age.years.ago) }
+  scope :younger_than, lambda { |age| where('birthday > ?', age.years.ago) }
+  scope :older_than, lambda { |age| where('birthday < ?', age.years.ago) }
 
   def new_survey
     taken_surveys = submissions.collect {|submission| submission.survey }

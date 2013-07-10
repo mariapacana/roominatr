@@ -1,5 +1,3 @@
-<div id="profile_container">
 	<% users.each do |user, compatibility| %>
 		<%= render :partial => 'show', :locals => { :user => user, :compatibility => compatibility } %>
 	<% end %>
-</div>

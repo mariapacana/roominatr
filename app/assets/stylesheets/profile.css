@@ -73,6 +73,7 @@ body {
 .worst {
 	width: 49%;
 	float: right;
+	text-align: center;
 }
 .best, .worst .q_title {
 	text-align: center;

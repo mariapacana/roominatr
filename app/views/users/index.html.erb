@@ -10,9 +10,9 @@
   <%= number_field_tag :age_max, '90', class: 'number_field' %>
   Neighborhood: <%= text_field_tag :neighborhood,'Neighborhood' %>
   <%= text_field_tag :city,'City' %><br>
-  Price: <%= number_field_tag :price_min, '600', class: 'number_field' %> - 
-  <%= number_field_tag :age_max, '1000', class: 'number_field' %>
-  <%= submit_tag "Filter" %>
+  Price: <%= number_field_tag :price_min, '600' %> - 
+  <%= number_field_tag :price_max, '1000' %>
+  <%= submit_tag "filter" %>
 <% end %>
 </fieldset>
 <div id="users">
