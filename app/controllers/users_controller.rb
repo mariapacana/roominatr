@@ -84,11 +84,11 @@ class UsersController < ApplicationController
 		users = users.older_than(params[:age_min]) unless params[:age_min].blank?
 		users = users.younger_than(params[:age_max]) unless params[:age_max].blank?
 		users = users.where(gender: params[:gender]) unless params[:gender].blank?
+		users = users.joins(:location).where('city = ?', params[:user_city]) unless params[:user_city].blank?
 		users = users.cheaper_than(params[:price_max]) unless params[:price_max].blank?
 		users = users.more_expensive_than(params[:price_min]) unless params[:price_min].blank?
 		users = users.neighborhood(params[:neighborhood]) unless params[:neighborhood].blank?
 		users = users.city(params[:city]) unless params[:city].blank?
-		p users
 		users_hash = {}
 		users.each do |user|
 			users_hash[user]=user.compatibility_with(current_user)
