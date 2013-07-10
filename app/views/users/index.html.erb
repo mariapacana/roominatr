@@ -1,13 +1,13 @@
 
 <div class="flash">
-	<%= flash[:error] %>
+  <%= flash[:error] %>
 </div>
 <%= form_tag users_search_path, :method => :get, :remote => true, id: 'get_users' do %>
 <fieldset>
 <legend>Search for Roommates!</legend>
- <%= link_to "By Age and Gender", users_search_no_house_path, :remote => true, :id => 'filter_button' %>
+ <%= link_to "By Age and Gender", users_search_no_house_path, :remote => true, :id => 'search_no_house_button' %>
   <% if !current_user.has_house %>
-    <%= link_to "By Rent and Location", users_search_house_path, :remote => true, :id => 'filter_button' %><br>
+    <%= link_to "By Rent and Location", users_search_house_path, :remote => true, :id => 'search_house_button' %><br>
   <% end %>
   <div id="search_fields">
   <%= render partial: 'search_no_house' %>
@@ -16,7 +16,6 @@
 <% end %>
 </fieldset>
 <div id="users">
-	<%= render :partial => 'index', :locals => { :users => @top_users } %>
+  <%= render :partial => 'index', :locals => { :users => @top_users } %>
 </div>
-
 
