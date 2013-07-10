@@ -3,6 +3,11 @@
 	<%= image_tag user.avatar.url(:thumb), :id => "search_pic" %>
 	<%= user.age %>
 	<%= user.gender %>
+	<% if user.has_house %>
+		<%= render :partial => 'shared/house', :locals => { :house => user.house } %>
+	<% else %>
+		<%= render :partial => 'summary', :locals => { :user => user } %>
+	<% end %>
 	<div id="star_container">
 		<%= image_tag "starburst.png", :id => "star" %>
 		<p id="score"><%= compatibility %>%</p>
