@@ -47,6 +47,7 @@ class User < ActiveRecord::Base
   scope :neighborhood, lambda { |hood| includes(:house => :location).where('locations.neighborhood like ?', "%#{hood}%")}
   scope :cheaper_than, lambda { |max_rent| joins(:house).where('rent < ?', max_rent) }
   scope :more_expensive_than, lambda { |min_rent| joins(:house).where('rent > ?', min_rent) }
+  scope :city, lambda { |city| includes(:house => :location).where('locations.city like ?', "%#{city}%")}
 
   def new_survey
     taken_surveys = submissions.collect {|submission| submission.survey }
