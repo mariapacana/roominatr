@@ -6,10 +6,9 @@ class UsersController < ApplicationController
 
 	def index
 		if current_user.no_surveys?
-			flash.now[:error] = "Please answer some Questions!"
+			flash.now[:error] = "Please answer some questions!"
 			@top_users = User.all.sample(10)
 		else
-			
 			@top_users = current_user.top_users(0)
 		end
 	end
@@ -23,7 +22,7 @@ class UsersController < ApplicationController
 		@user = User.new(params[:user])
 		create_category_scores(@user)
 		if @user.save
-			flash[:success] = "Welcome to Roominatr"
+			flash[:success] = "Welcome to Roominator"
 			sign_in(@user)
 			redirect_to user_path(current_user)
 		else
@@ -40,6 +39,8 @@ class UsersController < ApplicationController
 	end
 
 	def update
+		p "UPDATING====================="
+		
 		@user = User.find(params[:id])
 		paramz = format_params(params[:user])
 
@@ -106,7 +107,6 @@ class UsersController < ApplicationController
 	def default_image
 		render :text => open("#{Rails.root}/app/assets/images/default_image.gif", "rb").read
 	end
-
 
 
 end

@@ -36,6 +36,8 @@ class User < ActiveRecord::Base
                   :location,
                   :location_attributes,
                   :has_house,
+                  :rent_pref_min,
+                  :rent_pref_max,
                   :admin
 
   has_secure_password
