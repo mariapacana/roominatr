@@ -83,7 +83,11 @@ class UsersController < ApplicationController
 		users = users.older_than(params[:age_min]) unless params[:age_min].blank?
 		users = users.younger_than(params[:age_max]) unless params[:age_max].blank?
 		users = users.where(gender: params[:gender]) unless params[:gender].blank?
-		users_hash
+		users = users.cheaper_than(params[:price_max]) unless params[:price_max].blank?
+		users = users.more_expensive_than(params[:price_min]) unless params[:price_min].blank?
+		#neighborhood(params[:neighborhood]) unless params[:neighborhood].blank?
+		p users
+		users_hash = {}
 		users.each do |user|
 			users_hash[user]=user.compatibility_with(current_user)
 		end
