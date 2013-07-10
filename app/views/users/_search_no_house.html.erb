@@ -1,0 +1,3 @@
+Gender:<%= select_tag :gender, options_for_select([['Male','M'], ['Female','F']]), :prompt => 'Select' %>
+Age:<%= number_field_tag :age_min, "18", class: 'number_field' %> 
+<%= number_field_tag :age_max, '90', class: 'number_field' %>

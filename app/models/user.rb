@@ -42,8 +42,8 @@ class User < ActiveRecord::Base
 
   has_attached_file :avatar, :styles => { :medium => "300x300", :thumb => "50x50#" }, :default_url => '/default_image'
 
-  scope :younger_than, lambda { |age| where('birthday > ?', age.years.ago) }
-  scope :older_than, lambda { |age| where('birthday < ?', age.years.ago) }
+  scope :younger_than, lambda { |age| where('birthday > ?', age.to_i.years.ago) }
+  scope :older_than, lambda { |age| where('birthday < ?', age.to_i.years.ago) }
   scope :neighborhood, lambda { |hood| find_by_sql(["SELECT * FROM users INNER JOIN houses ON houses.user_id = users.id INNER JOIN locations ON locations.addressable_id = houses.id AND locations.addressable_type = 'House' WHERE neighborhood = ?", hood])}
   scope :cheaper_than, lambda { |max_rent| joins(:house).where('rent < ?', max_rent) }
   scope :more_expensive_than, lambda { |min_rent| joins(:house).where('rent > ?', min_rent) }
