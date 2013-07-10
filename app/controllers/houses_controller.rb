@@ -18,8 +18,8 @@ class HousesController < ApplicationController
   end
 
   def show
-    @user = current_user
-    @house = @user.house
+    @user = User.find(params[:user_id])
+    @house = House.find(params[:id])
   end
 
   def edit

@@ -4,7 +4,7 @@
 <%= f.text_field :username, placeholder: "Emperor Norton" %><br>
 <%= f.label "Email:" %>
 <%= f.text_field :email, placeholder: "emperor@sf.com" %><br>
-<%= f.label "Gender:" %>
+<%= f.label "Gender:" %><br>
 <%= f.radio_button(:gender, "M",:id => 'gender') %>
 <%= f.label(:gender, "Male", :id => 'gender') %>
 <%= f.radio_button(:gender, "F") %>
@@ -16,7 +16,7 @@
   <%= l.text_field :zip, placeholder: "94117" %><br>
 <% end %>
 <%= f.label "You..." %>
-<%= f.select :has_house, options_for_select([["have an apartment",true], ["don't have an apartment",false]])%><br>
+<%= f.select :has_house, options_for_select([["have a room",true], ["are looking for a room",false]])%><br>
 <%= f.label "Password:" %>
 <%= f.password_field :password, placeholder: "password" %><br>
 <%= f.label "Password Confirmation:" %>

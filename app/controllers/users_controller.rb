@@ -6,10 +6,9 @@ class UsersController < ApplicationController
 
 	def index
 		if current_user.no_surveys?
-			flash.now[:error] = "Please answer some Questions!"
+			flash.now[:error] = "Please answer some questions!"
 			@top_users = User.all.sample(10)
 		else
-			
 			@top_users = current_user.top_users(0)
 		end
 	end
@@ -23,7 +22,7 @@ class UsersController < ApplicationController
 		@user = User.new(params[:user])
 		create_category_scores(@user)
 		if @user.save
-			flash[:success] = "Welcome to Roominatr"
+			flash[:success] = "Welcome to Roominator"
 			sign_in(@user)
 			redirect_to user_path(current_user)
 		else
@@ -40,6 +39,8 @@ class UsersController < ApplicationController
 	end
 
 	def update
+		p "UPDATING====================="
+		
 		@user = User.find(params[:id])
 		paramz = format_params(params[:user])
 
@@ -83,11 +84,11 @@ class UsersController < ApplicationController
 		users = users.older_than(params[:age_min]) unless params[:age_min].blank?
 		users = users.younger_than(params[:age_max]) unless params[:age_max].blank?
 		users = users.where(gender: params[:gender]) unless params[:gender].blank?
+		users = users.joins(:location).where('city = ?', params[:user_city]) unless params[:user_city].blank?
 		users = users.cheaper_than(params[:price_max]) unless params[:price_max].blank?
 		users = users.more_expensive_than(params[:price_min]) unless params[:price_min].blank?
 		users = users.neighborhood(params[:neighborhood]) unless params[:neighborhood].blank?
 		users = users.city(params[:city]) unless params[:city].blank?
-		p users
 		users_hash = {}
 		users.each do |user|
 			users_hash[user]=user.compatibility_with(current_user)
@@ -106,7 +107,6 @@ class UsersController < ApplicationController
 	def default_image
 		render :text => open("#{Rails.root}/app/assets/images/default_image.gif", "rb").read
 	end
-
 
 
 end

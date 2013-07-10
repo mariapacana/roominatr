@@ -1,4 +1,5 @@
 Neighborhood: <%= text_field_tag :neighborhood, nil, :placeholder => 'Neighborhood' %>
 <%= text_field_tag :city, nil, :placeholder => 'City' %><br>
-Price: <%= number_field_tag :price_min, nil, :placeholder => 'Min' %> - 
-<%= number_field_tag :price_max, nil, :placeholder => 'Max' %>
+Price: <%= number_field_tag :price_min, nil, :step => "100", :placeholder => 'Min' %> - 
+<%= number_field_tag :price_max, nil, :step => "100", :placeholder => 'Max' %>
+<%= text_field_tag :user_city, nil, :placeholder => 'City' %><br>

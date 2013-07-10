@@ -1,6 +1,8 @@
 Roominatr::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
+  ENV["REDISTOGO_URL"] = 'redis://redistogo:9e3add046ab7a5177cc874959b04d540@beardfish.redistogo.com:9365/'
+  
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.

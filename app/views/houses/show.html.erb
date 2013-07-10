@@ -9,8 +9,10 @@
 
 
 <%= image_tag @house.avatar.url %><br>
-<%= link_to "Edit House", edit_user_house_path(@user, @house) %>
-<%= link_to "Delete House", user_house_path(@user, @house), :method => :delete %>
+<% if @user == current_user %>
+  <%= link_to "Edit House", edit_user_house_path(@user, @house) %>
+  <%= link_to "Delete House", user_house_path(@user, @house), :method => :delete %>
+<% end %>
 
 <h3>Location</h3>
 

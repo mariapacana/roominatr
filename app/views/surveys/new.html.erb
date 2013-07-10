@@ -1,6 +1,7 @@
 <div id="create_survey">
 	<p>Create a New Survey!</p>
 <%= form_for @survey, :url => surveys_path do |f| %>
+	<%= render :partial => 'shared/errors', :locals => {:object => @survey}, :layout => false %>
 	<%= f.label :title, "Title" %>
 	<%= f.text_field :title %><br>
 	<%= f.label :category, "Category" %>
@@ -12,7 +13,7 @@
 			<%= a.label :text, "text" %>
 			<%= a.text_field :text %><br>
 			<%= a.label :weight, "weight" %>
-			<%= a.text_field :weight %><br>
+		  <%= a.select :weight, options_for_select([-1,0,1]) %><br>
 		<% end %>
 	<%= f.submit %>
 	<% end %>

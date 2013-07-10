@@ -122,7 +122,7 @@ legend {
 	font-weight: bold;
 	font-size: 18pt;
 	color: #FF8612;
-	*margin-left:-7px; /* A hack that only ie reads to position the legend in the same place cross browser */
+	margin-left:-7px; 
 }
 
 fieldset {
@@ -133,6 +133,7 @@ fieldset {
 	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	font-weight: bold;
 	font-size: 14pt;
+	margin-right: 10px;
 }
 
 #edit_house_2 {
@@ -176,9 +177,14 @@ select {
 	padding-right:10px;
 }
 
+.filter_button {
+	font-family: 'Fauna One', serif;
+	font-size: 100%;
+	color: #FF8612;
+}
 
-.sign_up {
-
+.filter_option {
+	color: #FF8612;
 }
 
 
