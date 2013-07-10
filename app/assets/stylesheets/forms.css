@@ -159,6 +159,10 @@ input {
 	border-radius:4px;
 }
 
+label {
+	width: 150px;
+	float:left;
+}
 select {
 	color: #FFB45A;
 	font-weight: bold;
