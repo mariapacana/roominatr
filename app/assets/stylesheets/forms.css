@@ -13,13 +13,13 @@
 	box-shadow: 0 0 30px #74cac0;
 }
 
-	h3 {
-		margin: 0 0 8px 0;
-		padding: 0;
-	}
+h3 {
+	margin: 0 0 8px 0;
+	padding: 0;
+}
 
 
-#profile_container {
+#profile_container{
 	width: 600px;
 	border: #49A5FF solid 8px;
 	margin: 50px;
@@ -65,6 +65,7 @@
 .submit {
 	background-color: #468DD1;
 
+
 }
 
 #get_users {
@@ -101,7 +102,7 @@
 
 
 #create_survey {
-		border: #49A5FF solid 8px;
+	border: #49A5FF solid 8px;
 	border-radius: 10px;
 	display:block;
 	background-color: white;
@@ -125,11 +126,11 @@ legend {
 }
 
 fieldset {
-	  -moz-border-radius:5px;  
-  border-radius: 5px;  
-  -webkit-border-radius: 5px; 
-  color: #FF8612;
-  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	-moz-border-radius:5px;  
+	border-radius: 5px;  
+	-webkit-border-radius: 5px; 
+	color: #FF8612;
+	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
 	font-weight: bold;
 	font-size: 14pt;
 }
@@ -150,35 +151,31 @@ fieldset {
 }
 
 input {
-	 	color: #999;
-    font-weight: bold;
-    font-size: 18px;
-    padding: 10px;
-    border: 2px solid #999;
-    border-radius:2px;
+	color: #999;
+	font-weight: bold;
+	font-size: 14px;
+	padding: 8px;
+	border: 2px solid #49A5FF;
+	border-radius:4px;
 }
 
 select {
-		 	color: #FFB45A;
-    font-weight: bold;
-    font-size: 18px;
-    padding: 10px;
-    border: 2px solid #999;
-    border-radius:2px;
+	color: #FFB45A;
+	font-weight: bold;
+	font-size: 18px;
+	padding: 10px;
+	border: 2px;
 }
 
-submit {
-		 	color: #FFB45A;
-    font-weight: bold;
-    font-size: 18px;
-    padding: 10px;
-    border: 2px solid #999;
-    border-radius:2px;	
+.number_field {
+	background-size: 20px;
+	padding-right:10px;
 }
 
 
+.sign_up {
 
-
+}
 
 
 
