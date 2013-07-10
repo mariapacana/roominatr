@@ -5,8 +5,8 @@
 <%= f.label "Email:" %>
 <%= f.text_field :email, placeholder: "emperor@sf.com" %><br>
 <%= f.label "Gender:" %>
-<%= f.radio_button(:gender, "M") %>
-<%= f.label(:gender, "Male") %>
+<%= f.radio_button(:gender, "M",:id => 'gender') %>
+<%= f.label(:gender, "Male", :id => 'gender') %>
 <%= f.radio_button(:gender, "F") %>
 <%= f.label(:gender, "Female") %><br>
 <%= f.label :birthday, "Birthday:" %>

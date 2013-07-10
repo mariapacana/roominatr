@@ -1,5 +1,4 @@
-Neighborhood: <%= text_field_tag :neighborhood,'Neighborhood' %>
-<%= text_field_tag :city,'City' %><br>
-Price: <%= number_field_tag :price_min, '600' %> - 
-<%= number_field_tag :price_max, '1000' %>
-<%= submit_tag "filter" %>
+Neighborhood: <%= text_field_tag :neighborhood, nil, :placeholder => 'Neighborhood' %>
+<%= text_field_tag :city, nil, :placeholder => 'City' %><br>
+Price: <%= number_field_tag :price_min, nil, :placeholder => 'Min' %> - 
+<%= number_field_tag :price_max, nil, :placeholder => 'Max' %>

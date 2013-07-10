@@ -85,7 +85,7 @@ class UsersController < ApplicationController
 		users = users.where(gender: params[:gender]) unless params[:gender].blank?
 		users = users.cheaper_than(params[:price_max]) unless params[:price_max].blank?
 		users = users.more_expensive_than(params[:price_min]) unless params[:price_min].blank?
-		#neighborhood(params[:neighborhood]) unless params[:neighborhood].blank?
+		users = users.neighborhood(params[:neighborhood]) unless params[:neighborhood].blank?
 		p users
 		users_hash = {}
 		users.each do |user|

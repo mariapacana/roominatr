@@ -1,3 +1,5 @@
+
+
 .search_result {
 	border: #49A5FF solid 4px;
 	margin: 8px;
@@ -44,14 +46,14 @@
 	font-size: 15pt;
 	margin: 0;
 }
-	
+
 .number_field {
-  width: 50px;
+	width: 50px;
 }
 
 
 #profile_container {
-		min-width: 600px;
+	min-width: 600px;
 }
 
 #extra_info p {
@@ -61,8 +63,22 @@
 }
 
 
+#pro_nav{
+	font-family: 'Fauna One', serif;
+	font-size: 110%;
+	color: #FF8612;
+	text-decoration: none;
+	border: 2px solid #FF8612;
+	border-radius: 5px;
+	padding: 3px;
+}
 
+#pro_nav, a:visited {
+	color: #FF8612;
+}
 
-
+#gender {
+	float: right;
+}
 
 
