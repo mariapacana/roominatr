@@ -1,15 +1,10 @@
 <div class="search_result">
 	<p id="name"><%= user.username %></p>
-
-
-	<div id="extra_info">
-			<%= image_tag user.avatar.url(:thumb), :id => "search_pic" %>
-		<p>Age:<%= user.age %></p>
-		<p>Gender:<%= user.gender %></p>
-		<p id="summary"><%= user.summary %></p>
+	<%= image_tag user.avatar.url(:thumb), :id => "search_pic" %>
+	<%= user.age %>
+	<%= user.gender %>
+	<div id="star_container">
+		<%= image_tag "starburst.png", :id => "star" %>
+		<p id="score"><%= compatibility %>%</p>
 	</div>
-	<div id="score">
-		<p id="score_text"><%= user.compatibility_with current_user %>%</p>
-	</div>
-
 </div>

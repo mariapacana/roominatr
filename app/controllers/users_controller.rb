@@ -9,7 +9,8 @@ class UsersController < ApplicationController
 			flash.now[:error] = "Please answer some Questions!"
 			@top_users = User.all.sample(10)
 		else
-			@top_users = current_user.top_users
+			
+			@top_users = current_user.top_users(0)
 		end
 	end
 
@@ -82,7 +83,11 @@ class UsersController < ApplicationController
 		users = users.older_than(params[:age_min]) unless params[:age_min].blank?
 		users = users.younger_than(params[:age_max]) unless params[:age_max].blank?
 		users = users.where(gender: params[:gender]) unless params[:gender].blank?
-		render_partial('show_users', 'index', { :users => users })
+		users_hash
+		users.each do |user|
+			users_hash[user]=user.compatibility_with(current_user)
+		end
+		render_partial('show_users', 'index', { :users => users_hash })
 	end
 
 	def default_image

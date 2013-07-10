@@ -18,7 +18,7 @@ namespace :db do
 end
 
 namespace :db do
-  task :seed_all => [:category_seed, :survey_seed, :user_seed, :submission_seed, :score_seed] do
+  task :seed_all => [:category_seed, :survey_seed, :user_seed, :submission_seed, :score_seed, :house_seed] do
     puts "Seeded everything!"
   end
 
@@ -67,19 +67,20 @@ namespace :db do
     User.destroy_all
     CategoryScore.destroy_all
 
-    location = Location.create(zip: "94117")
-    User.create(username: 'maria', email: 'maria@bear.com', password: 'bear', gender: 'F', birthday: '1982-10-30', has_house: true, location: location, admin: true)
-    User.create(username: 'will', email: 'will@bear.com', password: 'bear', gender: 'M', birthday: '1982-10-30', has_house: true, location: location,admin: true)
-    User.create(username: 'quaria', email: 'quaria@bear.com', password: 'bear', gender: 'F', birthday: '1982-10-30', has_house: false, location: location,admin: true)
+    ZIP_CODES = %w(94108 94109 94110 94111 94114 94115 94116 94117 94118)
+
+    User.create(username: 'maria', email: 'maria@bear.com', password: 'bear', gender: 'F', birthday: '1982-10-30', has_house: true, location:  Location.create(zip: ZIP_CODES.sample), admin: true)
+    User.create(username: 'will', email: 'will@bear.com', password: 'bear', gender: 'M', birthday: '1982-10-30', has_house: true, location:  Location.create(zip: ZIP_CODES.sample),admin: true)
+    User.create(username: 'quaria', email: 'quaria@bear.com', password: 'bear', gender: 'F', birthday: '1982-10-30', has_house: false, location:  Location.create(zip: ZIP_CODES.sample),admin: true)
 
     100.times do
       User.create(username: Faker::Internet.user_name,
                   email: Faker::Internet.email,
                   password: "password",
-                  gender: ["M", "F", nil].sample,
+                  gender: ["M", "F"].sample,
                   birthday: random_birthday,
                   has_house: [true,false].sample,
-                  location: location)
+                  location: Location.create(zip: ZIP_CODES.sample))
     end
 
   end
@@ -110,7 +111,7 @@ namespace :db do
     end
   end
 
-  desc "Seeding category scores"
+  desc "Seeding Category scores"
   task :score_seed => :environment do
     puts "Seeding category scores..."
     CategoryScore.destroy_all
@@ -119,6 +120,22 @@ namespace :db do
         category_score = CategoryScore.create(user: user, category: category)
         update_category_score(user, category)
       end
+    end
+  end
+
+  desc "Seeding Houses"
+  task :house_seed => :environment do
+    puts "Seeding Houses..."
+    House.destroy_all
+    csv_file = File.read('addresses.csv')
+    csv = CSV.parse(csv_file)
+    addresses = csv.map { |address| address[0].strip }
+    users = User.all
+    users.shuffle!
+    addresses.shuffle!
+    50.times do
+      location = Location.create(address: addresses.pop, city: 'San Francisco', state: 'CA')
+      house = House.create(rent: rand(300..3000), location: location, user: users.pop)
     end
   end
 end

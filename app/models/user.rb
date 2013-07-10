@@ -120,14 +120,13 @@ class User < ActiveRecord::Base
     category_score.read_attribute(qtype)
   end
 
-  def top_users
+  def top_users(page, offset = 20)
     compat_limit = 80
-    num_users = 10
-    users = []
-    user_pool = User.all
-    while users.length < num_users
-      user = user_pool.pop
-      users << user if user.compatibility_with(self) > compat_limit
+    users = {}
+    user_pool = User.all[page*offset..(page+1)*offset-1]    
+    user_pool.each do |user|
+      compat = user.compatibility_with(self)
+      users[user] = compat if compat > compat_limit
     end
     users
   end
