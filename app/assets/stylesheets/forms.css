@@ -100,11 +100,8 @@
 }
 
 
-
-
-#new_survey{
-	border: #49A5FF solid 8px;
-	margin: 50px;
+#create_survey {
+		border: #49A5FF solid 8px;
 	border-radius: 10px;
 	display:block;
 	background-color: white;
@@ -115,6 +112,26 @@
 	margin-right: 150px;
 	padding-left: 10px;
 	box-shadow: 0 0 30px #74cac0;
+}
+
+legend {
+	font-size: 15pt;
+	color:#000;
+	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	font-weight: bold;
+	font-size: 18pt;
+	color: #FF8612;
+	*margin-left:-7px; /* A hack that only ie reads to position the legend in the same place cross browser */
+}
+
+fieldset {
+	  -moz-border-radius:5px;  
+  border-radius: 5px;  
+  -webkit-border-radius: 5px; 
+  color: #FF8612;
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	font-weight: bold;
+	font-size: 14pt;
 }
 
 #edit_house_2 {
@@ -131,8 +148,33 @@
 	padding-left: 10px;
 	box-shadow: 0 0 30px #74cac0;
 }
+
+input {
+	 	color: #999;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 10px;
+    border: 2px solid #999;
+    border-radius:2px;
 }
 
+select {
+		 	color: #FFB45A;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 10px;
+    border: 2px solid #999;
+    border-radius:2px;
+}
+
+submit {
+		 	color: #FFB45A;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 10px;
+    border: 2px solid #999;
+    border-radius:2px;	
+}
 
 
 

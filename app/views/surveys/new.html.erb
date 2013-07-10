@@ -1,4 +1,5 @@
-
+<div id="create_survey">
+	<p>Create a New Survey!</p>
 <%= form_for @survey, :url => surveys_path do |f| %>
 	<%= f.label :title, "Title" %>
 	<%= f.text_field :title %><br>
@@ -16,5 +17,7 @@
 	<%= f.submit %>
 	<% end %>
 <% end %>
+
+</div>
 
 

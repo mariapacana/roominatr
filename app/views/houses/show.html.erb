@@ -1,14 +1,23 @@
 <br>
 <br>
+<div id="profile_container">
 <h2><%= @user.username %>'s House</h2>
+
+
+
+
+
+
+<%= image_tag @house.avatar.url %><br>
 <%= link_to "Edit House", edit_user_house_path(@user, @house) %>
 <%= link_to "Delete House", user_house_path(@user, @house), :method => :delete %>
 
 <h3>Location</h3>
+
 <%= @house.location.address %><br>
 <%= "#{@house.location.city}, #{@house.location.state}, #{@house.location.zip} "%><br>
 
-<%= image_tag @house.avatar.url %>
+
 
 <h3>Rent</h3>
 Rent: $<%= @house.rent %>
@@ -23,3 +32,4 @@ Deposit: $<%= @house.deposit %>
 <%= if @house.cat then "Cats are allowed" else "Cats are not allowed" end %><br>
 <%= if @house.smoking then "Smoking is allowed" else "Smoking isn't allowed" end %><br>
 <%= if @house.background_check then "A background check is required" else "A background check isn't required" end %><br>
+</div>

@@ -3,7 +3,8 @@
 	<%= flash[:error] %>
 </div>
 <%= form_tag users_search_path, :method => :get, :remote => true, id: 'get_users' do %>
-<p id="name">Search for Roommates!</p>
+<fieldset>
+<legend>Search for Roommates!</legend>
   Gender:<%= select_tag :gender, options_for_select([['Male','M'], ['Female','F']]), :prompt => 'Select' %>
   Age:<%= number_field_tag :age_min, "18", class: 'number_field' %> -
   <%= number_field_tag :age_max, '90', class: 'number_field' %>
@@ -13,7 +14,7 @@
   <%= number_field_tag :age_max, '1000', class: 'number_field' %>
   <%= submit_tag "Filter" %>
 <% end %>
-
+</fieldset>
 <div id="users">
 	<%= render :partial => 'index', :locals => { :users => @top_users } %>
 </div>
