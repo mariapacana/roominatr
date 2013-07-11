@@ -9,7 +9,6 @@ body {
 	background-color: #0073A6;
 }
 
-
 #pro_pic {
 	width: 300px;
 	border: 5px solid #FF8612;
@@ -41,9 +40,8 @@ body {
 
 #profile_container{
 	background-color: white;
-	width: 780px;
+	width: 780px;  
 	margin: 50px auto auto auto;
-	height:100%;
 }
 
 #profile_container, p {
@@ -70,19 +68,18 @@ body {
 	width: 50%;
 	float:left;
 	border-right: 1px solid gray;
+	word-wrap: break-word;
 }
 
 .worst {
 	width: 49%;
 	float: right;
 	text-align: center;
-}
-.best, .worst .q_title {
-	text-align: center;
+	word-wrap: break-word;
 }
 
-#survey_info {
-	margin-top: 200px;
+.best, .worst .q_title {
+	text-align: center;
 }
 
 #basic {

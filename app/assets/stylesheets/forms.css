@@ -18,7 +18,6 @@ h3 {
 	padding: 0;
 }
 
-
 #profile_container{
 	width: 600px;
 	border: #49A5FF solid 8px;
@@ -35,16 +34,27 @@ h3 {
 	margin-top: 60px;
 }
 
+#profile_edit_container {
+	margin-top: 100px;
+	width: 1000px;
+}
 
 #user_info_edit {
 	float: left;
+	width: 450px;
+	padding-left: 55px;
+	margin-right: 0px;
 }
 
 #picture_edit {
 	float: right;
-	margin-right: 350px;
 	width: 300px;
+	margin-left: 0px;
 	padding-left: 55px;
+}
+
+#user_avatar {
+	width: 250px;
 }
 
 #user_password_edit {
@@ -199,6 +209,10 @@ form select {
 	padding-right:10px;
 }
 
+#search_options {
+	margin-bottom: 10px;
+}
+
 .filter_button {
 	font-family: 'Fauna One', serif;
 	font-size: 100%;
@@ -207,6 +221,13 @@ form select {
 
 .filter_option {
 	color: #FF8612;
+	background-color: white;
+	font-weight: bold;
+	font-size: 15px;
+	font-family: 'Fauna One', serif;
+	padding: 8px;
+	border: 2px solid #49A5FF;
+	border-radius:4px;
 }
 
 #link{
@@ -245,13 +266,6 @@ form select {
 	margin-right: 150px;
 	padding-left: 10px;
 	box-shadow: 0 0 30px #74cac0;
-}
-
-
-
-
-#user_avatar {
-	width: 250px;
 }
 
 #house_descrption {

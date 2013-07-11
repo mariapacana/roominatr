@@ -5,6 +5,7 @@ class House < ActiveRecord::Base
 
   validates_presence_of :rent, :location
   validates_associated :location
+  validates_numericality_of :rent, :numericality => { :greater_than => 0 }
 
   attr_accessible :description,
                   :image,

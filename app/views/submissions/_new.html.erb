@@ -1,5 +1,5 @@
 <%= form_tag submissions_path, :remote => true, :id => 'create_submission' do %>
-  <%= survey.title %><br>
+  <h1><%= survey.title %></h1><br>
   <%= flash[:error] if flash[:error] %>
   <%= hidden_field_tag :survey_id, survey.id %>
   <%= fields_for :responses do |c| %>
