@@ -1,12 +1,8 @@
-
-
-
 body#homepage{
 	background-color: white;
 	width: 100%;
 	height: 100%;
 }
-
 
 .splash_header {
 	margin-top: 45px;
@@ -37,63 +33,69 @@ body#homepage{
 	color:white;
 }
 
-.mission {
+#mission {
 	background-color: #0D4F8E;
+	margin: 0 auto;
 	width: 100%;
+	text-align: center;
 }
 
-.mission p {
-	margin: 0;
-	line-height: 2.0;
-	color:white;
-}
-
-
-.mission_text {
-	line-height: 200px;
-	text-align: center
-}
-
-.mission, #title {
+#mission .title {
 	font-size: 25pt;
 }
 
-.mission_text p {
+#mission p {
+	margin: 0 auto;
+	line-height: 2.0;
 	font-size: 20pt;
+	color:white;
 }
 
+#mission .mission_text .description {
+	width: 700px;
+	margin: 0 auto;
+}
 
-#text {
+#mission .header {
+	margin-top: 50px;
+	background-color: #468DD1;
+	font-size: 25pt;
+	line-height: 50px;
+	vertical-align: center;
 	height: 50px;
 	width: 500px;
-	text-align: center;
-	display: inline-block;
-	background-color: #468DD1;
-	margin: 0;
 }
 
-
-.video {
+#video {
+	margin: 0 auto;
 	background-color: #468DD1;
 	padding-top: 50px;
+	text-align: center;
 }
 
 iframe {
 	padding-bottom: 50px;
 }
 
-
-#text_about {
+#video .header {
+	font-size: 25pt;
+	line-height: 50px;
 	height: 50px;
-	margin: 0;
 	width: 500px;
-	text-align: center;
+	margin: 0 auto;
+	margin-top: 50px;
 	display: inline-block;
 	background-color: #E62329;
 	color: white;
 }
 
-.video_frame, iframe {
+#video_frame {
+	width: 560px;
+	height: 315px;
+}
+
+#video_frame, iframe {
+	text-align: center;
 	margin: 0 auto;
 	display: block;	
 }
@@ -103,7 +105,7 @@ iframe {
 	background-color: #E62329;
 }
 
-#team {
+.team {
 	display: inline-block;
 	overflow: hidden;
 	text-align: center;
@@ -114,14 +116,14 @@ iframe {
 
 }
 
-	#headshot {
-		display: block;
-		overflow: hidden;
-		border-radius: 900px;
+#headshot {
+	display: block;
+	overflow: hidden;
+	border-radius: 900px;
+	width: 200px;
+	height: auto;
+}
 
-		width: 200px;
-		height: auto;
-	}
 #ht {
 	color: white;
 }
@@ -129,11 +131,3 @@ iframe {
 #new_survey_button {
 	text-align: center;
 }
-
-#text_about, #text {
-	font-size: 20pt;
-	text-align: center;
-	margin-left: 33%;
-}
-
-

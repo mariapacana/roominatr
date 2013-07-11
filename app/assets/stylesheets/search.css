@@ -7,21 +7,13 @@
 
 }
 
-
-
-
 #name {
 	color: black;
 }
 
-
-
-
-
 .number_field {
 	width: 50px;
 }
-
 
 #profile_container {
 	min-width: 600px;
@@ -35,9 +27,6 @@
 	color: red;
 }
 
-
-
-
 #house_pic {
 	width: 400px;
 	height: auto;
@@ -46,10 +35,6 @@
 	margin-bottom: 10px;
 	border-radius: 10px;
 }
-
-
-
-
 
 .search_result {
 	border: #49A5FF solid 4px;
@@ -93,7 +78,6 @@
 	float: right;
 	font-size: 40pt;
 }
-
 
 #age_gender {
 	width: 200px;
