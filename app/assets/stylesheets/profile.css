@@ -9,7 +9,6 @@ body {
 	background-color: #0073A6;
 }
 
-
 #pro_pic {
 	width: 300px;
 	border: 5px solid #FF8612;
@@ -41,9 +40,8 @@ body {
 
 #profile_container{
 	background-color: white;
-	width: 780px;
+	width: 780px;  
 	margin: 50px auto auto auto;
-	height:950px;
 }
 
 #profile_container, p {
@@ -82,10 +80,6 @@ body {
 
 .best, .worst .q_title {
 	text-align: center;
-}
-
-#survey_info {
-	margin-top: 200px;
 }
 
 #basic {
