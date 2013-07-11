@@ -1,5 +1,5 @@
 <div class="search_result">
-	<%= link_to user.username, user_path(user), :class => 'username' %><br>
+	<%= link_to user.username, user_path(user), :id => 'name_tag' %><br>
 	<%= image_tag user.avatar.url(:thumb), :id => "search_pic" %>
 
 		<p id="score"><%= compatibility %>%</p>

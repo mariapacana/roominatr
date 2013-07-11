@@ -33,6 +33,10 @@ body#homepage{
 	color:white;
 }
 
+#logo, a:hover {
+	color:red;
+}
+
 #mission {
 	background-color: #0D4F8E;
 	margin: 0 auto;
