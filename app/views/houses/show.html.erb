@@ -1,34 +1,35 @@
 <br>
 <br>
 <div id="profile_container">
-<h2><%= @user.username %>'s House</h2>
+<p class="q_title"><%= @user.username %>'s House</p>
 
 
 
 
 
 
-<%= image_tag @house.avatar.url %><br>
+<%= image_tag @house.avatar.url, :id => 'house_pic' %><br>
+
 <% if @user == current_user %>
-  <%= link_to "Edit House", edit_user_house_path(@user, @house) %>
-  <%= link_to "Delete House", user_house_path(@user, @house), :method => :delete %>
+  <%= link_to "Edit House", edit_user_house_path(@user, @house), :id =>"pro_nav" %>
+  <%= link_to "Delete House", user_house_path(@user, @house), :method => :delete, :id =>"pro_nav" %>
 <% end %>
 
-<h3>Location</h3>
+<p class="q_title">Location</p>
 
 <%= @house.location.address %><br>
 <%= "#{@house.location.city}, #{@house.location.state}, #{@house.location.zip} "%><br>
 
 
 
-<h3>Rent</h3>
-Rent: $<%= @house.rent %>
+<p class="q_title">Rent</p>
+Rent: $<%= @house.rent %><br>
 Deposit: $<%= @house.deposit %>
 
-<h3>Description</h3>
+<p class="q_title">Description</p>
 <%= @house.description %>
 
-<h3>More Details</h3>
+<p class="q_title">More Details</p>
 <%= "#{@house.num_beds} bedrooms, #{@house.num_baths} bathrooms" %><br>
 <%= if @house.dog then "Dogs are allowed" else "Dogs are not allowed" end %><br>
 <%= if @house.cat then "Cats are allowed" else "Cats are not allowed" end %><br>
