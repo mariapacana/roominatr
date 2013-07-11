@@ -4,6 +4,8 @@ class UsersController < ApplicationController
 	include UsersHelper
 	include AjaxHelper
 
+	before_filter :check_login, :only => [ :index, :edit, :show ]
+
 	def index
 		if current_user.no_surveys?
 			flash.now[:error] = "Please answer some questions!"
@@ -109,5 +111,10 @@ class UsersController < ApplicationController
 		render :text => open("#{Rails.root}/app/assets/images/default_image.gif", "rb").read
 	end
 
+	private
+
+	def check_login
+		redirect_to signin_path unless current_user
+	end
 
 end
