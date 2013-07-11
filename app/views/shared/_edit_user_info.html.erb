@@ -16,12 +16,10 @@
     <%= f.select :weekend_activity, options_for_select([nil, "At home reading or chillin'", "Outside hiking or climbing"], @user.weekend_activity) %><br>
     <%= f.label :food_preferences, "My diet is:" %>
     <%= f.select :food_preferences, options_for_select([nil,"Vegan", "Vegetarian","Pescetarian", "Gluten-Free","Paleo","I like all food"], @user.food_preferences) %><br>
-    <%= f.label :best_roommate, "Tell us your best roommate experience:" %><br>
+    <p>Tell us your best roommate experience:</p>
     <%= f.text_area :best_roommate  %><br>
-    <%= f.label :worst_roommate, "Tell us your worst roommate experience:" %><br>
+    <p>Tell us your worst roommate experience:</p>
     <%= f.text_area :worst_roommate %><br>
-    <%= f.label :email, "Email" %>
-    <%= f.text_field :email, placeholder: "email" %><br>
   <%= f.submit %>
   <% end %>
 </div>
