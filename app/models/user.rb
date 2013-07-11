@@ -13,8 +13,12 @@ class User < ActiveRecord::Base
 										:format => {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i}
   validates_presence_of :birthday, :gender, :location
   validates_inclusion_of :has_house, :in => [true, false]
+  validates_inclusion_of :gender, :in => ["M","F","O"] 
+  validates_length_of :summary, :maximum => 200, :message =>"should be less than 200 characters"
+  validates :rent_pref_min, :numericality => { :greater_than => 0, :less_than_or_equal_to => :rent_pref_max }, :allow_nil => true
+  validates :rent_pref_max, :numericality => { :greater_than => 0 }, :allow_nil => true
   validates_associated :house
-  # validates_associated :location
+  validates_associated :location
                     
   after_create :create_category_scores
 

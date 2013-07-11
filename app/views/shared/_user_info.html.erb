@@ -1,5 +1,6 @@
 <div id="profile_container">
 <div class="profile_nav">
+	
 <% if @user == current_user %>
 	<%= link_to "Edit Profile", edit_user_path(@user), :id => 'pro_nav' %>
 	<%= link_to "Change Password", user_password_path(@user), :id => 'pro_nav' %>
@@ -71,5 +72,4 @@
 
 	</div>
 </div>
-
 
