@@ -89,4 +89,20 @@ body {
 	margin-top: 0px;
 }
 
+#pro_nav{
+	font-family: 'Fauna One', serif;
+	font-size: 110%;
+	color: #FF8612;
+	text-decoration: none;
+	border: 2px solid #FF8612;
+	border-radius: 5px;
+	padding: 3px;
+}
+
+#pro_nav, a:visited {
+	color: #FF8612;
+}
+
+
+
 

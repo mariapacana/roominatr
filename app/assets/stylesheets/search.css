@@ -1,51 +1,22 @@
-
-
-.search_result {
-	border: #49A5FF solid 4px;
-	margin: 8px;
-	padding: 5px;
-	border-radius: 10px;
-	display: block;
-}
-
-
 #search_pic{
 	width: 150px;
+	height: auto;
 	border: 5px solid #FF8612;
 	border-radius: 5px;
-}
+	margin-right: 5px;
 
-#score {
-	width: 100px;
-	margin-right: 100px;
-	float:right;
-	display: inline-block;
 }
 
 
-#score_text {
-	font-size: 40pt;
-}
-#extra_info {
-	width: 200px;
-	margin: 0;
-	display: inline-block;
-}
+
 
 #name {
 	color: black;
 }
 
-#star {
-	width: 150px;
-}
 
-#summary {
-	color:black;
-	width: 500px;
-	font-size: 15pt;
-	margin: 0;
-}
+
+
 
 .number_field {
 	width: 50px;
@@ -56,26 +27,125 @@
 	min-width: 600px;
 }
 
-#extra_info p {
-	margin-top: 0;
-	margin-bottom: 0;
-	margin-right: 0;
+.username {
+	color: #FF8612;
+}
+
+.username:hover {
+	color: red;
 }
 
 
-#pro_nav{
+
+
+
+
+
+
+
+
+.search_result {
+	border: #49A5FF solid 4px;
+	margin: 8px;
+	padding: 5px;
+	border-radius: 10px;
+	display: block;
+	font-size: 20pt;
 	font-family: 'Fauna One', serif;
-	font-size: 110%;
-	color: #FF8612;
-	text-decoration: none;
-	border: 2px solid #FF8612;
-	border-radius: 5px;
-	padding: 3px;
 }
 
-#pro_nav, a:visited {
-	color: #FF8612;
+.search_result, p {
+
 }
+
+
+.summary {
+	font-size: 14pt;
+	min-width: 300px;
+	max-width: 500px;
+	display: inline-block;
+
+}
+
+.house {
+	width: 500px;
+	margin-right: 0;
+	display: inline-block;
+	margin-bottom: 5px;
+
+}
+
+#house_icon {
+	width: 9%; 
+	height: auto;
+}
+
+#score {
+	width: 150px;
+	float: right;
+	font-size: 40pt;
+}
+
+
+#age_gender {
+	width: 200px;
+	display: inline-block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

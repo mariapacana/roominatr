@@ -1,6 +1,10 @@
 <div class="search_result">
-	<%= link_to user.username, user_path(user) %>
+	<%= link_to user.username, user_path(user), :class => 'username' %><br>
 	<%= image_tag user.avatar.url(:thumb), :id => "search_pic" %>
+
+		<p id="score"><%= compatibility %>%</p>
+
+	<div id="age_gender">
 	<%= user.age %>
 	<%= user.gender %>
 	<% if user.house %>
@@ -8,8 +12,6 @@
 	<% else %>
 		<%= render :partial => 'summary', :locals => { :user => user } %>
 	<% end %>
-	<div id="star_container">
-		<%= image_tag "starburst.png", :id => "star" %>
-		<p id="score"><%= compatibility %>%</p>
-	</div>
+</div>
+
 </div>

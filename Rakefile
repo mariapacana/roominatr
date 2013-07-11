@@ -80,7 +80,8 @@ namespace :db do
                   gender: ["M", "F"].sample,
                   birthday: random_birthday,
                   has_house: [true,false].sample,
-                  location: Location.create(zip: ZIP_CODES.sample))
+                  location: Location.create(zip: ZIP_CODES.sample),
+                  summary: Faker::Lorem.words(10))
     end
 
   end
