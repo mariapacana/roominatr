@@ -1,15 +1,16 @@
 <div id="user_info_edit" class="profile_edit">
   <p id='name'>Update Personal Information</p>
   <%= form_for @user do |f| %>
-    <%= flash[:error] %><br>
-    <%= f.label :summary, "Summary (150 words)" %><br>
+    <%= render :partial => 'shared/errors', :locals => {:object => @user}, :layout => false %>
+    <%= f.label :summary, "Summary (200 Words)" %><br>
     <%= f.text_area :summary, placeholder: "Tell us something about yourself.." %><br>
     <%= f.label :pets, "I own and/or am happy to live with:" %><br>
     <%= f.select :pets, options_for_select(["Dogs", "Cats", "Any", "No Pets"]) %><br>
     <% if !@user.has_house %>
       Rent Preferences:
-      <%= f.number_field :rent_pref_min, :placeholder => 'Min', :step => "100" %> -
-      <%= f.number_field :rent_pref_max, :placeholder => 'Max', :step => "100" %><br>
+      <%= f.number_field :rent_pref_min, :placeholder => 'Min', :min => "0", :step => "100" %> -
+      <%= f.number_field :rent_pref_max, :placeholder => 'Max', :min =>
+      "0", :step => "100" %><br>
     <% end %>
     <%= f.label :weekend_activity, "On the weekend you'd find me:" %>
     <%= f.select :weekend_activity, options_for_select(["At home reading or chillin'", "Outside hiking or climbing"]) %><br>
