@@ -42,7 +42,7 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
-  has_attached_file :avatar, :styles => { :medium => "300x300", :thumb => "50x50#" }, :default_url => '/default_image'
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "150x150>" }, :default_url => '/default_image'
 
   scope :younger_than, lambda { |age| where('birthday > ?', age.to_i.years.ago) }
   scope :older_than, lambda { |age| where('birthday < ?', age.to_i.years.ago) }

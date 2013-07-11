@@ -31,6 +31,8 @@ gem 'faraday'
 gem 'unicorn'
 gem 'jquery-rails'
 gem 'paperclip', '~> 3.0'
+gem 'aws-sdk'
+
 gem 'sidekiq'
 gem 'redis', '~> 3.0.4'
 
