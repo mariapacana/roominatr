@@ -111,8 +111,6 @@ class User < ActiveRecord::Base
     else
       age_max = age_max.to_i
     end
-    p "age_min #{age_min}"
-    p "age_max #{age_max}"
     later = age_min.years.ago
     earlier = age_max.years.ago
     where(birthday: (earlier..later))
@@ -141,7 +139,9 @@ class User < ActiveRecord::Base
     user_pool = User.all[page*offset..(page+1)*offset-1]    
     user_pool.each do |user|
       compat = user.compatibility_with(self)
-      users[user] = compat if compat > compat_limit
+      if user != self
+        users[user] = compat if compat > compat_limit
+      end
     end
     users
   end
