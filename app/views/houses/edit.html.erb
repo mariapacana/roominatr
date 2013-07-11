@@ -2,7 +2,7 @@
 <br>
 <br>
 <div class="house_edit">
-<%= form_for @house, :url => user_house_path do |f| %>
+<%= form_for @house, :url => user_houses_path do |f| %>
   <%= render :partial => 'shared/errors', :locals => {:object => @house}, :layout => false %>
   <%= f.fields_for :location do |l| %>
     <%= l.label "Street Address:" %>
