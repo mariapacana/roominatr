@@ -43,7 +43,7 @@ body {
 	background-color: white;
 	width: 780px;
 	margin: 50px auto auto auto;
-	height:100%;
+	height:950px;
 }
 
 #profile_container, p {
@@ -70,12 +70,14 @@ body {
 	width: 50%;
 	float:left;
 	border-right: 1px solid gray;
+	word-wrap: break-word;
 }
 
 .worst {
 	width: 49%;
 	float: right;
 	text-align: center;
+	word-wrap: break-word;
 }
 .best, .worst .q_title {
 	text-align: center;
