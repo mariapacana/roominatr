@@ -42,9 +42,9 @@ h3 {
 
 #picture_edit {
 	float: right;
-	margin-right: 250px;
+	margin-right: 350px;
 	width: 300px;
-	padding-left: 75px;
+	padding-left: 55px;
 }
 
 #user_password_edit {
@@ -136,7 +136,7 @@ fieldset {
 	margin-right: 10px;
 }
 
-#edit_house_2 {
+.house_edit{
 	border: #49A5FF solid 8px;
 	margin: 50px;
 	border-radius: 10px;
@@ -162,11 +162,31 @@ input {
 	font-family: 'Fauna One', serif;
 }
 
+textarea {
+	color: #FF8612;
+	font-weight: bold;
+	font-size: 15px;
+	padding: 8px;
+	border: 2px solid #49A5FF;
+	border-radius:4px;
+	background-color: white;
+	font-family: 'Fauna One', serif;
+}
+
 label {
 	width: 150px;
 	float:left;
 }
-select {
+
+form select {
+	color: #FFB45A;
+	font-weight: bold;
+	font-size: 18px;
+	padding: 10px;
+	border: 2px;
+}
+
+#user_pets {
 	color: #FFB45A;
 	font-weight: bold;
 	font-size: 18px;
@@ -197,6 +217,47 @@ select {
 	color:red;
 }
 
+#new_house {
+	border: #49A5FF solid 8px;
+	margin: 50px;
+	border-radius: 10px;
+	display:block;
+	background-color: white;
+	margin-top: 100px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-left: 150px;
+	margin-right: 150px;
+	padding-left: 10px;
+	box-shadow: 0 0 30px #74cac0;
+}
+
+#edit_house {
+	border: #49A5FF solid 8px;
+	margin: 50px;
+	border-radius: 10px;
+	display:block;
+	background-color: white;
+	margin-top: 100px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-left: 150px;
+	margin-right: 150px;
+	padding-left: 10px;
+	box-shadow: 0 0 30px #74cac0;
+}
+
+
+
+
+#user_avatar {
+	width: 250px;
+}
+
+#house_descrption {
+	width: 600px;
+	height: 120px;
+}
 
 
 

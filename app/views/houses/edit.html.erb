@@ -1,7 +1,7 @@
 <br>
 <br>
 <br>
-
+<div class="house_edit">
 <%= form_for [@user, @house], :url => user_house_path do |f| %>
   <%= render :partial => 'shared/errors', :locals => {:object => @house}, :layout => false %>
   <%= f.fields_for :location do |l| %>
@@ -38,4 +38,4 @@
   <%= f.submit "Add House" %>
 <% end %>
 
-
+</div>
