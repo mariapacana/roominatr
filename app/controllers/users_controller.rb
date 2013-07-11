@@ -40,8 +40,6 @@ class UsersController < ApplicationController
 	end
 
 	def update
-		p "UPDATING================================"
-		p params
 		@user = User.find(params[:id])
 		paramz = format_params(params[:user])
 

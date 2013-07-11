@@ -4,11 +4,8 @@
 <%= f.text_field :username, placeholder: "Emperor Norton" %><br>
 <%= f.label "Email:" %>
 <%= f.text_field :email, placeholder: "emperor@sf.com" %><br>
-<%= f.label "Gender:" %><br>
-<%= f.radio_button(:gender, "M",:id => 'gender') %>
-<%= f.label(:gender, "Male", :id => 'gender') %><br>
-<%= f.radio_button(:gender, "F") %>
-<%= f.label(:gender, "Female") %><br>
+<%= f.label "Gender:" %>
+<%= f.select :gender, options_for_select([["Female","F"], ["Male","M"],["Other","O"]])%><br>
 <%= f.label :birthday, "Birthday:" %>
 <%= f.date_select :birthday, { :start_year => 1930, :end_year => Time.now.year, :use_two_digit_numbers => true } %><br>
 <%= f.fields_for :location do |l| %>
