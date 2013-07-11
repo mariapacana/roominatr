@@ -1,7 +1,3 @@
-<br>
-<br>
-<br>
-
 <%= form_for @house, :url => user_houses_path, :method => 'post' do |f| %>
   <%= render :partial => 'shared/errors', :locals => {:object => @house}, :layout => false %>
   <%= f.fields_for :location do |l| %>

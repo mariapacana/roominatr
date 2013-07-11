@@ -2,7 +2,7 @@
   <p id='name'>Update Personal Information</p>
   <%= form_for @user do |f| %>
     <%= render :partial => 'shared/errors', :locals => {:object => @user}, :layout => false %>
-    <%= f.label :summary, "Summary (200 Words)" %><br>
+    <%= f.label :summary, "Summary" %><br>
     <%= f.text_area :summary, placeholder: "Tell us something about yourself.." %><br>
     <%= f.label :pets, "I own and/or am happy to live with:" %><br>
     <%= f.select :pets, options_for_select([nil, "Dogs", "Cats", "Any", "No Pets"], @user.pets ) %><br>

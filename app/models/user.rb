@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
   validates_inclusion_of :has_house, :in => [true, false]
   validates_inclusion_of :gender, :in => ["M","F","O"] 
   validates_length_of :summary, :maximum => 200, :message =>"should be less than 200 characters"
+  validates_length_of :best_roommate, :maximum => 300, :message =>"should be less than 300 characters"
+  validates_length_of :worst_roommate, :maximum => 300, :message =>"should be less than 300 characters"
   validates :rent_pref_min, :numericality => { :greater_than => 0, :less_than_or_equal_to => :rent_pref_max }, :allow_nil => true
   validates :rent_pref_max, :numericality => { :greater_than => 0 }, :allow_nil => true
   validates_associated :house
