@@ -239,8 +239,7 @@ form select {
 }
 
 #new_house {
-	border: #49A5FF solid 8px;
-	margin: 50px;
+	border: 50px;
 	border-radius: 10px;
 	display:block;
 	background-color: white;

@@ -18,11 +18,10 @@
 	min-width: 600px;
 }
 
-.username {
+#name_tag {
 	color: #FF8612;
 }
-
-.username:hover {
+#name_tag:hover {
 	color: red;
 }
 
@@ -45,6 +44,7 @@
 	font-family: 'Fauna One', serif;
 	font-weight: bold;
 }
+
 
 .summary {
 	font-size: 14pt;
@@ -80,7 +80,10 @@
 
 
 
-
+.summary {
+	min-width: 300px;
+	word-wrap: break-word;
+}
 
 
 
