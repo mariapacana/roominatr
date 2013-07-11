@@ -2,11 +2,11 @@
 <br>
 <br>
 
-<%= form_for [@user, @house], :url => user_houses_path, :method => 'post' do |f| %>
+<%= form_for @house, :url => user_houses_path, :method => 'post' do |f| %>
   <%= render :partial => 'shared/errors', :locals => {:object => @house}, :layout => false %>
   <%= f.fields_for :location do |l| %>
     <%= l.label "Street Address:" %>
-    <%= l.text_field :address, placeholder: "707 California Ave." %><br>
+    <%= l.text_field :address, placeholder: "717 California Ave." %><br>
     <%= l.label "City:" %>
     <%= l.text_field :city, placeholder: "San Francisco" %><br>
     <%= l.label "State:" %>

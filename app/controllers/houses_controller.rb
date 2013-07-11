@@ -2,6 +2,8 @@ class HousesController < ApplicationController
 
   include SessionsHelper
 
+
+
   def new
     @user = current_user
     @house = @user.build_house
@@ -19,7 +21,7 @@ class HousesController < ApplicationController
 
   def show
     @user = User.find(params[:user_id])
-    @house = House.find(params[:id])
+    @house = @user.house
   end
 
   def edit
@@ -28,16 +30,16 @@ class HousesController < ApplicationController
   end
 
   def update
-    @house = House.find(params[:id])
+    @house = current_user.house
     if @house.update_attributes(params[:house])
-      redirect_to user_house_path(current_user, @house)
+      redirect_to user_houses_path(current_user)
     else
       render :edit
     end
   end
 
   def destroy
-    @house = House.find(params[:id])
+    @house = current_user.house
     @house.destroy
     redirect_to user_path(current_user)
   end
@@ -45,5 +47,6 @@ class HousesController < ApplicationController
   def default_image
     render :text => open("#{Rails.root}/app/assets/images/default_home.jpg", "rb").read
   end
+
 
 end

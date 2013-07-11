@@ -11,8 +11,8 @@
 <%= image_tag @house.avatar.url, :id => 'house_pic' %><br>
 
 <% if @user == current_user %>
-  <%= link_to "Edit House", edit_user_house_path(@user, @house), :id =>"pro_nav" %>
-  <%= link_to "Delete House", user_house_path(@user, @house), :method => :delete, :id =>"pro_nav" %>
+  <%= link_to "Edit House", edit_user_houses_path(@user), :id =>"pro_nav" %>
+  <%= link_to "Delete House", user_houses_path(@user), :method => :delete, :id =>"pro_nav" %>
 <% end %>
 
 <p class="q_title">Location</p>

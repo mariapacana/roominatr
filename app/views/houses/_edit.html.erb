@@ -1,7 +1,7 @@
 <br>
 <br>
 <h2><%= @user.username %>'s House</h2>
-<p><%= link_to "Edit House", edit_user_house_path(@user, @house), :id =>'link'%></p>
+<p><%= link_to "Edit House", edit_user_houses_path(@user), :id =>'link'%></p>
 
 <h3>Location</h3>
 <%= @house.location.address %><br>

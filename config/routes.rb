@@ -23,7 +23,7 @@ Roominatr::Application.routes.draw do
   resources :homepage
 
   resources :users do
-    resources :houses
+    resource :houses
   end
 
   root to: 'homepage#show'
