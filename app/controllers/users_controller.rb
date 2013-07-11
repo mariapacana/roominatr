@@ -23,7 +23,6 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(params[:user])
 		p @user
-		# create_category_scores(@user)
 		if @user.save
 			flash[:success] = "Welcome to Roominator"
 			sign_in(@user)
@@ -90,6 +89,8 @@ class UsersController < ApplicationController
 		users = users.more_expensive_than(params[:price_min]) unless params[:price_min].blank?
 		users = users.neighborhood(params[:neighborhood]) unless params[:neighborhood].blank?
 		users = users.city(params[:city]) unless params[:city].blank?
+		users = users - [current_user]
+
 		users_hash = {}
 		users.each do |user|
 			users_hash[user]=user.compatibility_with(current_user)
