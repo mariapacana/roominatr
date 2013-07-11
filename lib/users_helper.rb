@@ -13,7 +13,7 @@ module UsersHelper
 
 	def create_category_scores(user)
 		Category.all.each do |category|
-			CategoryScore.create(user: user, category: category)
+			CategoryScore.new(user: user, category: category)
 		end
 	end
 end

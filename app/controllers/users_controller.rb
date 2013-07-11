@@ -20,7 +20,8 @@ class UsersController < ApplicationController
 
 	def create
 		@user = User.new(params[:user])
-		create_category_scores(@user)
+		p @user
+		# create_category_scores(@user)
 		if @user.save
 			flash[:success] = "Welcome to Roominator"
 			sign_in(@user)

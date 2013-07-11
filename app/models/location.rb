@@ -34,27 +34,41 @@ class Location < ActiveRecord::Base
 
   def get_user_info
     conn = Faraday.new(:url => format_gmaps_request_user)
-    body = JSON.parse(conn.get.body)["results"][0]
+
+    if conn.get.body
+      body = JSON.parse(conn.get.body)["results"][0]
+    end
 
     if body
-      geometry = body["geometry"]["location"]
-      self.city = body["address_components"][2]["long_name"]
-      self.state = body["address_components"][3]["long_name"]
-      self.country = body["address_components"][4]["long_name"]
-      self.lat = geometry["lat"]
-      self.long = geometry["lng"]
+      geometry = body["geometry"]["location"] if body["geometry"]["location"]
+      self.lat = geometry["lat"] if geometry["lat"]
+      self.long = geometry["lng"] if geometry["lng"]
+
+      body["address_components"].each do |addy|
+        self.country = addy["long_name"] if addy["types"].include?("country") 
+        self.state = addy["long_name"] if addy["types"].include?("administrative_area_level_1") 
+        self.city = addy["long_name"] if addy["types"].include?("locality") 
+      end  
     end
   end
 
   def get_lat_long_neighborhood
     conn = Faraday.new(:url => format_gmaps_request_house)
-    body = JSON.parse(conn.get.body)["results"][0]
+    if conn.get.body
+      body = JSON.parse(conn.get.body)["results"][0]
+    end
+
     if body
       geometry = body["geometry"]["location"]
-      neighborhood = body["address_components"][2]["long_name"]
       self.lat = geometry["lat"]
       self.long = geometry["lng"]
-      self.neighborhood = neighborhood
+
+      body["address_components"].each do |addy|
+        self.country = addy["long_name"] if addy["types"].include?("country") 
+        self.state = addy["long_name"] if addy["types"].include?("administrative_area_level_1") 
+        self.neighborhood = addy["long_name"] if addy["types"].include?("neighborhood")
+        self.city = addy["long_name"] if addy["types"].include?("locality") 
+      end 
     end
   end
 end

@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   validates_presence_of :birthday, :gender, :location
   validates_inclusion_of :has_house, :in => [true, false]
   validates_associated :house
-  validates_associated :location
+  # validates_associated :location
                     
   after_create :create_category_scores
 
@@ -65,7 +65,7 @@ class User < ActiveRecord::Base
       category_score = CategoryScore.new
       category_score.user = self
       category_score.category = category
-      # category_score.save
+      category_score.save
     end
   end
 
