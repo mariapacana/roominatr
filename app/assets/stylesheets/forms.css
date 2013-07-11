@@ -209,6 +209,10 @@ form select {
 	padding-right:10px;
 }
 
+#search_options {
+	margin-bottom: 10px;
+}
+
 .filter_button {
 	font-family: 'Fauna One', serif;
 	font-size: 100%;
@@ -217,6 +221,13 @@ form select {
 
 .filter_option {
 	color: #FF8612;
+	background-color: white;
+	font-weight: bold;
+	font-size: 15px;
+	font-family: 'Fauna One', serif;
+	padding: 8px;
+	border: 2px solid #49A5FF;
+	border-radius:4px;
 }
 
 #link{

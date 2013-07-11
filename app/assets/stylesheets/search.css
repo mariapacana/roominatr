@@ -4,7 +4,6 @@
 	border: 5px solid #FF8612;
 	border-radius: 5px;
 	margin-right: 5px;
-
 }
 
 #name {
@@ -46,11 +45,6 @@
 	font-family: 'Fauna One', serif;
 	font-weight: bold;
 }
-
-.search_result, p {
-
-}
-
 
 .summary {
 	font-size: 14pt;
