@@ -152,12 +152,14 @@ fieldset {
 }
 
 input {
-	color: #999;
+	color: #FF8612;
 	font-weight: bold;
-	font-size: 14px;
+	font-size: 15px;
 	padding: 8px;
 	border: 2px solid #49A5FF;
 	border-radius:4px;
+	background-color: white;
+	font-family: 'Fauna One', serif;
 }
 
 label {
@@ -185,6 +187,14 @@ select {
 
 .filter_option {
 	color: #FF8612;
+}
+
+#link{
+	color: black;
+}
+
+#link:hover {
+	color:red;
 }
 
 
