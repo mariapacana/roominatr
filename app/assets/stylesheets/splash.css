@@ -130,5 +130,10 @@ iframe {
 	text-align: center;
 }
 
+#text_about, #text {
+	font-size: 20pt;
+	text-align: center;
+	margin-left: 33%;
+}
 
 
