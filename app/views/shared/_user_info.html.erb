@@ -31,7 +31,7 @@
 		<p class="response">Username: <%= @user.username %></p>
 		<p class="response">Email: <%= @user.email %></p>
 		<p class="response">Gender: <%= @user.gender %></p>
-		<p class="response">Birthday: <%= @user.birthday %></p>
+		<p class="response">Age: <%= @user.age %></p>
 		<% if !@user.has_house && @user.rent_pref_min && @user.rent_pref_max %>
 			<p class="response">Rent Preferences: $<%=number_with_delimiter(@user.rent_pref_min, delimiter:",")%> to $<%=number_with_delimiter(@user.rent_pref_max, delimiter:",")%></p>
 		<% end %>
