@@ -26,8 +26,14 @@ FactoryGirl.define do
   factory :survey do
     title { Faker::Lorem.words(1) }
     category
-    after(:create) do |s|
-      create(:question, :survey => s)
+    before(:create) do |s|
+      create(:question, :survey => s, qtype: "me")
+      3.times { s.questions.where("qtype=?","me").first.answers << create(:answer, question: s.questions.where("qtype=?","me").first) }
+      answers = s.questions.where("qtype=?","me").first.answers
+      roommate_question = s.questions.where("qtype=?","roommate").first
+      answers.each do |answer|
+        roommate_question.answers << create(:answer, question: roommate_question, text: answer.text, weight: answer.weight)
+      end
     end
   end
 
@@ -37,15 +43,6 @@ FactoryGirl.define do
   factory :submission do
     survey
     user
-    # factory :submission_with_responses do
-    #   ignore do
-    #     responses_count 3
-    #   end
-
-    #   after(:create) do |submission, evaluator|
-    #     create_list(:response, evaluator.responses_count, submission: submission)
-    #   end
-    # end
   end
 
   factory :submission_with_responses, :parent => :submission do
@@ -69,31 +66,9 @@ FactoryGirl.define do
   factory :user_with_submissions, :parent => :user do
     after(:create) do |u|
       3.times {
-        create(:submission, :user => u)
+        create(:submission_with_responses, :user => u)
       }
     end
   end
 end
 
-# factory :user_with_submissions do
-#         ignore do
-#           submissions_count 3
-#         end
-
-#         after(:create) do |user, evaluator|
-#           category = create(:category)
-#           evaluator.submissions_count.times do
-#             survey = create(:survey, category: category)
-#             question = create(:question_with_answers, survey: survey)
-#             submission = create(:submission, user: user, survey: survey)
-#             p "WE ARE HERE"
-#             response = create(:response, question: question, submission: submission)
-#             p "WE ARE HERE TOO"
-
-#             submission.responses << response
-#           end
-#           category_score = create(:category_score, user: user, category: category)
-#         end
-
-
-#       end

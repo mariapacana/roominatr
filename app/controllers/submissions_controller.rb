@@ -17,7 +17,7 @@ class SubmissionsController < ApplicationController
       flash[:error] = "Please fill out all questions!"
       render_partial('submission_form', 'new', {:survey => @survey})
     else
-      #update_category_score(current_user, @survey.category)      
+      # update_category_score(current_user, @survey.category)      
       ScoreWorker.perform_async(current_user.id, @survey.category.id)
       params[:responses].each do |question_id, answer_id|
         @question = Question.find(question_id.to_i)
