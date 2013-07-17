@@ -1,51 +1,84 @@
 FactoryGirl.define do
   factory :category do
-    name Faker::Name.name
+    name Faker::Lorem.words(1)
   end
 
-  factory :survey do
-    title Faker::Lorem.words(1)
-    category
+  factory :location do  
+    address Faker::Address.street_address
+  end
 
-    factory :survey_with_questions do
-      ignore do
-        questions_count 1
-      end
+  factory :category_score do
+    me 0
+    roommate 0
+    importance 0
+  end
 
-      before(:create) do |survey, evaluator|
-        create_list(:question_with_answers, evaluator.questions_count, survey: survey, qtype: nil)
-      end
-    end
+  factory :answer do
   end
 
   factory :question do
     body Faker::Lorem.sentence(5)
-    qtype  ["roommate", "me", "importance"].sample
-    survey
-
-    factory :question_with_answers do
-      ignore do
-        answers_count 3
-      end
-
-      after(:create) do |question, evaluator|
-        create_list(:answer, evaluator.answers_count, question: question )
-      end
-    end
   end
 
-  factory :answer do
-    text Faker::Lorem.words(5)
-    weight [1,0,-1].sample
+  factory :survey do
+    title { Faker::Lorem.words(1) }
+    category
   end
 
   factory :response do
-    question
-    answer
   end
 
   factory :submission do
-    responses
+    survey 
+    user
+
+    # factory :submission_with_responses do
+    #   ignore do
+    #     responses_count 3
+    #   end
+
+    #   after(:create) do |submission, evaluator|
+    #     create_list(:response, evaluator.responses_count, submission: submission)
+    #   end
+    # end
   end
 
+  factory :user do
+    username { Faker::Internet.user_name }
+    sequence(:email) {|n| "user#{n}@mail.com"}
+    birthday { Date.today }
+    location
+    gender { ["M", "F", "O"].sample }
+    has_house { [true, false].sample }
+    password "password"
+
+    factory :user_with_category_score do
+      category = create(:category)
+      category_score = create(:category_score, { category: category, user: user })
+
+      factory :user_with_submissions do 
+        ignore do
+          submissions_count 3
+        end
+
+        after(:create) do |user, evaluator|
+          category = create(:category)
+          evaluator.submissions_count.times do  
+            survey = create(:survey, category: category)
+            question = create(:question_with_answers, survey: survey)
+            submission = create(:submission, user: user, survey: survey)
+            p "WE ARE HERE"
+            response = create(:response, question: question, submission: submission)
+            p "WE ARE HERE TOO"
+
+            submission.responses << response
+          end
+          category_score = create(:category_score, user: user, category: category)      
+        end
+
+
+      end
+
+    end
+  end
 end
