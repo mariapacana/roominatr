@@ -70,7 +70,7 @@ namespace :db do
     ZIP_CODES = %w(94108 94109 94110 94111 94114 94115 94116 94117 94118)
 
     User.create(username: 'maria', email: 'maria@bear.com', password: 'bear', gender: 'F', birthday: '1982-10-30', has_house: true, location:  Location.create(zip: ZIP_CODES.sample), admin: true)
-    User.create(username: 'will', email: 'will@bear.com', password: 'bear', gender: 'M', birthday: '1982-10-30', has_house: true, location:  Location.create(zip: ZIP_CODES.sample),admin: true)
+    User.create(username: 'will', email: 'will@bear.com', password: 'bear', gender: 'M', birthday: '1988-08-18', has_house: true, location:  Location.create(zip: ZIP_CODES.sample),admin: true)
     User.create(username: 'quaria', email: 'quaria@bear.com', password: 'bear', gender: 'F', birthday: '1982-10-30', has_house: false, location:  Location.create(zip: ZIP_CODES.sample),admin: true)
 
     100.times do
