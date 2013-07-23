@@ -2,7 +2,8 @@ require 'spec_helper'
 
 describe User do
 
-  let(:user) { create(:user_with_submissions) }
+  let!(:user) { create(:user) }
+  let!(:user_with_submissions) { create(:user_with_submissions) }
 
   describe "#initialize" do
 
@@ -67,9 +68,27 @@ describe User do
     end
   end
 
+  # This works when I say "should eq" rather than "should equal"
+  describe "#new_survey" do
+    let!(:untaken_survey) { create(:survey) }
+    it "gives us a survey the user hasn't taken" do
+        user_with_submissions.new_survey.should equal(untaken_survey)
+    end
+  end
+
   describe "#age" do
     it "gives us the user's age" do
-        p user
+        user.update_attribute('birthday','1982-10-30')
+        user.age.should equal(30)
+    end
+  end
+
+  describe "#no_surveys?" do
+    it "returns false if the user has filled out surveys" do
+        user_with_submissions.no_surveys?.should eq(false)
+    end
+    it "returns true if the user hasn't filled out surveys" do
+        user.no_surveys?.should eq(true)
     end
   end
 
