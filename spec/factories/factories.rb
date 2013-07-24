@@ -1,4 +1,7 @@
 FactoryGirl.define do
+
+  CATEGORIES = ["cleanliness","responsibility","sociability"]
+
   factory :category do
     name { Faker::Lorem.words(1) }
   end
@@ -8,6 +11,7 @@ FactoryGirl.define do
   end
 
   factory :category_score do
+    category
     me 0
     roommate 0
     importance 0
@@ -54,7 +58,7 @@ FactoryGirl.define do
   end
 
   factory :user do
-    username { Faker::Internet.user_name }
+    sequence(:username) {|n| "user#{n}"}
     sequence(:email) {|n| "user#{n}@mail.com"}
     birthday { Date.today }
     location
@@ -65,9 +69,10 @@ FactoryGirl.define do
 
   factory :user_with_submissions, :parent => :user do
     after(:create) do |u|
-      3.times {
-        create(:submission_with_responses, :user => u)
-      }
+      Category.all.each do |category|
+        survey = create(:survey, category: category)
+        create(:submission_with_responses, user: u, survey: survey)
+      end
     end
   end
 end

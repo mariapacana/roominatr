@@ -2,6 +2,10 @@ require 'spec_helper'
 
 describe User do
 
+  before(:all) do
+    CATEGORIES.each {|cat_type| create(:category, name: cat_type)}
+  end
+
   let!(:user) { create(:user) }
   let!(:user_with_submissions) { create(:user_with_submissions) }
 
@@ -68,6 +72,13 @@ describe User do
     end
   end
 
+  #This works when it's run by line but not with other tests
+  describe "#create_category_scores" do
+    it "sets up three category scores for a user" do
+        user.category_scores.length.should eq 3
+    end
+  end
+
   # This works when I say "should eq" rather than "should equal"
   describe "#new_survey" do
     let!(:untaken_survey) { create(:survey) }
@@ -85,11 +96,32 @@ describe User do
 
   describe "#no_surveys?" do
     it "returns false if the user has filled out surveys" do
+        # p user_with_submissions
+        # p user_with_submissions.submissions
+        # p user_with_submissions.submissions.length
         user_with_submissions.no_surveys?.should eq(false)
     end
     it "returns true if the user hasn't filled out surveys" do
         user.no_surveys?.should eq(true)
     end
+  end
+
+  describe "#score" do
+  end
+
+  describe "#category_score" do
+  end
+
+  describe "#top_users" do
+  end
+
+  describe "#compatibility_with" do
+  end
+
+  describe "#survey_progress" do
+  end
+
+  describe ".filter_by_age" do
   end
 
 end
