@@ -28,7 +28,7 @@ FactoryGirl.define do
   end
 
   factory :survey do
-    title { Faker::Lorem.words(1) }
+    title { Faker::Lorem.words(1).first }
     category
     before(:create) do |s|
       create(:question, :survey => s, qtype: "me")
