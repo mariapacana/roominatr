@@ -11,7 +11,6 @@ module ScoreHelper
 		user.submissions.each	do |submission|
 			if submission.survey.category == category
 				submission.responses.each do |response|
-					p response
 					if response.question.qtype == "me"
 						me_total +=1
 						me_count += response.answer.weight
@@ -36,6 +35,6 @@ module ScoreHelper
 		score_table.update_attribute(:me, me)
 		score_table.update_attribute(:roommate, roommate)
 		score_table.update_attribute(:importance, importance) 
-		p score_table
+		score_table
 	end
 end

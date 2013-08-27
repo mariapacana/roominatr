@@ -126,7 +126,7 @@ namespace :db do
 
   desc "Seeding Houses"
   task :house_seed => :environment do
-    puts "Seeding Houses..."
+    puts "Seeding houses..."
     House.destroy_all
     csv_file = File.read('addresses.csv')
     csv = CSV.parse(csv_file)
