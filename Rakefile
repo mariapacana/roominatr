@@ -6,8 +6,10 @@ require File.expand_path('../config/application', __FILE__)
 require 'csv'
 require "#{Rails.root}/app/helpers/application_helper"
 require "#{Rails.root}/lib/score_helper"
+require "#{Rails.root}/lib/seed_helper"
 include ApplicationHelper
 include ScoreHelper
+include SeedHelper
 
 Roominatr::Application.load_tasks
 

@@ -75,14 +75,6 @@ class User < ActiveRecord::Base
     end
   end
 
-  def score_slow(category, type)
-    user_answers = answers.select do |a|
-      a.question.survey.category == category and
-      a.question.qtype == type
-    end
-    user_answers.inject(0){ |sum, answer| sum + answer.weight }/user_answers.length.to_f
-  end
-
   def score(category, type)
     qtype = type.to_sym
     category_score = category_scores.where(category_id: category.id).first
@@ -102,19 +94,6 @@ class User < ActiveRecord::Base
     return 0 if subs.empty?
     compat = subs.inject(:+)/subs.length
     (100*compat).floor
-  end
-
-  def self.filter_by_age(age_min, age_max)
-    age_min = age_min.to_i
-    if age_max == ""
-      age_max = 200
-    else
-      age_max = age_max.to_i
-    end
-    later = age_min.years.ago
-    earlier = age_max.years.ago
-    where(birthday: (earlier..later))
-    birthday && ((DateTime.now.to_date - birthday)/365.25).to_i
   end
 
   def survey_progress

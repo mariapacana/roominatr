@@ -2,8 +2,6 @@ class HousesController < ApplicationController
 
   include SessionsHelper
 
-
-
   def new
     @user = current_user
     @house = @user.build_house
