@@ -56,6 +56,8 @@ class User < ActiveRecord::Base
   scope :more_expensive_than, lambda { |min_rent| joins(:house).where('rent > ?', min_rent) }
   scope :neighborhood, lambda { |hood| includes(:house => :location).where('locations.neighborhood like ?', "%#{hood}%")}
   scope :city, lambda { |city| includes(:house => :location).where('locations.city like ?', "%#{city}%") }
+  scope :user_city, lambda { |city| where('locations.city like ?', "%#{city}%") }
+  scope :with_houses, lambda { |bool| where('has_house = ?', "#{bool}") }
 
   def new_survey
     taken_surveys = submissions.collect {|submission| submission.survey }

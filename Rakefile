@@ -79,7 +79,7 @@ namespace :db do
                   password: "password",
                   gender: ["M", "F"].sample,
                   birthday: random_birthday,
-                  has_house: [true,false].sample,
+                  has_house: false,
                   location: Location.create(zip: ZIP_CODES.sample),
                   summary: Faker::Lorem.words(10))
     end
@@ -135,8 +135,10 @@ namespace :db do
     users.shuffle!
     addresses.shuffle!
     50.times do
+      user = users.pop
+      user.update_attribute(:has_house, true)
       location = Location.create(address: addresses.pop, city: 'San Francisco', state: 'CA')
-      house = House.create(rent: rand(300..3000), location: location, user: users.pop)
+      house = House.create(rent: rand(300..3000), location: location, user: user)
     end
   end
 end
