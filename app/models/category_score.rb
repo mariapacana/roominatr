@@ -9,3 +9,4 @@ class CategoryScore < ActiveRecord::Base
 		update_attribute(qtype.to_sym, score)
 	end
 end
+

@@ -11,3 +11,4 @@ class Submission < ActiveRecord::Base
   validates_uniqueness_of :survey_id, :scope => :user_id
 
 end
+

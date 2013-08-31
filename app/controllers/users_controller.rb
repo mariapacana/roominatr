@@ -80,7 +80,10 @@ class UsersController < ApplicationController
 	end
 
 	def search
+		ap params
+
 		users = User.scoped
+		users = users.with_houses(params[:has_house]) unless params[:has_house].blank?
 		users = users.older_than(params[:age_min]) unless params[:age_min].blank?
 		users = users.younger_than(params[:age_max]) unless params[:age_max].blank?
 		users = users.where(gender: params[:gender]) unless params[:gender].blank?
@@ -89,7 +92,10 @@ class UsersController < ApplicationController
 		users = users.more_expensive_than(params[:price_min]) unless params[:price_min].blank?
 		users = users.neighborhood(params[:neighborhood]) unless params[:neighborhood].blank?
 		users = users.city(params[:city]) unless params[:city].blank?
+		users = users.user_city(params[:user_city]) unless params[:user_city].blank?
 		users = users - [current_user]
+
+		ap users
 
 		users_hash = {}
 		users.each do |user|
