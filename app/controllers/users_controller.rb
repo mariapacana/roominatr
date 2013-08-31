@@ -37,13 +37,10 @@ class UsersController < ApplicationController
 	end
 
 	def show_top_users
-		p "WE ARE HERE"
-
-		#params[:page]
+		p "WE ARE IN TOP USERS"
+		# params[:page]
 		more_users = current_user.top_users(1)
-		compatible_users = compatible_users_list(more_users)
-		render_partial('more_users', 'index', { :users => compatible_users })
-
+		render_partial('more_users', 'index', { :users => more_users })
 	end
 
 	def edit
@@ -105,7 +102,9 @@ class UsersController < ApplicationController
 		users = users.user_city(params[:user_city]) unless params[:user_city].blank?
 		users = users - [current_user]
 
-		users_hash = compatibile_users_list(users)
+		ap users
+
+		users_hash = current_user.compatible_users_list(users)
 		render_partial('show_users', 'index', { :users => users_hash })
 	end
 

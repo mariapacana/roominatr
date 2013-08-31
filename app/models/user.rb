@@ -101,7 +101,7 @@ class User < ActiveRecord::Base
   def compatible_users_list(users)
     users_hash = {}
     users.each do |user|
-      users_hash[user]=user.compatibility_with(current_user)
+      users_hash[user] = compatibility_with(user)
     end
 
     users_hash

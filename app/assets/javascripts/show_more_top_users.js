@@ -1,7 +1,8 @@
 $(document).ready(function(){
 
-  $('#top_users').on('ajax:success', function(event, data, status, xhr){
-    $('#users').html(data.show_users);
+  $('.top_users_form').on('ajax:success', function(event, data, status, xhr){
+    console.log(data.more_users);
+    console.log("hey");
   });
 
 });
