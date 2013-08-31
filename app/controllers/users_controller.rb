@@ -36,6 +36,11 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 	end
 
+	def show_top_users
+		p "WE ARE HERE"
+		more_users = top_users(params[:page])
+	end
+
 	def edit
 		@user = User.find(params[:id])
 	end

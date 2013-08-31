@@ -7,6 +7,7 @@ Roominatr::Application.routes.draw do
   match '/users/search', to: 'users#search', :via => :get, as: 'users_search'
   match '/users/search_no_house', to: 'users#search_no_house', :via => :get, as: 'users_search_no_house'
   match '/users/search_house', to: 'users#search_house', :via => :get, as: 'users_search_house'
+  match '/users/show_top_users', to: 'users#show_top_users', :via => :get, as: 'top_users'
   match '/users/:id/picture', to: 'users#update_picture', via: :put, as: 'user_picture'
   match '/users/:id/password', to: 'users#edit_password', via: :get, as: 'user_password'
   match '/users/:id/password', to: 'users#update_password', via: :put, as: 'user_password'

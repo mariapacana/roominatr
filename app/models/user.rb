@@ -56,7 +56,7 @@ class User < ActiveRecord::Base
   scope :more_expensive_than, lambda { |min_rent| joins(:house).where('rent > ?', min_rent) }
   scope :neighborhood, lambda { |hood| includes(:house => :location).where('locations.neighborhood like ?', "%#{hood}%")}
   scope :city, lambda { |city| includes(:house => :location).where('locations.city like ?', "%#{city}%") }
-  scope :user_city, lambda { |city| where('locations.city like ?', "%#{city}%") }
+  scope :user_city, lambda { |city| joins(:location).where('city like ?', "%#{city}%") }
   scope :with_houses, lambda { |bool| where('has_house = ?', "#{bool}") }
 
   def new_survey
@@ -117,7 +117,8 @@ class User < ActiveRecord::Base
   def top_users(page, offset = 20)
     compat_limit = 80
     users = {}
-    user_pool = User.all[page*offset..(page+1)*offset-1]    
+    users_in_city = User.scoped.user_city(location.city)
+    user_pool = users_in_city[page*offset..(page+1)*offset-1]    
     user_pool.each do |user|
       compat = user.compatibility_with(self)
       if user != self
