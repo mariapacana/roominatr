@@ -17,5 +17,7 @@
   <%= submit_tag "Find a Roommate!" %>
 <% end %>
 </fieldset>
-<%= render :partial => 'index', :locals => { :users => @top_users } %>
-
+<div id="users">
+  <%= render :partial => 'index', :locals => { :users => @top_users } %>
+  <%= button_to "More Matches", { action: "show_top_users", page: 2 }, method: :get, id: :top_users, :remote => true %>
+</div>

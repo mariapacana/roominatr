@@ -98,6 +98,15 @@ class User < ActiveRecord::Base
     (100*compat).floor
   end
 
+  def compatible_users_list(users)
+    users_hash = {}
+    users.each do |user|
+      users_hash[user]=user.compatibility_with(current_user)
+    end
+
+    users_hash
+  end
+
   def survey_progress
     submitted = submissions.length
     return 0.0 if submitted == 0
@@ -118,7 +127,7 @@ class User < ActiveRecord::Base
     compat_limit = 80
     users = {}
     users_in_city = User.scoped.user_city(location.city)
-    user_pool = users_in_city[page*offset..(page+1)*offset-1]    
+    user_pool = users_in_city[page*offset..(page.to_i+1)*offset-1]    
     user_pool.each do |user|
       compat = user.compatibility_with(self)
       if user != self
