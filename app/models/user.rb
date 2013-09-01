@@ -127,7 +127,8 @@ class User < ActiveRecord::Base
     compat_limit = 80
     users = {}
     users_in_city = User.scoped.user_city(location.city)
-    user_pool = users_in_city[page*offset..(page.to_i+1)*offset-1]    
+    #Assumes infinite users in city
+    user_pool = users_in_city[page*offset..(page+1)*offset-1]    
     user_pool.each do |user|
       compat = user.compatibility_with(self)
       if user != self

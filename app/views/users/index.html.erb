@@ -19,5 +19,5 @@
 </fieldset>
 <div id="users">
   <%= render :partial => 'index', :locals => { :users => @top_users } %>
-  <%= button_to "More Matches", { action: "show_top_users", page: 2 }, method: :get, id: :top_users, form_class: :top_users_form, :remote => true %>
+  <%= button_to "More Matches", { action: "show_top_users", page: @page }, method: :get, id: :top_users, form_class: :top_users_form, :remote => true %>
 </div> 

@@ -10,8 +10,10 @@ class UsersController < ApplicationController
 		if current_user.no_surveys?
 			flash.now[:error] = "Please answer some questions!"
 			@top_users = User.all.sample(10)
+			@page = 0
 		else
 			@top_users = current_user.top_users(0)
+			@page = 1
 		end
 	end
 
@@ -38,8 +40,8 @@ class UsersController < ApplicationController
 
 	def show_top_users
 		p "WE ARE IN TOP USERS"
-		# params[:page]
-		more_users = current_user.top_users(1)
+		p params[:page]
+		more_users = current_user.top_users(params[:page].to_i)
 		render_partial('more_users', 'index', { :users => more_users })
 	end
 
