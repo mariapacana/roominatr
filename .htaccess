@@ -1,0 +1,3 @@
+RewriteEngine On
+  RewriteCond %{HTTP_HOST} !^www.roominatr.com$ [NC]
+  RewriteRule ^(.*)$ http://www.roominatr.com/$1 [L,R=301]
