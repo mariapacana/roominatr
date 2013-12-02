@@ -7,4 +7,4 @@ This was built in six days as a Dev Bootcamp final project by Maria Pacana, Will
 == To Do
 * Allow users to message one another anonymously
 * Integrate the site with Facebook/Google so users can see mutual friends
-* Allow users to endorse one another if they have roomed together previously.
+* Allow users to endorse one another if they have roomed together previously
