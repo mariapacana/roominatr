@@ -2,9 +2,9 @@
 
 Roominatr (www.roominatr.com) is a site where people can find roommates they are compatible with, primarily by filling out responses to surveys in categories such as "cleanliness" and "responsibility". Based on these responses, we can calculate a compatibility score for any pair of users (assuming they have both filled out surveys in all categories). Users can see a list of people that they are highly compatible with, in addition to searching by age and gender.
 
-This was built in six days as a Dev Bootcamp final project by Maria Pacana, Will Bendix, and Renata Santillan. We intend to continue making improvements and additions to the site throughout the month of July.
+This was built in six days as a Dev Bootcamp final project by Maria Pacana, Will Bendix, and Renata Santillan.
 
 == To Do
 * Allow users to message one another anonymously
 * Integrate the site with Facebook/Google so users can see mutual friends
-* Allow users to endorse one another if they have roomated together previously.
+* Allow users to endorse one another if they have roomed together previously.
